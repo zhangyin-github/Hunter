@@ -26,5 +26,15 @@ namespace Hunter.Log
         {
             this.InitializeComponent();
         }
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void register_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Log.Register));
+        }
     }
 }
