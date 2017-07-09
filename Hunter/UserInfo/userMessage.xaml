@@ -7,7 +7,119 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="LightBlue">
+        <!--页面滚动条-->
+        <ScrollViewer x:Name="userScrollViewer" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="145"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
+                <!--第0行：后退按钮 userBackButton_Click  +   确认修改flyout按钮 userSubmitButton_Click （确认提交修改按钮 submitWholeChange_Click   +  取消提交修改按钮 cancelWholeChange_Click ）-->
+                <Grid Grid.Row="0">
+                    <Button Name="userBackButton" HorizontalAlignment="Center" Margin="0,0,305,0" FontFamily="Segoe MDL2 Assets" Content="&#xE112;" Click="userBackButton_Click"></Button>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">玩家信息</TextBlock>
+                    <Button Name="userSubmitButton" HorizontalAlignment="Center" Margin="327,0,0,0" FontFamily="Segoe MDL2 Assets" Content="&#xE10B;" Click="userSubmitButton_Click">
+                        <Button.Flyout>
+                            <Flyout  Placement="Bottom">
+                                <RelativePanel Height="50">
+                                    <TextBlock Name="confirmButtonTextBlock" HorizontalAlignment="Center">确认提交修改么？</TextBlock>
+                                    <Button Name="submitWholeChange" Click="submitWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock">提交</Button>
+                                    <Button Name="cancelWholeChange" Click="cancelWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock" RelativePanel.AlignRightWithPanel="True">取消</Button>
+                                </RelativePanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Grid>
+                <!--第1行：玩家信息区-->
+                <Grid Grid.Row="1" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="140"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <!--第1行  第0列：玩家头像区（更换头像flyout按钮 ：选择图片按钮 SelectPicButton_Click  +  确认选择按钮  confirmPicButton_Click）-->
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Image Grid.Column="0" Source="/Assets/a.jpg" Height="120" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <Button Name="changeHeadPic" FontSize="10" FontFamily="行楷" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="25" Content="更换头像">
+                            <!--   有bug待解决！！！   -->
+                            <Button.Flyout>
+                                <Flyout>
+                                    <RelativePanel>
+                                        <TextBlock x:Name="OutputTextBlock" HorizontalAlignment="Center" Text="          请选择图片"></TextBlock>
+                                        <Button x:Name="SelectPicButton" Content="选择图片" RelativePanel.Below=" Output" Height="28" Click="SelectPicButton_Click"/>
+                                        <Button x:Name="confirmPicButton" Content="确认选择" RelativePanel.Below=" Output" RelativePanel.RightOf="SelectPicButton" Height="28" Click="confirmPicButton_Click"/>
+                                    </RelativePanel>
+                                </Flyout>
+                            </Button.Flyout>
+
+                        </Button>
+                    </Grid>
+                    <!--第1行  第1列：玩家信息展示区（更换昵称的图片/Assets/change.png   +  账号 + 等级 + 积分ProgressBar -->
+                    <RelativePanel Grid.Row="1" Grid.Column="1">
+                        <TextBlock x:Name="dickNameTitle" FontSize="20" FontFamily="楷体" Margin="10,5,5,0">昵称：</TextBlock>
+                        <TextBlock x:Name="dickName" FontSize="20" FontFamily="楷体" RelativePanel.RightOf="dickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
+                        <Image Name="changeDickName" Source="/Assets/change.png"  RelativePanel.RightOf="dickName"  Height="20" Width="20" Margin="5,5,0,0" Tapped="changeDickName_Tapped"></Image>
+                        <TextBlock x:Name="IDTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="dickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
+                        <TextBlock x:Name="ID" FontSize="20" FontFamily="楷体"  RelativePanel.RightOf="dickNameTitle"  RelativePanel.Below="dickName" Margin="5,10,0,0">668990003</TextBlock>
+                        <TextBlock x:Name="rateTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
+                        <TextBlock x:Name="rate" FontSize="20" FontFamily="楷体"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0">23</TextBlock>
+                        <TextBlock x:Name="scoreTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="rateTitle"  Margin="10,10,5,0">积分：</TextBlock>
+                        <ProgressBar x:Name="scoreBar" RelativePanel.RightOf="scoreTitle" RelativePanel.Below="rate"  Margin="5,13,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True" Value="92"></ProgressBar>
+                        <TextBlock x:Name="score"  RelativePanel.Below="rate" RelativePanel.AlignRightWith="scoreBar" Margin="-110,10,0,0">82888/99999</TextBlock>
+                    </RelativePanel>
+                </Grid>
+
+                <!--第2行：游戏解谜数据展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度   +  解谜数数据显示textblock-->
+                <StackPanel Grid.Row="2" HorizontalAlignment="Center" MinWidth="360">
+                    <RelativePanel>
+                        <TextBlock x:Name="solveTitle" Margin="30,30,0,0" Height="30" FontSize="20">解谜统计:</TextBlock>
+                        <ComboBox Name="solveCombobox" RelativePanel.RightOf="solveTitle"  Margin="50,30,0,0" Height="30" FontSize="20" Width="150" ItemsSource="{Binding}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" Margin="8">
+                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Title}" IsReadOnly="True"/>
+                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Description}" IsReadOnly="True"/>
+                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding AlarmTime}" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock Name="solveTextBlock" RelativePanel.Below="solveTitle" Margin="50,30,0,0" Height="30" Width="250">解谜数目（成功/失败）：16/20</TextBlock>
+                        <!-- Text="{Binding ElementName=solveCombobox,Path=SelectedItem}" -->
+                    </RelativePanel>
+                </StackPanel>
+                <!--第3行：游戏解谜获得点赞展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度   +  点赞数数据显示textblock-->
+                <StackPanel Grid.Row="3" HorizontalAlignment="Center" MinWidth="360" MinHeight="150">
+                    <!--    -->
+                    <RelativePanel Width="auto">
+                        <TextBlock x:Name="tbTitle" Margin="30,30,0,0" Height="30" FontSize="20">被赞次数:</TextBlock>
+                        <ComboBox Name="tbCombobox" ItemsSource="{Binding}" RelativePanel.RightOf="tbTitle"  Margin="50,30,0,0" Height="30" FontSize="20" Width="150">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" Margin="8">
+                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Title}" IsReadOnly="True"/>
+                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Description}" IsReadOnly="True"/>
+                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding AlarmTime}" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock Name="tbextBlock"  RelativePanel.Below="tbTitle" Margin="50,30,0,0" Height="30" Width="250">被赞数目（成功/失败）：13/6</TextBlock>
+                        <!--Text="{Binding ElementName=tbCombobox,Path=SelectedItem}"-->
+                    </RelativePanel>
+                </StackPanel>
+                <!--第4行：游戏宣言 TextBox-->
+                <Grid Grid.Row="4" HorizontalAlignment="Center" MinWidth="360" MinHeight="150">
+                    <RelativePanel>
+                        <TextBlock x:Name="psTitle" Margin="30,30,0,0" Height="30" FontSize="20">游戏宣言:</TextBlock>
+                        <TextBox Name="psTextBox" RelativePanel.Below="psTitle" Margin="30,10,0,0" Height="60" Width="300"></TextBox>
+                    </RelativePanel>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
