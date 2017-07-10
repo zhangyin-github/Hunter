@@ -31,8 +31,13 @@ namespace Hunter.Room
         }
         public RoomPage()
         {
-            MyList = ListManager.getInstance();
+            MyList = ListManager.getInstance(); 
             this.InitializeComponent();
+        }
+
+        private void headicon_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(UserInfo.userMessage));
         }
     }
 }

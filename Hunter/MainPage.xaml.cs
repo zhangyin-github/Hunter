@@ -25,6 +25,7 @@ namespace Hunter
         public MainPage()
         {
             this.InitializeComponent();
+            MainFrame.Navigate(typeof(Log.Login));
         }
     }
 }
