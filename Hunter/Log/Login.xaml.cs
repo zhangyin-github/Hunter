@@ -29,7 +29,7 @@ namespace Hunter.Log
 
         private void login_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(Room.RoomPage));
         }
 
         private void register_Click(object sender, RoutedEventArgs e)

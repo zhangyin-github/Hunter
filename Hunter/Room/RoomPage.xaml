@@ -10,12 +10,12 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Dictionary1.xaml"/>
+                <ResourceDictionary Source="..\ButtonDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid FocusVisualPrimaryBrush="Transparent">
+    <Grid >
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="Assets/bg.jpeg"/>
         </Grid.Background>
@@ -34,7 +34,7 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <RelativePanel Grid.Column="0">
-                <Button Name="headicon" Grid.Column="0" Margin="20 15 0 0" Padding="-20" Height="50" Width="50" Background="Transparent"  Style="{StaticResource mostbutton}">
+                <Button Name="headicon" Grid.Column="0" Margin="20 15 0 0" Padding="-20" Height="50" Width="50" Background="Transparent"  Style="{StaticResource mostbutton}" Click="headicon_Click">
                     <Rectangle RadiusX="50" RadiusY="50" Fill="LightGray" Height="50" Width="50" Stroke="DarkGoldenrod" StrokeThickness="3"/>
                 </Button>
                 <TextBlock Grid.Column="0" Height="26" Width="80" Text="User" Foreground="LightGoldenrodYellow" FontSize="18" Padding="10 0 0 0" RelativePanel.RightOf="headicon" Margin="0 15 0 0"/>
