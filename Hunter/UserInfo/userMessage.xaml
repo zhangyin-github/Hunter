@@ -62,14 +62,29 @@
                     <RelativePanel Grid.Row="1" Grid.Column="1">
                         <TextBlock x:Name="dickNameTitle" FontSize="20" FontFamily="楷体" Margin="10,5,5,0">昵称：</TextBlock>
                         <TextBlock x:Name="dickName" FontSize="20" FontFamily="楷体" RelativePanel.RightOf="dickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
-                        <Image Name="changeDickName" Source="/Assets/change.png"  RelativePanel.RightOf="dickName"  Height="20" Width="20" Margin="5,5,-5,0" Tapped="changeDickName_Tapped" VerticalAlignment="Top">
-                            <FlyoutBase.AttachedFlyout>
+
+                        <Button Name="changeDickNameButton" RelativePanel.RightOf="dickName" Width="16" VerticalAlignment="Top" Margin="10,5,0,0" Height="19">
+                            <Button.RenderTransform>
+                                <CompositeTransform ScaleX="-1" TranslateX="3.68"/>
+                            </Button.RenderTransform>
+                            <Button.Content>
+                                <Ellipse Width="19" Margin="-11,-10.667,-8,-11.333" HorizontalAlignment="Left" RenderTransformOrigin="0.548,0.591" Height="22" VerticalAlignment="Top">
+                                    <Ellipse.Fill>
+                                        <ImageBrush  ImageSource="/Assets/change.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Button.Content>
+
+                            <Button.Flyout>
                                 <Flyout>
-                                    <TextBox Height="30" Width="90"></TextBox>
-                                    
+                                    <StackPanel>
+                                        <TextBlock>请输入新的昵称</TextBlock>
+                                        <TextBox Name="newDickNameTextBox"></TextBox>
+                                    </StackPanel>
                                 </Flyout>
-                            </FlyoutBase.AttachedFlyout>
-                        </Image>
+                            </Button.Flyout>
+                        </Button>
+                        
                         <TextBlock x:Name="IDTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="dickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
                         <TextBlock x:Name="ID" FontSize="20" FontFamily="楷体"  RelativePanel.RightOf="dickNameTitle"  RelativePanel.Below="dickName" Margin="5,10,0,0">668990003</TextBlock>
                         <TextBlock x:Name="rateTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
