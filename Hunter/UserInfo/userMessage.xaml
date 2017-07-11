@@ -50,8 +50,8 @@
                                 <Flyout>
                                     <RelativePanel>
                                         <TextBlock x:Name="OutputTextBlock" HorizontalAlignment="Center" Text="          请选择图片"></TextBlock>
-                                        <Button x:Name="SelectPicButton" Content="选择图片" RelativePanel.Below=" Output" Height="28" Click="SelectPicButton_Click"/>
-                                        <Button x:Name="confirmPicButton" Content="确认选择" RelativePanel.Below=" Output" RelativePanel.RightOf="SelectPicButton" Height="28" Click="confirmPicButton_Click"/>
+                                        <Button x:Name="SelectPicButton" FontSize="13" Content="选择图片" RelativePanel.Below="OutputTextBlock" Height="28" Click="SelectPicButton_Click"/>
+                                        <Button x:Name="confirmPicButton" FontSize="13" Content="确认选择" RelativePanel.Below="OutputTextBlock" RelativePanel.RightOf="SelectPicButton" Height="28" Click="confirmPicButton_Click"/>
                                     </RelativePanel>
                                 </Flyout>
                             </Button.Flyout>
@@ -62,7 +62,14 @@
                     <RelativePanel Grid.Row="1" Grid.Column="1">
                         <TextBlock x:Name="dickNameTitle" FontSize="20" FontFamily="楷体" Margin="10,5,5,0">昵称：</TextBlock>
                         <TextBlock x:Name="dickName" FontSize="20" FontFamily="楷体" RelativePanel.RightOf="dickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
-                        <Image Name="changeDickName" Source="/Assets/change.png"  RelativePanel.RightOf="dickName"  Height="20" Width="20" Margin="5,5,0,0" Tapped="changeDickName_Tapped"></Image>
+                        <Image Name="changeDickName" Source="/Assets/change.png"  RelativePanel.RightOf="dickName"  Height="20" Width="20" Margin="5,5,-5,0" Tapped="changeDickName_Tapped" VerticalAlignment="Top">
+                            <FlyoutBase.AttachedFlyout>
+                                <Flyout>
+                                    <TextBox Height="30" Width="90"></TextBox>
+                                    
+                                </Flyout>
+                            </FlyoutBase.AttachedFlyout>
+                        </Image>
                         <TextBlock x:Name="IDTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="dickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
                         <TextBlock x:Name="ID" FontSize="20" FontFamily="楷体"  RelativePanel.RightOf="dickNameTitle"  RelativePanel.Below="dickName" Margin="5,10,0,0">668990003</TextBlock>
                         <TextBlock x:Name="rateTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
