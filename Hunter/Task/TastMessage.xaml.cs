@@ -42,9 +42,5 @@ namespace Hunter.Task
 
         }
 
-        private void textBlock_SelectionChanged_1(System.Object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

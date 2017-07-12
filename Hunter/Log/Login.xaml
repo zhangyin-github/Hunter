@@ -18,9 +18,9 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*"/>
+                <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
@@ -36,13 +36,14 @@
                 <TextBlock Name="username"
                        Width="160"
                        Height="40"
-                       FontSize="30"
-                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       FontSize="24"
+                       Margin="0 0 40 0"
+                       RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"> 用户名</TextBlock>
             </RelativePanel>
             <TextBox Name="userinfo"
                          Height="40"
-                         FontSize="30"
+                         FontSize="18"
                         Margin="20 0 20 0"
                      MaxWidth="400"
                         BorderBrush="DarkGoldenrod"
@@ -53,41 +54,42 @@
             <RelativePanel Grid.Column="0"
                     Grid.Row="3">
                 <TextBlock Name="password"
-                          RelativePanel.AlignHorizontalCenterWithPanel="True"
+                           RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                        Width="160"
                        Height="40"
-                       FontSize="30"
-                           
+                       FontSize="24"
+                       Margin="0 0 40 0"
                        > 密码</TextBlock>
             </RelativePanel>
-            <TextBox Name="passwordinfo"
+            <PasswordBox Name="passwordinfo"
                          Height="40"
-                         FontSize="30"
+                         FontSize="18"
                          Grid.Row="4"
                         Margin="20 0 20 0"
                      MaxWidth="400"
                       BorderBrush="DarkGoldenrod"
                         BorderThickness="5"
                         HorizontalAlignment="Stretch"
-                          Grid.ColumnSpan="2"></TextBox>
+                          Grid.ColumnSpan="2"></PasswordBox>
             <RelativePanel Grid.Column="0"
                     Grid.Row="5">
                 <Button Name="register"
                         Click="register_Click"
-                    FontSize="28"
+                    FontSize="18"
+                        Margin="0 -20 15 0"
                     Height="50"
-                        Width="140"
-                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        Width="180"
+                       RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"  Style="{StaticResource mostbutton}">注册</Button>
             </RelativePanel>
             <Button Name="login"
                     Click="login_Click"
                     Height="50"
-                    Width="140"
+                    Width="180"
                     Grid.Column="1"
-                    FontSize="28"
-                    Grid.Row="5" HorizontalAlignment="Center"  Style="{StaticResource mostbutton}" >登录</Button>
+                    FontSize="18"
+                    Grid.Row="5" HorizontalAlignment="Left" Margin="15 -20 0 0"  Style="{StaticResource mostbutton}" >登录</Button>
         </Grid>
     </Grid>
 </Page>
