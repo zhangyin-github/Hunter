@@ -20,7 +20,7 @@
                 </Grid.RowDefinitions>
 
                 <!--第0行：后退按钮 userBackButton_Click  +   确认修改flyout按钮 userSubmitButton_Click （确认提交修改按钮 submitWholeChange_Click   +  取消提交修改按钮 cancelWholeChange_Click ）-->
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" Width="360" Height="auto">
                     <Button Name="userBackButton" HorizontalAlignment="Center" Margin="0,0,305,0" FontFamily="Segoe MDL2 Assets" Content="&#xE112;" Click="userBackButton_Click"></Button>
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">玩家信息</TextBlock>
                     <Button Name="userSubmitButton" HorizontalAlignment="Center" Margin="327,0,0,0" FontFamily="Segoe MDL2 Assets" Content="&#xE10B;" Click="userSubmitButton_Click">
@@ -36,7 +36,7 @@
                     </Button>
                 </Grid>
                 <!--第1行：玩家信息区-->
-                <Grid Grid.Row="1" HorizontalAlignment="Center">
+                <Grid Grid.Row="1" HorizontalAlignment="Center" Width="360" Height="auto">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition  Width="140"/>
                         <ColumnDefinition/>
@@ -96,7 +96,7 @@
                 </Grid>
 
                 <!--第2行：游戏解谜数据展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度   +  解谜数数据显示textblock-->
-                <StackPanel Grid.Row="2" HorizontalAlignment="Center" MinWidth="360">
+                <StackPanel Grid.Row="2" HorizontalAlignment="Center" Width="360" Height="auto">
                     <RelativePanel>
                         <TextBlock x:Name="solveTitle" Margin="30,30,0,0" Height="30" FontSize="20">解谜统计:</TextBlock>
                         <ComboBox Name="solveCombobox" RelativePanel.RightOf="solveTitle"  Margin="50,30,0,0" Height="30" FontSize="20" Width="150" ItemsSource="{Binding}">
@@ -110,12 +110,12 @@
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
-                        <TextBlock Name="solveTextBlock" RelativePanel.Below="solveTitle" Margin="50,30,0,0" Height="30" Width="250">解谜数目（成功/失败）：16/20</TextBlock>
+                        <TextBlock Name="solveTextBlock" FontSize="20" RelativePanel.Below="solveTitle" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"  Height="auto" Width="auto" Margin="20">解谜数目（成功/失败）：16/20</TextBlock>
                         <!-- Text="{Binding ElementName=solveCombobox,Path=SelectedItem}" -->
                     </RelativePanel>
                 </StackPanel>
                 <!--第3行：游戏解谜获得点赞展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度   +  点赞数数据显示textblock-->
-                <StackPanel Grid.Row="3" HorizontalAlignment="Center" MinWidth="360" MinHeight="150">
+                <StackPanel Grid.Row="3" HorizontalAlignment="Center" Width="360" Height="auto">
                     <!--    -->
                     <RelativePanel Width="auto">
                         <TextBlock x:Name="tbTitle" Margin="30,30,0,0" Height="30" FontSize="20">被赞次数:</TextBlock>
@@ -135,7 +135,7 @@
                     </RelativePanel>
                 </StackPanel>
                 <!--第4行：游戏宣言 TextBox-->
-                <Grid Grid.Row="4" HorizontalAlignment="Center" MinWidth="360" MinHeight="150">
+                <Grid Grid.Row="4" HorizontalAlignment="Center" Width="360" Height="auto">
                     <RelativePanel>
                         <TextBlock x:Name="psTitle" Margin="30,20,0,0" Height="30" FontSize="20">游戏宣言:</TextBlock>
                         <TextBox Name="psTextBox" RelativePanel.Below="psTitle" Margin="30,10,0,0" Height="60" Width="300"></TextBox>
