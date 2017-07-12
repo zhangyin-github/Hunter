@@ -17,7 +17,7 @@
 
     <Grid >
         <Grid.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="Assets/bg.jpeg"/>
+            <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>

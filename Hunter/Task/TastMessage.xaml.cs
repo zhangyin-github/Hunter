@@ -26,5 +26,21 @@ namespace Hunter.Task
         {
             this.InitializeComponent();
         }
+
+        private void textBlock_SelectionChanged(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void textBlock_SelectionChanged_1(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_Click(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

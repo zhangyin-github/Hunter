@@ -26,5 +26,11 @@ namespace Hunter.User_Upload
         {
             this.InitializeComponent();
         }
+
+        private void add_Click(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
