@@ -47,7 +47,7 @@
                         <Button Name="changeHeadPic" FontSize="10" FontFamily="行楷" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="25" Content="更换头像">
                             <!--   有bug待解决！！！   -->
                             <Button.Flyout>
-                                <Flyout Closed="">
+                                <Flyout>
                                     <RelativePanel>
                                         <TextBlock x:Name="OutputTextBlock" HorizontalAlignment="Center" Text="          请选择图片"></TextBlock>
                                         <Button x:Name="SelectPicButton" FontSize="13" Content="选择图片" RelativePanel.Below="OutputTextBlock" Height="28" Click="SelectPicButton_Click"/>
