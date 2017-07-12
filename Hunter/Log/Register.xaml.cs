@@ -29,7 +29,18 @@ namespace Hunter.Log
 
         private void login_Click(object sender, RoutedEventArgs e)
         {
+            if (password.Text != passwordinfo.Text)//判断是否一致
+            {
+                ShowMessageDialog();
+            }
+        }
 
+        private async void ShowMessageDialog()//弹窗内容
+        {
+            var msgDialog = new Windows.UI.Popups.MessageDialog("请检查两次输入是否一致") { Title = "密码不匹配" };
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("重新输入", uiCommand => { passwordinfo.Text = $""; password_againinfo.Text = $""; }));
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("返回登录", uiCommand => { Frame.Navigate(typeof(Log.Login)); ; }));
+            await msgDialog.ShowAsync();
         }
     }
 }

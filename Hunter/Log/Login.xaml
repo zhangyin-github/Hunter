@@ -66,9 +66,9 @@
                          Height="40"
                          FontSize="18"
                          Grid.Row="4"
-                        Margin="20 0 20 0"
-                     MaxWidth="400"
-                      BorderBrush="DarkGoldenrod"
+                         Margin="20 0 20 0"
+                        MaxWidth="400"
+                        BorderBrush="DarkGoldenrod"
                         BorderThickness="5"
                         HorizontalAlignment="Stretch"
                           Grid.ColumnSpan="2"></PasswordBox>
@@ -76,11 +76,11 @@
                     Grid.Row="5">
                 <Button Name="register"
                         Click="register_Click"
-                    FontSize="18"
+                        FontSize="18"
                         Margin="0 -20 15 0"
-                    Height="50"
+                        Height="50"
                         Width="180"
-                       RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"  Style="{StaticResource mostbutton}">注册</Button>
             </RelativePanel>
             <Button Name="login"
