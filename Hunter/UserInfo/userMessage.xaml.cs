@@ -43,11 +43,6 @@ namespace Hunter.UserInfo
         }
 
 
-        private void changeDickName_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            dickName.Text = "君君";
-        }
-
         private void submitWholeChange_Click(object sender, RoutedEventArgs e)
         {
 
@@ -102,6 +97,11 @@ namespace Hunter.UserInfo
         private void confirmPicButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void newDickNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dickName.Text = newDickNameTextBox.Text;
         }
     }
 }
