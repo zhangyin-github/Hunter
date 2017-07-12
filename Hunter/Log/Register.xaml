@@ -6,6 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\ButtonDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
@@ -15,10 +22,13 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Name="picture" Grid.ColumnSpan="2">
                 <Image Source="#"></Image>
@@ -27,52 +37,60 @@
                     Grid.Row="1">
                 <TextBlock Name="username"
                        Width="145"
-                       Height="45"
+                       Height="40"
                        FontSize="30"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"> 用户名</TextBlock>
             </RelativePanel>
             <TextBox Name="userinfo"
-                         Height="45"
+                     Margin="20 0 20 0"
+                         Height="40"
+                     MaxWidth="400"
                          FontSize="30"
-                          Grid.Column="1"
-                       Grid.Row="1"></TextBox>
+                          Grid.ColumnSpan="2"
+                       Grid.Row="2"></TextBox>
             <RelativePanel Grid.Column="0"
-                    Grid.Row="2">
+                    Grid.Row="3">
                 <TextBlock Name="password"
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                        Width="145"
-                       Height="45"
+                       Height="40"
                        FontSize="30"
                        > 密码</TextBlock>
             </RelativePanel>
             <TextBox Name="passwordinfo"
-                         Height="45"
+                         Height="40"
                          FontSize="30"
-                         Grid.Row="2"
-                        Grid.Column="1"></TextBox>
+                        Margin="20 0 20 0"
+                     MaxWidth="400"
+                         Grid.Row="4"
+                        Grid.ColumnSpan="2"></TextBox>
             <RelativePanel Grid.Column="0"
-                    Grid.Row="3">
+                    Grid.Row="5">
                 <TextBlock Name="password_again"
                           RelativePanel.AlignHorizontalCenterWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                        Width="145"
-                       Height="45"
+                       Height="40"
                        FontSize="30"
                        > 确认密码</TextBlock>
             </RelativePanel>
             <TextBox Name="password_againinfo"
-                         Height="45"
+                         Height="40"
                          FontSize="30"
-                         Grid.Row="3"
-                        Grid.Column="1"></TextBox>
+                     MaxWidth="400"
+                        Margin="20 0 20 0"
+                         Grid.Row="6"
+                        Grid.ColumnSpan="2"></TextBox>
             <Button Name="login"
                     Click="login_Click"
-                    MinHeight="20"
-                    Grid.Column="1"
-                    FontSize="30"
-                    Grid.Row="4">登录</Button>
+                    Height="50"
+                    Width="160"
+                    HorizontalAlignment="Center"
+                    Grid.ColumnSpan="2"
+                    FontSize="28"
+                    Grid.Row="7"  Style="{StaticResource mostbutton}">注册</Button>
         </Grid>
     </Grid>
 </Page>

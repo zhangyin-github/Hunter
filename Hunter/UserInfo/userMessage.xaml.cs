@@ -34,7 +34,7 @@ namespace Hunter.UserInfo
 
         private void userSubmitButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void userBackButton_Click(object sender, RoutedEventArgs e)
