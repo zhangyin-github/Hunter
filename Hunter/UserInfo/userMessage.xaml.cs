@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hunter.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,23 +30,25 @@ namespace Hunter.UserInfo
         private StorageFile storageFile;
 
         public object Console { get; private set; }
+        
 
         public userMessage()
         {
             StorageFile storageFile = null;
             
             this.InitializeComponent();
+
+            List<solve> difficulties = new List<solve>();
+            difficulties.Add(new solve() { difficulty = "全部难度题目" , difficultyScore = "解谜数目（成功/失败）：16/20" });
+            difficulties.Add(new solve() { difficulty = "五星难度题目" , difficultyScore = "解谜数目（成功/失败）：2/7" });
+            difficulties.Add(new solve() { difficulty = "四星难度题目" , difficultyScore = "解谜数目（成功/失败）：6/8" });
+            difficulties.Add(new solve() { difficulty = "三星难度题目" , difficultyScore = "解谜数目（成功/失败）：3/3" });
+            difficulties.Add(new solve() { difficulty = "二星难度题目" , difficultyScore = "解谜数目（成功/失败）：3/2" });
+            difficulties.Add(new solve() { difficulty = "一星难度题目" , difficultyScore = "解谜数目（成功/失败）：4/0" });
+            solveCombobox.ItemsSource = difficulties;
+
         }
 
-        private void submitWholeChange_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void cancelWholeChange_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private async void SelectPicButton_Click(object sender, RoutedEventArgs e)
         {
@@ -85,9 +88,24 @@ namespace Hunter.UserInfo
 
         }
 
-        private void submitWholeButton_Click(object sender, RoutedEventArgs e)
+
+        private void submitWholeChange_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void cancelWholeChange_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void solveCombobox_DropDownClosed(object sender, object e)
+        {
+            if( solveCombobox.SelectedItem !=null)
+            {
+                solve difficulty = solveCombobox.SelectedItem as solve;
+                this.solveTextBlock.Text = difficulty.difficultyScore;
+            }
         }
     }
 }

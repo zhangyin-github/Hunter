@@ -5,6 +5,7 @@
     xmlns:local="using:Hunter.UserInfo"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
     mc:Ignorable="d">
 
     <Grid Background="LightBlue">
@@ -20,7 +21,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!--第0行：后退按钮 userBackButton_Click  +   确认修改flyout按钮 userSubmitButton_Click （确认提交修改按钮 submitWholeChange_Click   +  取消提交修改按钮 cancelWholeChange_Click ）-->
+                <!--第0行：标题：玩家信息 TextBlock-->
                 <Grid Grid.Row="0" Width="360" Height="auto">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">玩家信息</TextBlock>
                 </Grid>
@@ -89,22 +90,22 @@
                 <StackPanel Grid.Row="2" HorizontalAlignment="Center" Width="360" Height="auto">
                     <RelativePanel>
                         <TextBlock x:Name="solveTitle" Margin="30,30,0,0" Height="30" FontSize="20">解谜统计:</TextBlock>
-                        <ComboBox Name="solveCombobox" RelativePanel.RightOf="solveTitle"  Margin="50,30,0,0" Height="30" FontSize="20" Width="150" ItemsSource="{Binding}">
+                        <ComboBox Name="solveCombobox" RelativePanel.RightOf="solveTitle"  Margin="50,30,0,0" Height="auto" FontSize="20" Width="auto" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed">
+                            
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Vertical" Margin="8">
-                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Title}" IsReadOnly="True"/>
-                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Description}" IsReadOnly="True"/>
-                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding AlarmTime}" IsReadOnly="True"/>
+                                    <StackPanel Orientation="Vertical" Margin="1">
+                                        <TextBlock Width="auto"  TextWrapping="Wrap" Text="{Binding difficulty}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
+                            
                         </ComboBox>
                         <TextBlock Name="solveTextBlock" FontSize="20" RelativePanel.Below="solveTitle" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"  Height="auto" Width="auto" Margin="20">解谜数目（成功/失败）：16/20</TextBlock>
                         <!-- Text="{Binding ElementName=solveCombobox,Path=SelectedItem}" -->
                     </RelativePanel>
                 </StackPanel>
-                <!--第3行：游戏解谜获得点赞展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度   +  点赞数数据显示textblock-->
+                <!--第3行：游戏设迷数据展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度   +  点赞数数据显示textblock-->
                 <StackPanel Grid.Row="3" HorizontalAlignment="Center" Width="360" Height="auto">
                     <!--    -->
                     <RelativePanel Width="auto">
@@ -113,7 +114,7 @@
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" Margin="8">
-                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Title}" IsReadOnly="True"/>
+                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding difficulties}" IsReadOnly="True"/>
                                         <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Description}" IsReadOnly="True"/>
                                         <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding AlarmTime}" IsReadOnly="True"/>
                                     </StackPanel>
@@ -134,7 +135,7 @@
 
                 <Grid Grid.Row="5" Width="360" Height="auto">
                     <RelativePanel>
-                        <Button Name="submitWholeButton" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Click="submitWholeButton_Click" Margin="10">
+                        <Button Name="submitWholeButton" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="10">
                             <Button.Flyout>
                                 <Flyout  Placement="Bottom">
                                     <RelativePanel Height="50">
