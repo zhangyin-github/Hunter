@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="Hunter.Settings.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid  Background="BurlyWood">
+        <Grid.RowDefinitions>
+           
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="设置" FontSize="24" HorizontalAlignment="Center" Margin="0,15,0,0" />
+        </Grid>
+        <RelativePanel Grid.Row="1">
+
+
+            <Button Name="music3"  Margin="10,10,10,10" Padding="0" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" RelativePanel.AlignVerticalCenterWithPanel="True"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"
+                   Height="60" Width="80">
+                <Button.Content>
+                    <Ellipse Margin="0,0,0,0" Height="50" Width="70">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="..\Assets/music2.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button.Content>
+            </Button>
+            <ToggleSwitch Height="50" Width="50"
+                RelativePanel.AlignVerticalCenterWithPanel="True"
+                          RelativePanel.RightOf="music3"
+                Margin="20,0,0,0" />
+
+
+
+
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="2">
+            <Button Name="loud3"  Margin="10,10,10,10" Padding="0" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" RelativePanel.AlignVerticalCenterWithPanel="True"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"
+                   Height="60" Width="80">
+                <Button.Content>
+                    <Ellipse Margin="0,0,0,0" Height="50" Width="70">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="..\Assets/loud.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button.Content>
+            </Button>
+            <Slider 
+                RelativePanel.AlignVerticalCenterWith="loud3"
+                RelativePanel.RightOf="loud3"
+                Margin="20,0,0,0"
+                Maximum="100"
+                Minimum="0"
+                Width="100" />
+
+
+        </RelativePanel>
+        <Button Name="BackgroundButton" Content="Background" Grid.Row="3" HorizontalAlignment="Center">
+
+        </Button>
+        <Button Name="ReturnButton" Content="Exit" Grid.Row="4" HorizontalAlignment="Center">
+
+        </Button>
+
+    </Grid>
+</Page>

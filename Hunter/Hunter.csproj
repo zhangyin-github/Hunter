@@ -113,6 +113,9 @@
     <Compile Include="Room\RoomPage.xaml.cs">
       <DependentUpon>RoomPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Task\QrCode.xaml.cs">
       <DependentUpon>QrCode.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,8 @@
     <Content Include="Assets\a.jpg" />
     <Content Include="Assets\bg.jpeg" />
     <Content Include="Assets\change.png" />
+    <Content Include="Assets\loud.jpg" />
+    <Content Include="Assets\music2.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -172,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Room\RoomPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

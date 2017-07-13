@@ -32,5 +32,19 @@ namespace Hunter.User_Upload
 
         }
 
+        private async void upload_Click(System.Object sender, RoutedEventArgs e)
+        {
+            var dialog = new ContentDialog()
+            {
+                Title = "消息提示",
+                Content = "发布后将无法更改，你确认要发布吗?",
+                PrimaryButtonText = "确定",
+                SecondaryButtonText = "取消",
+                FullSizeDesired = false,
+            };
+
+            dialog.PrimaryButtonClick += (_s, _e) => { };
+            await dialog.ShowAsync();
+        }
     }
 }
