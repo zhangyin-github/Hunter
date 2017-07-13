@@ -17,23 +17,14 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <!--第0行：后退按钮 userBackButton_Click  +   确认修改flyout按钮 userSubmitButton_Click （确认提交修改按钮 submitWholeChange_Click   +  取消提交修改按钮 cancelWholeChange_Click ）-->
                 <Grid Grid.Row="0" Width="360" Height="auto">
                     <Button Name="userBackButton" HorizontalAlignment="Center" Margin="0,0,305,0" FontFamily="Segoe MDL2 Assets" Content="&#xE112;" Click="userBackButton_Click"></Button>
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">玩家信息</TextBlock>
-                    <Button Name="userSubmitButton" HorizontalAlignment="Center" Margin="327,0,0,0" FontFamily="Segoe MDL2 Assets" Content="&#xE10B;" Click="userSubmitButton_Click">
-                        <Button.Flyout>
-                            <Flyout  Placement="Bottom">
-                                <RelativePanel Height="50">
-                                    <TextBlock Name="confirmButtonTextBlock" HorizontalAlignment="Center">确认提交修改么？</TextBlock>
-                                    <Button Name="submitWholeChange" Click="submitWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock">提交</Button>
-                                    <Button Name="cancelWholeChange" Click="cancelWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock" RelativePanel.AlignRightWithPanel="True">取消</Button>
-                                </RelativePanel>
-                            </Flyout>
-                        </Button.Flyout>
-                    </Button>
+                    <Button Name="userSubmitButton" HorizontalAlignment="Center" Margin="327,0,0,0" FontFamily="Segoe MDL2 Assets" Content="&#xE10B;" Click="userSubmitButton_Click"></Button>
                 </Grid>
                 <!--第1行：玩家信息区-->
                 <Grid Grid.Row="1" HorizontalAlignment="Center" Width="360" Height="auto">
@@ -43,19 +34,20 @@
                     </Grid.ColumnDefinitions>
                     <!--第1行  第0列：玩家头像区（更换头像flyout按钮 ：选择图片按钮 SelectPicButton_Click  +  确认选择按钮  confirmPicButton_Click）-->
                     <Grid Grid.Row="1" Grid.Column="0">
-                        <Image Grid.Column="0" Source="/Assets/a.jpg" Height="120" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <Image Name="headPic" Grid.Column="0" Source="/Assets/a.jpg" Height="120" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         <Button Name="changeHeadPic" FontSize="10" FontFamily="行楷" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="25" Content="更换头像">
                             <!--   有bug待解决！！！   -->
                             <Button.Flyout>
                                 <Flyout>
-                                    <RelativePanel>
-                                        <TextBlock x:Name="OutputTextBlock" HorizontalAlignment="Center" Text="          请选择图片"></TextBlock>
-                                        <Button x:Name="SelectPicButton" FontSize="13" Content="选择图片" RelativePanel.Below="OutputTextBlock" Height="28" Click="SelectPicButton_Click"/>
-                                        <Button x:Name="confirmPicButton" FontSize="13" Content="确认选择" RelativePanel.Below="OutputTextBlock" RelativePanel.RightOf="SelectPicButton" Height="28" Click="confirmPicButton_Click"/>
+                                    <RelativePanel Width="auto">
+                                        <TextBlock x:Name="OutputTextBlock"  HorizontalAlignment="Center" Text="请选择图片"></TextBlock>
+                                        <Button x:Name="SelectPicButton" FontSize="13" Content="选择图片" RelativePanel.Below="OutputTextBlock" Height="28" Click="SelectPicButton_Click" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                                     </RelativePanel>
                                 </Flyout>
                             </Button.Flyout>
 
+                            
+                            
                         </Button>
                     </Grid>
                     <!--第1行  第1列：玩家信息展示区（更换昵称的图片/Assets/change.png   +  账号 + 等级 + 积分ProgressBar -->
@@ -118,7 +110,7 @@
                 <StackPanel Grid.Row="3" HorizontalAlignment="Center" Width="360" Height="auto">
                     <!--    -->
                     <RelativePanel Width="auto">
-                        <TextBlock x:Name="tbTitle" Margin="30,30,0,0" Height="30" FontSize="20">被赞次数:</TextBlock>
+                        <TextBlock x:Name="tbTitle" Margin="30,30,0,0" Height="30" FontSize="20" SelectionChanged="tbTitle_SelectionChanged">设迷统计:</TextBlock>
                         <ComboBox Name="tbCombobox" ItemsSource="{Binding}" RelativePanel.RightOf="tbTitle"  Margin="50,30,0,0" Height="30" FontSize="20" Width="150">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
@@ -130,7 +122,7 @@
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
-                        <TextBlock Name="tbextBlock"  RelativePanel.Below="tbTitle" Margin="50,30,0,0" Height="30" Width="250">被赞数目（成功/失败）：13/6</TextBlock>
+                        <TextBlock Name="tbextBlock" FontSize="20" RelativePanel.Below="tbTitle" Margin="50,30,0,0" Height="auto" Width="auto">数目（成功/失败）：13/6</TextBlock>
                         <!--Text="{Binding ElementName=tbCombobox,Path=SelectedItem}"-->
                     </RelativePanel>
                 </StackPanel>
@@ -141,6 +133,23 @@
                         <TextBox Name="psTextBox" RelativePanel.Below="psTitle" Margin="30,10,0,0" Height="60" Width="300"></TextBox>
                     </RelativePanel>
                 </Grid>
+
+                <Grid Grid.Row="5" Width="360" Height="auto">
+                    <RelativePanel>
+                        <Button Name="submitWholeButton" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Click="submitWholeButton_Click" Margin="10">
+                            <Button.Flyout>
+                                <Flyout  Placement="Bottom">
+                                    <RelativePanel Height="50">
+                                        <TextBlock Name="confirmButtonTextBlock" HorizontalAlignment="Center">确认提交修改么？</TextBlock>
+                                        <Button Name="submitWholeChange" Click="submitWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock">提交</Button>
+                                        <Button Name="cancelWholeChange" Click="cancelWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock" RelativePanel.AlignRightWithPanel="True">取消</Button>
+                                    </RelativePanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                    </RelativePanel>
+                </Grid>
+                
             </Grid>
         </ScrollViewer>
     </Grid>
