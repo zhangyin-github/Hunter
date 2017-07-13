@@ -22,9 +22,7 @@
 
                 <!--第0行：后退按钮 userBackButton_Click  +   确认修改flyout按钮 userSubmitButton_Click （确认提交修改按钮 submitWholeChange_Click   +  取消提交修改按钮 cancelWholeChange_Click ）-->
                 <Grid Grid.Row="0" Width="360" Height="auto">
-                    <Button Name="userBackButton" HorizontalAlignment="Center" Margin="0,0,305,0" FontFamily="Segoe MDL2 Assets" Content="&#xE112;" Click="userBackButton_Click"></Button>
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">玩家信息</TextBlock>
-                    <Button Name="userSubmitButton" HorizontalAlignment="Center" Margin="327,0,0,0" FontFamily="Segoe MDL2 Assets" Content="&#xE10B;" Click="userSubmitButton_Click"></Button>
                 </Grid>
                 <!--第1行：玩家信息区-->
                 <Grid Grid.Row="1" HorizontalAlignment="Center" Width="360" Height="auto">
