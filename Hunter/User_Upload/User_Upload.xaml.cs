@@ -32,5 +32,9 @@ namespace Hunter.User_Upload
 
         }
 
+        private void upload_Click(System.Object sender, RoutedEventArgs e)
+        {
+          
+        }
     }
 }
