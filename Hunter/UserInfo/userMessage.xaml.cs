@@ -37,17 +37,6 @@ namespace Hunter.UserInfo
             this.InitializeComponent();
         }
 
-        private void userSubmitButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void userBackButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
         private void submitWholeChange_Click(object sender, RoutedEventArgs e)
         {
 
