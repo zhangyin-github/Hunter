@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="44,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="textBlock_SelectionChanged_1" Height="261" Width="262">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" MaxWidth="500" Margin="50,100,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" SelectionChanged="textBlock_SelectionChanged_1" Height="261" Width="262">
             <Run Text="TextBlock"/>
             <LineBreak/>
             <Run Text="这"/>
@@ -19,7 +19,7 @@
             <LineBreak/>
             <Run Text="线索"/>
         </TextBlock>
-        <Grid HorizontalAlignment="Left" Height="42" Margin="10,435,0,0" VerticalAlignment="Top" Width="340">
+        <Grid HorizontalAlignment="Stretch" MaxWidth="500" Height="42" Margin="10,435,0,0" VerticalAlignment="Top" Width="340">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="3*"/>
@@ -27,15 +27,15 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="158" Margin="0,482,0,0" VerticalAlignment="Top" Width="360">
+        <Grid HorizontalAlignment="Center" Width="1600" Height="150" Margin="0,600,0,0" VerticalAlignment="Top" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="158" Width="292" RenderTransformOrigin="0.13,0.529" Grid.ColumnSpan="2"/>
-            <Button x:Name="button" Content="确认" HorizontalAlignment="Left" Margin="292,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.087,-0.393" Height="158" Width="66" Grid.ColumnSpan="2" Click="button_Click"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Right" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"  Height="150" Width="292" RenderTransformOrigin="0.13,0.529" Grid.Column="0"/>
+            <Button x:Name="button" Content="确认" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.087,-0.393" Height="150" Width="66" Grid.Column="1" Click="button_Click"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="100" Margin="0,271,0,0" VerticalAlignment="Top" Width="360">
+        <Grid HorizontalAlignment="Stretch" MaxWidth="500" Height="100" Margin="0,271,0,0" VerticalAlignment="Top" Width="360">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="3*"/>

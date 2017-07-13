@@ -28,6 +28,7 @@ namespace Hunter.Room
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var room = (MissionList)e.ClickedItem;
+            Frame.Navigate(typeof(Task.TastMessage));
         }
         public RoomPage()
         {

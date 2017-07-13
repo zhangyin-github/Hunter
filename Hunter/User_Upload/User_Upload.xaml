@@ -50,7 +50,7 @@
                 VerticalAlignment="Bottom" 
                 Width="100" 
                 Height="35" 
-                Click="upload_Click">
+               >
 
         </Button>
         <Button x:Name="add" 
