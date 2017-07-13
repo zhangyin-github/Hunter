@@ -35,7 +35,7 @@
                     <Grid Grid.Row="1" Grid.Column="0">
                         <Image Name="headPic" Grid.Column="0" Source="/Assets/a.jpg" Height="120" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         <Button Name="changeHeadPic" FontSize="10" FontFamily="行楷" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="25" Content="更换头像">
-                            <!--   有bug待解决！！！   -->
+                            
                             <Button.Flyout>
                                 <Flyout>
                                     <RelativePanel Width="auto">
@@ -45,8 +45,6 @@
                                 </Flyout>
                             </Button.Flyout>
 
-                            
-                            
                         </Button>
                     </Grid>
                     <!--第1行  第1列：玩家信息展示区（更换昵称的图片/Assets/change.png   +  账号 + 等级 + 积分ProgressBar -->
@@ -102,7 +100,7 @@
                             
                         </ComboBox>
                         <TextBlock Name="solveTextBlock" FontSize="20" RelativePanel.Below="solveTitle" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"  Height="auto" Width="auto" Margin="20">解谜数目（成功/失败）：16/20</TextBlock>
-                        <!-- Text="{Binding ElementName=solveCombobox,Path=SelectedItem}" -->
+                        
                     </RelativePanel>
                 </StackPanel>
                 <!--第3行：游戏设迷数据展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度   +  点赞数数据显示textblock-->
@@ -110,10 +108,10 @@
                     <!--    -->
                     <RelativePanel Width="auto">
                         <TextBlock x:Name="tbTitle" Margin="30,30,0,0" Height="30" FontSize="20" SelectionChanged="tbTitle_SelectionChanged">设迷统计:</TextBlock>
-                        <ComboBox Name="tbCombobox" ItemsSource="{Binding}" RelativePanel.RightOf="tbTitle"  Margin="50,30,0,0" Height="30" FontSize="20" Width="150">
+                        <ComboBox Name="tbCombobox" ItemsSource="{Binding}" RelativePanel.RightOf="tbTitle"  Margin="50,30,0,0" Height="auto" FontSize="20" Width="auto">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Vertical" Margin="8">
+                                    <StackPanel Orientation="Vertical" Margin="1">
                                         <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding difficulties}" IsReadOnly="True"/>
                                         <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Description}" IsReadOnly="True"/>
                                         <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding AlarmTime}" IsReadOnly="True"/>
@@ -122,7 +120,7 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                         <TextBlock Name="tbextBlock" FontSize="20" RelativePanel.Below="tbTitle" Margin="50,30,0,0" Height="auto" Width="auto">数目（成功/失败）：13/6</TextBlock>
-                        <!--Text="{Binding ElementName=tbCombobox,Path=SelectedItem}"-->
+                        
                     </RelativePanel>
                 </StackPanel>
                 <!--第4行：游戏宣言 TextBox-->
