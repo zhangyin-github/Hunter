@@ -29,7 +29,42 @@ namespace Hunter.Log
 
         private void login_Click(object sender, RoutedEventArgs e)
         {
+            if (passwordinfo.Password != password_againinfo.Password)//判断是否一致
+            {
+                ShowNotComponent();
+            }
+            if (userinfo.Text == "")//判段是否输入
+            {
+                ShowNotHave();
+            }
+            if (userinfo.Text == "user1")//判断是否已存在
+            {
+                ShowHad();
+            }
+        }
 
+        private async void ShowNotComponent()//密码不一致弹窗内容
+        {
+            var msgDialog = new Windows.UI.Popups.MessageDialog("请检查两次输入是否一致") { Title = "密码不匹配" };
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("重新输入", uiCommand => { passwordinfo.Password = $""; password_againinfo.Password = $""; }));
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("返回登录", uiCommand => { Frame.Navigate(typeof(Log.Login)); ; }));
+            await msgDialog.ShowAsync();
+        }
+
+        private async void ShowNotHave()//未输入弹窗内容
+        {
+            var msgDialog = new Windows.UI.Popups.MessageDialog("请输入用户名") { Title = "提示" };
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("重新输入", uiCommand => { passwordinfo.Password = $""; password_againinfo.Password = $""; userinfo.Text = $""; }));
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("返回登录", uiCommand => { Frame.Navigate(typeof(Log.Login)); ; }));
+            await msgDialog.ShowAsync();
+        }
+
+        private async void ShowHad()//已存在弹窗内容
+        {
+            var msgDialog = new Windows.UI.Popups.MessageDialog("该用户已存在") { Title = "提示" };
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("重新输入", uiCommand => { userinfo.Text = $""; }));
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("返回登录", uiCommand => { Frame.Navigate(typeof(Log.Login)); ; }));
+            await msgDialog.ShowAsync();
         }
     }
 }
