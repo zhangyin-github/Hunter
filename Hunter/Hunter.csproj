@@ -113,6 +113,9 @@
     <Compile Include="Room\RoomPage.xaml.cs">
       <DependentUpon>RoomPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Task\QrCode.xaml.cs">
       <DependentUpon>QrCode.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Room\RoomPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
