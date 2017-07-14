@@ -20,10 +20,33 @@ namespace Hunter.Models
         public string ps { get; set; }
 
     }
-
-    public class solve
+    /// <summary>
+    /// 解谜统计情况
+    /// </summary>
+    public class solve  
     {
+        /// <summary>
+        /// 解谜难度分类
+        /// </summary>
         public string difficulty { get; set; }
-        public string difficultyScore { get; set; }
+        /// <summary>
+        /// 对应难度的成功/失败情况
+        /// </summary>
+        public string difficultyScores { get; set; } 
+    }
+
+    /// <summary>
+    /// 设迷统计情况
+    /// </summary>
+    public class create
+    {
+        /// <summary>
+        /// 所设迷题标题
+        /// </summary>
+        public string createTitle { get; set; }
+        /// <summary>
+        /// 对应谜题被解决成功/失败情况
+        /// </summary>
+        public string createScores { get; set; }
     }
 }
