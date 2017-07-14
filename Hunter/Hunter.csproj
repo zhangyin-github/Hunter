@@ -116,10 +116,10 @@
     <Compile Include="Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="System\Task\QrCode.xaml.cs">
+    <Compile Include="Task\QrCode.xaml.cs">
       <DependentUpon>QrCode.xaml</DependentUpon>
     </Compile>
-    <Compile Include="System\Task\TastMessage.xaml.cs">
+    <Compile Include="Task\TastMessage.xaml.cs">
       <DependentUpon>TastMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInfo\userMessage.xaml.cs">
@@ -184,11 +184,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="System\Task\QrCode.xaml">
+    <Page Include="Task\QrCode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="System\Task\TastMessage.xaml">
+    <Page Include="Task\TastMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,9 +201,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="System\Windows\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
