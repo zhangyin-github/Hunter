@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,6 +27,29 @@ namespace Hunter
         {
             this.InitializeComponent();
             MainFrame.Navigate(typeof(Log.Login));
+            MainFrame.Navigated += OnNavigated;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += BackRequested;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = MainFrame.CanGoBack ? AppViewBackButtonVisibility.Visible : Windows.UI.Core.AppViewBackButtonVisibility.Collapsed;
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = ((Frame)sender).CanGoBack ?
+                AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+        }
+        private void BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = MainFrame;
+            if (rootFrame == null)
+                return;
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            }
         }
     }
+    
+
 }

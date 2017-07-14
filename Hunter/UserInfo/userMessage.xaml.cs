@@ -39,13 +39,21 @@ namespace Hunter.UserInfo
             this.InitializeComponent();
 
             List<solve> difficulties = new List<solve>();
-            difficulties.Add(new solve() { difficulty = "全部难度题目" , difficultyScore = "解谜数目（成功/失败）：16/20" });
-            difficulties.Add(new solve() { difficulty = "五星难度题目" , difficultyScore = "解谜数目（成功/失败）：2/7" });
-            difficulties.Add(new solve() { difficulty = "四星难度题目" , difficultyScore = "解谜数目（成功/失败）：6/8" });
-            difficulties.Add(new solve() { difficulty = "三星难度题目" , difficultyScore = "解谜数目（成功/失败）：3/3" });
-            difficulties.Add(new solve() { difficulty = "二星难度题目" , difficultyScore = "解谜数目（成功/失败）：3/2" });
-            difficulties.Add(new solve() { difficulty = "一星难度题目" , difficultyScore = "解谜数目（成功/失败）：4/0" });
+            difficulties.Add(new solve() { difficulty = "全部难度题目" , difficultyScores = "解谜数目（成功/失败）：16/20" });
+            difficulties.Add(new solve() { difficulty = "五星难度题目" , difficultyScores = "解谜数目（成功/失败）：2/7" });
+            difficulties.Add(new solve() { difficulty = "四星难度题目" , difficultyScores = "解谜数目（成功/失败）：6/8" });
+            difficulties.Add(new solve() { difficulty = "三星难度题目" , difficultyScores = "解谜数目（成功/失败）：3/3" });
+            difficulties.Add(new solve() { difficulty = "二星难度题目" , difficultyScores = "解谜数目（成功/失败）：3/2" });
+            difficulties.Add(new solve() { difficulty = "一星难度题目" , difficultyScores = "解谜数目（成功/失败）：4/0" });
             solveCombobox.ItemsSource = difficulties;
+
+            List<create> createPuzzles = new List<create>();
+            createPuzzles.Add(new create() { createTitle = "云霄飞车杀人事件", createScores = "被解次数（成功/失败）：126/2000" });
+            createPuzzles.Add(new create() { createTitle = "董事长千金绑架事件", createScores = "被解次数（成功/失败）：50/6030" });
+            createPuzzles.Add(new create() { createTitle = "偶像密室杀人事件", createScores = "被解次数（成功/失败）：39/1380" });
+            createPuzzles.Add(new create() { createTitle = "大都会暗号地图事件", createScores = "被解次数（成功/失败）：96/2463" });
+            createPuzzles.Add(new create() { createTitle = "新干线大爆破事件", createScores = "被解次数（成功/失败）：87/3521" });
+            createCombobox.ItemsSource = createPuzzles;
 
         }
 
@@ -73,21 +81,45 @@ namespace Hunter.UserInfo
                 }
         }
 
-        private void confirmPicButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
+        /// <summary>
+        /// 修改昵称
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newDickNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             dickName.Text = newDickNameTextBox.Text;
         }
 
-        private void tbTitle_SelectionChanged(object sender, RoutedEventArgs e)
+
+        
+        /// <summary>
+        /// 解谜情况统计数据绑定
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void solveCombobox_DropDownClosed(object sender, object e)
         {
-
+            if( solveCombobox.SelectedItem !=null)
+            {
+                solve difficulty = solveCombobox.SelectedItem as solve;
+                this.solveTextBlock.Text = difficulty.difficultyScores;
+            }
         }
-
+        /// <summary>
+        /// 设迷情况统计数据绑定
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void createCombobox_DropDownClosed(object sender, object e)
+        {
+            if (createCombobox.SelectedItem != null)
+            {
+                create createTitle = createCombobox.SelectedItem as create;
+                this.createTextBlock.Text = createTitle.createScores;
+            }
+        }
 
         private void submitWholeChange_Click(object sender, RoutedEventArgs e)
         {
@@ -99,13 +131,5 @@ namespace Hunter.UserInfo
 
         }
 
-        private void solveCombobox_DropDownClosed(object sender, object e)
-        {
-            if( solveCombobox.SelectedItem !=null)
-            {
-                solve difficulty = solveCombobox.SelectedItem as solve;
-                this.solveTextBlock.Text = difficulty.difficultyScore;
-            }
-        }
     }
 }

@@ -88,7 +88,7 @@
                 <StackPanel Grid.Row="2" HorizontalAlignment="Center" Width="360" Height="auto">
                     <RelativePanel>
                         <TextBlock x:Name="solveTitle" Margin="30,30,0,0" Height="30" FontSize="20">解谜统计:</TextBlock>
-                        <ComboBox Name="solveCombobox" RelativePanel.RightOf="solveTitle"  Margin="50,30,0,0" Height="auto" FontSize="20" Width="auto" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed">
+                        <ComboBox Name="solveCombobox" RelativePanel.RightOf="solveTitle"  Margin="5,30,0,0" Height="auto" FontSize="20" Width="auto" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed">
                             
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
@@ -103,23 +103,21 @@
                         
                     </RelativePanel>
                 </StackPanel>
-                <!--第3行：游戏设迷数据展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度   +  点赞数数据显示textblock-->
+                <!--第3行：游戏设迷数据展示区 解谜统计：combobox下拉菜单包含：用户上传过的谜题标题 + 对应谜题被解决成功/失败次数统计textblock-->
                 <StackPanel Grid.Row="3" HorizontalAlignment="Center" Width="360" Height="auto">
                     <!--    -->
                     <RelativePanel Width="auto">
-                        <TextBlock x:Name="tbTitle" Margin="30,30,0,0" Height="30" FontSize="20" SelectionChanged="tbTitle_SelectionChanged">设迷统计:</TextBlock>
-                        <ComboBox Name="tbCombobox" ItemsSource="{Binding}" RelativePanel.RightOf="tbTitle"  Margin="50,30,0,0" Height="auto" FontSize="20" Width="auto">
+                        <TextBlock x:Name="createTitle" Margin="30,30,0,0" Height="30" FontSize="20" >设迷统计:</TextBlock>
+                        <ComboBox Name="createCombobox" RelativePanel.RightOf="createTitle"  Margin="5,30,0,0" Height="auto" FontSize="20" Width="auto" ItemsSource="{Binding}" DropDownClosed="createCombobox_DropDownClosed">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" Margin="1">
-                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding difficulties}" IsReadOnly="True"/>
-                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding Description}" IsReadOnly="True"/>
-                                        <TextBox Width="100"  TextWrapping="Wrap" Text="{Binding AlarmTime}" IsReadOnly="True"/>
+                                        <TextBlock Width="auto"  TextWrapping="Wrap" Text="{Binding createTitle}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
-                        <TextBlock Name="tbextBlock" FontSize="20" RelativePanel.Below="tbTitle" Margin="50,30,0,0" Height="auto" Width="auto">数目（成功/失败）：13/6</TextBlock>
+                        <TextBlock Name="createTextBlock" FontSize="20" RelativePanel.Below="createTitle" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="auto" Width="auto" Margin="20">设迷数目（成功/失败）：13/6</TextBlock>
                         
                     </RelativePanel>
                 </StackPanel>

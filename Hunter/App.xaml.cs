@@ -47,7 +47,7 @@ namespace Hunter
             }
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
-
+           
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
             if (rootFrame == null)
@@ -57,8 +57,6 @@ namespace Hunter
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                //设置页面跳转后退按钮
-                rootFrame.Navigated += RootFrame_Navigated;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -78,40 +76,12 @@ namespace Hunter
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
-
-                //注册 backbutton 事件
-                SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
                 // Ensure the current window is active
                 Window.Current.Activate();
+               
             }
         }
-
-        // 每次导航事件发生时，更新返回键的可见信息
-        private void RootFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                ((Frame)sender).CanGoBack ?
-                AppViewBackButtonVisibility.Visible :
-                AppViewBackButtonVisibility.Collapsed;
-        }
-
-        //titleBar 返回事件
-        private void App_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            if (rootFrame == null)
-            {
-                return;
-            }
-
-            //e.Handled 该值指示应用程序是否执行了请求的返回导航功能
-            if (rootFrame.CanGoBack && e.Handled == false)
-            {
-                e.Handled = true;
-                rootFrame.GoBack();
-            }
-        }
+     
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
