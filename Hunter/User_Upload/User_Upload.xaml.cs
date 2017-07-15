@@ -12,6 +12,12 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.Media.Capture;
+using Windows.Storage;
+
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -45,6 +51,30 @@ namespace Hunter.User_Upload
 
             dialog.PrimaryButtonClick += (_s, _e) => { };
             await dialog.ShowAsync();
+        }
+        private async void Choose_Click(System.Object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker(); //打开文件选择器。
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            openPicker.FileTypeFilter.Add(".jpg");//过滤文件类型，目前只支持jpg, png,选择其他文件会报错。
+            openPicker.FileTypeFilter.Add(".png");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+            {
+
+                var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                var image = new BitmapImage();
+
+                image.SetSource(stream);
+                picture1.Source = image;
+
+            }
+        }
+
+        private void Photo_Click(System.Object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

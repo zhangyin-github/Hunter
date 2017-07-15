@@ -10,6 +10,7 @@
     <Grid Margin="10,0,0,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
@@ -19,47 +20,46 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Text="主题:" FontSize="22" Margin="5,15,0,0" />
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="60,15,0,0" VerticalAlignment="Top" Width="115" >
+        <TextBlock Grid.Row="0" Text="发布任务" FontSize="30" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        <TextBlock Grid.Row="0" Text="主题:" FontSize="22" Margin="5,40,0,0" />
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="60,40,0,0" VerticalAlignment="Top" Width="115" >
             <ComboBoxItem Content="悬疑" Height="40" Width="115"/>
             <ComboBoxItem Content="推理" Height="40" Width="115"/>
             <ComboBoxItem Content="日常" Height="40" Width="115"/>
             <ComboBoxItem Content="其他" Height="40" Width="115"/>
         </ComboBox>
-        <TextBlock Grid.Row="0"  Grid.Column="1" Text="场景:" FontSize="22" Margin="5,15,0,0"/>
-        <ComboBox x:Name="comboBox1" Grid.Column="1" HorizontalAlignment="Left" Margin="60,15,0,0" VerticalAlignment="Top" Width="115">
+        <TextBlock Grid.Row="0"  Grid.Column="1" Text="场景:" FontSize="22" HorizontalAlignment="Right" Margin="0,40,125,0" />
+        <ComboBox x:Name="comboBox1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,5,0" VerticalAlignment="Top" Width="115">
             <ComboBoxItem Content="校园" Height="40" Width="115"/>
             <ComboBoxItem Content="密室" Height="40" Width="115"/>
             <ComboBoxItem Content="街道" Height="40" Width="115"/>
             <ComboBoxItem Content="其他" Height="40" Width="115"/>
         </ComboBox>
-        <TextBlock Grid.Row="1" Text="内容:" FontSize="22" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Margin="10,43,10,10"/>
-        <TextBlock Grid.Row="2" Text="图片:" FontSize="22" Margin="5,0,0,0"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,50,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="image1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="130,50,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="image2" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="70,50,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
-        <TextBlock Grid.Row="3" Text="提示:" FontSize="22" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="3" Grid.Column="0" Margin="10,38,10,10"/>
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="答案:" FontSize="22" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="10,38,10,10"/>
+        <TextBlock Grid.Row="1" Text="标题:" FontSize="22" Margin="5,0,0,0"/>
+        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Margin="10,29,10,10" Height="10"/>
+        <TextBlock Grid.Row="2" Text="内容:" FontSize="22" Margin="5,0,0,0"/>
+        <TextBox Grid.Row="2" Grid.ColumnSpan="2" Margin="10,43,10,10"/>
+        <TextBlock Grid.Row="3" Text="图片:" FontSize="22" Margin="5,0,0,0"/>
+        <Image x:Name="picture1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="124,32.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="picture2" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="65,32.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
+        <TextBlock Grid.Row="4" Text="提示:" FontSize="22" Margin="5,0,0,0"/>
+        <TextBox Grid.Row="4" Grid.Column="0" Margin="10,29.333,10,10" Height="10"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="答案:" FontSize="22" Margin="5,0,0,0"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="10,29.333,10,10" Height="10"/>
         <Button x:Name="upload" 
                 Content="发布任务" 
-                Grid.Column="1" 
-                HorizontalAlignment="Right" 
-                Margin="0,0,10,15" 
-                Grid.Row="4" 
-                VerticalAlignment="Bottom" 
-                Width="100" 
+                HorizontalAlignment="Center" 
+                Grid.ColumnSpan="2"
+                Grid.Row="5" 
+                VerticalAlignment="Center" 
+                Width="200" 
                 Height="35" 
-                Click="upload_Click">
-
-        </Button>
+                Click="upload_Click" FontSize="20"/>
         <Button x:Name="add" 
                 Content="+"
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="0"
-                Margin="10,50,0,0" 
+                Margin="10,32.667,0,9.667" 
                 Height="100" 
                 Width="100" 
                 FontSize="48"
@@ -67,19 +67,10 @@
                 Background="#33FBD65A">
             <Button.Flyout>
                 <MenuFlyout Placement="Bottom">
-                    <MenuFlyoutItem Text="从相册中选择"/>
-                    <MenuFlyoutItem Text="拍照"/>
+                    <MenuFlyoutItem Text="从相册中选择" Click="Choose_Click"/>
+                    <MenuFlyoutItem Text="拍照" Click="Photo_Click"/>
                 </MenuFlyout>
             </Button.Flyout>
-        </Button>
-        <Button x:Name="back" 
-                Content="返回"
-                Margin="10,0,0,15" 
-                Grid.Row="4" 
-                VerticalAlignment="Bottom" 
-                Width="100" 
-                Height="35">
-
         </Button>
     </Grid>
 </Page>
