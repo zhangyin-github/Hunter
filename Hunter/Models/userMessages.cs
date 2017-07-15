@@ -6,20 +6,34 @@ using System.Threading.Tasks;
 
 namespace Hunter.Models
 {
+    /// <summary>
+    /// 玩家信息
+    /// </summary>
     public class userMessages
     {
+        /// <summary>
+        /// 玩家昵称dickName
+        /// </summary>
         public string dickName { get; set; }
+        /// <summary>
+        /// 玩家账号ID
+        /// </summary>
         public string ID { get; set; }
+        /// <summary>
+        /// 玩家等级rate
+        /// </summary>
         public int rate { get; set; }
+        /// <summary>
+        /// 玩家积分score
+        /// </summary>
         public double score { get; set; }
-        public string difficulty { get; set; }
-        public int successCount { get; set; }
-        public int defeatCount { get; set; }
-        public int successTBCount { get; set; }
-        public int defeatTBCount { get; set; }
+        /// <summary>
+        /// 玩家游戏宣言ps
+        /// </summary>
         public string ps { get; set; }
 
     }
+
     /// <summary>
     /// 解谜统计情况
     /// </summary>

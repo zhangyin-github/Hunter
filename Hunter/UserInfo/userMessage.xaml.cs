@@ -35,7 +35,7 @@ namespace Hunter.UserInfo
         public userMessage()
         {
             StorageFile storageFile = null;
-            
+                        
             this.InitializeComponent();
 
             List<solve> difficulties = new List<solve>();
@@ -54,6 +54,8 @@ namespace Hunter.UserInfo
             createPuzzles.Add(new create() { createTitle = "大都会暗号地图事件", createScores = "被解次数（成功/失败）：96/2463" });
             createPuzzles.Add(new create() { createTitle = "新干线大爆破事件", createScores = "被解次数（成功/失败）：87/3521" });
             createCombobox.ItemsSource = createPuzzles;
+
+            
 
         }
 
@@ -121,6 +123,13 @@ namespace Hunter.UserInfo
             }
         }
 
+        private void psTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            BindingExpression be = tb.GetBindingExpression(TextBox.TextProperty);
+            be.UpdateSource();
+        }
+
         private void submitWholeChange_Click(object sender, RoutedEventArgs e)
         {
 
@@ -128,8 +137,8 @@ namespace Hunter.UserInfo
 
         private void cancelWholeChange_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
-
+        
     }
 }
