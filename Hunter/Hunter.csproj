@@ -116,10 +116,10 @@
     <Compile Include="Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Task\QrCode.xaml.cs">
+    <Compile Include="Mission\QrCode.xaml.cs">
       <DependentUpon>QrCode.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Task\TastMessage.xaml.cs">
+    <Compile Include="Mission\TastMessage.xaml.cs">
       <DependentUpon>TastMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInfo\userMessage.xaml.cs">
@@ -184,11 +184,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Task\QrCode.xaml">
+    <Page Include="Mission\QrCode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Task\TastMessage.xaml">
+    <Page Include="Mission\TastMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
