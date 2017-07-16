@@ -15,32 +15,16 @@ using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
-namespace Hunter.Task
+namespace Hunter.Missions
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class TastMessage : Page
+    public sealed partial class Task_Message : Page
     {
-        public TastMessage()
+        public Task_Message()
         {
             this.InitializeComponent();
         }
-
-        private void textBlock_SelectionChanged(System.Object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void textBlock_SelectionChanged_1(System.Object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void button_Click(System.Object sender, RoutedEventArgs e)
-        {
-
-        }
-
     }
 }
