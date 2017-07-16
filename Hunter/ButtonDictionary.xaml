@@ -17,6 +17,9 @@
                                 <VisualState x:Name="PointerOver">
                                     <Storyboard>
                                         <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Goldenrod"/>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Pressed">

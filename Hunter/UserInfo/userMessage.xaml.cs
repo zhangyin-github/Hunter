@@ -28,6 +28,7 @@ namespace Hunter.UserInfo
     public sealed partial class userMessage : Page
     {
         private StorageFile storageFile;
+        private score scoreValue;
 
         public object Console { get; private set; }
         
@@ -35,7 +36,14 @@ namespace Hunter.UserInfo
         public userMessage()
         {
             StorageFile storageFile = null;
-                        
+
+            scoreValue = new score();
+            scoreValue.Max = 100;
+            scoreValue.Min = 0;
+            scoreValue.CurrentValue = 10;
+            
+
+
             this.InitializeComponent();
 
             List<solve> difficulties = new List<solve>();

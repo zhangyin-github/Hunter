@@ -104,6 +104,12 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Missions\QrCode.xaml.cs">
+      <DependentUpon>QrCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Missions\Task_Message.xaml.cs">
+      <DependentUpon>Task_Message.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\userMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,12 +121,6 @@
     </Compile>
     <Compile Include="Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Task\QrCode.xaml.cs">
-      <DependentUpon>QrCode.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Task\TastMessage.xaml.cs">
-      <DependentUpon>TastMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInfo\userMessage.xaml.cs">
       <DependentUpon>userMessage.xaml</DependentUpon>
@@ -172,6 +172,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Missions\QrCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Missions\Task_Message.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Room\RoomControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,14 +189,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Settings\Settings.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Task\QrCode.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Task\TastMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

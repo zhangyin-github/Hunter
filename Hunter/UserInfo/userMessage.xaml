@@ -7,8 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     
     mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\ButtonDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
-    <Grid Background="LightBlue">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <!--页面滚动条-->
         <ScrollViewer x:Name="userScrollViewer" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
             <Grid MinWidth="360">
@@ -20,16 +30,19 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <!--第0行：标题：玩家信息 TextBlock-->
                 <Grid Grid.Row="0" Width="auto" Height="auto">
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">玩家信息</TextBlock>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="LightGoldenrodYellow">玩家信息</TextBlock>
                 </Grid>
                 <!--第1行：空白区，用于布局设计-->
+                <Grid Grid.Row="1">
+                    <Rectangle Fill="LightGoldenrodYellow" StrokeThickness="3" Height="auto" Width="auto"/>
+                </Grid>
                 <!--第2行：玩家信息区-->
                 <Grid Grid.Row="2" HorizontalAlignment="Stretch" Width="auto" Height="auto" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
@@ -39,7 +52,7 @@
                     <!--第2行  第0列：玩家头像区（更换头像flyout按钮 ：选择图片按钮 SelectPicButton_Click  +  确认选择按钮  confirmPicButton_Click）-->
                     
                     <Image Name="headPic"  Grid.Row="2" Grid.Column="0" Source="/Assets/a.jpg" VerticalAlignment="Top" MinHeight="80" MinWidth="80" MaxHeight="200" MaxWidth="200" HorizontalAlignment="Stretch"/>
-                    <Button Name="changeHeadPic" Grid.Row="2" Grid.Column="0" FontSize="10" FontFamily="行楷" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="25" Margin="20" Content="更换头像">
+                    <Button Name="changeHeadPic" Grid.Row="2" Grid.Column="0" FontSize="15" Foreground="LightGoldenrodYellow"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30" Margin="20" Content="更换头像">
 
                             <Button.Flyout>
                                 <Flyout>
@@ -53,10 +66,10 @@
                     </Button>
                         <!--第2行  第1列：玩家信息展示区（更换昵称的图片/Assets/change.png   +  账号 + 等级 + 积分ProgressBar -->
                     <RelativePanel Grid.Row="1" Grid.Column="1" Margin="50,0,0,0" HorizontalAlignment="Left" Width="auto">
-                        <TextBlock x:Name="dickNameTitle" FontSize="20" FontFamily="楷体" Margin="10,5,5,0">昵称：</TextBlock>
-                        <TextBlock x:Name="dickName" FontSize="20" FontFamily="楷体" RelativePanel.RightOf="dickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
+                        <TextBlock x:Name="dickNameTitle" FontSize="20" Foreground="LightGoldenrodYellow" Margin="10,5,5,0">昵称：</TextBlock>
+                        <TextBlock x:Name="dickName" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="dickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
 
-                        <Button Name="changeDickNameButton" RelativePanel.RightOf="dickName" Width="16" VerticalAlignment="Stretch" Margin="10,5,-6,0">
+                        <Button Name="changeDickNameButton" RelativePanel.RightOf="dickName" Width="16" VerticalAlignment="Stretch" Margin="10,5,-6,0" Style="{StaticResource mostbutton}">
                             <Button.RenderTransform>
                                 <CompositeTransform ScaleX="-1" TranslateX="3.68"/>
                             </Button.RenderTransform>
@@ -78,13 +91,13 @@
                             </Button.Flyout>
                         </Button>
 
-                        <TextBlock x:Name="IDTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="dickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
-                        <TextBlock x:Name="ID" FontSize="20" FontFamily="楷体"  RelativePanel.RightOf="dickNameTitle"  RelativePanel.Below="dickName" Margin="5,10,0,0">668990003</TextBlock>
-                        <TextBlock x:Name="rateTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
-                        <TextBlock x:Name="rate" FontSize="20" FontFamily="楷体"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0">23</TextBlock>
-                        <TextBlock x:Name="scoreTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="rateTitle"  Margin="10,10,5,0">积分：</TextBlock>
-                        <ProgressBar x:Name="scoreBar" RelativePanel.RightOf="scoreTitle" RelativePanel.Below="rate"  Margin="5,13,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True" Value="92"></ProgressBar>
-                        <TextBlock x:Name="score"  RelativePanel.Below="rate" RelativePanel.AlignRightWith="scoreBar" Margin="-110,10,0,0">82888/99999</TextBlock>
+                        <TextBlock x:Name="IDTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="dickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
+                        <TextBlock x:Name="ID" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="dickNameTitle"  RelativePanel.Below="dickName" Margin="5,10,0,0">668990003</TextBlock>
+                        <TextBlock x:Name="rateTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
+                        <TextBlock x:Name="rate" FontSize="20" Foreground="LightGoldenrodYellow"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0">23</TextBlock>
+                        <TextBlock x:Name="scoreTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="rateTitle"  Margin="10,10,5,0">积分：</TextBlock>
+                        <ProgressBar x:Name="scoreBar" RelativePanel.RightOf="scoreTitle" RelativePanel.Below="rate"  Margin="5,16,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True" Maximum="{Binding Max}" Minimum="{Binding Min}" Value="{Binding scoreValue}"></ProgressBar>
+                        <TextBlock x:Name="score" Foreground="LightGoldenrodYellow" RelativePanel.Below="rate" RelativePanel.AlignRightWith="scoreBar" Margin="-110,16,0,0" Text="{Binding scoreValue}"></TextBlock>
                     </RelativePanel>
                 </Grid>
 
@@ -94,14 +107,14 @@
                         <ColumnDefinition  Width="*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                </Grid>
-                <Grid Grid.Row="3" Grid.Column="0" Width="100" HorizontalAlignment="Left">
 
-                    <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="20" Margin="20,0,0,0">设迷统计:</TextBlock>
-                </Grid>
+                    <Grid Grid.Row="3"  Grid.Column="0" Width="100">
 
-                <Grid Grid.Row="3" Grid.Column="1" MinWidth="200" HorizontalAlignment="Right" Margin="0,10,20,0">
-                    <ComboBox Name="solveCombobox"  FontSize="20" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed">
+                        <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="LightGoldenrodYellow" Margin="20,0,0,0" HorizontalAlignment="Center">设迷统计:</TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Row="3"  Grid.Column="1" MinWidth="200" Margin="0,10,20,0">
+                    <ComboBox Name="solveCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed" HorizontalAlignment="Center">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" Margin="1">
@@ -112,10 +125,10 @@
                     </ComboBox>
 
                 </Grid>
-
+                </Grid>
 
                 <!--第4行：游戏解谜数据展示区 解谜统计：解谜数数据显示textblock-->
-                <TextBlock Name="solveTextBlock" Grid.Row="4" HorizontalAlignment="Center" FontSize="20" Height="30" Width="auto" Margin="20">解谜数目（成功/失败）：</TextBlock>
+                <TextBlock Name="solveTextBlock" Grid.Row="4" HorizontalAlignment="Center" FontSize="16" Foreground="LightGoldenrodYellow" Height="30" Width="auto" Margin="20">解谜数目（成功/失败）：</TextBlock>
 
 
                 <!--第5行：游戏设迷数据展示区 解谜统计：combobox下拉菜单包含：用户上传过的谜题标题-->
@@ -125,14 +138,14 @@
                             <ColumnDefinition  Width="*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
-                </Grid>
-                <Grid Grid.Row="5" Grid.Column="0" Width="100" HorizontalAlignment="Left">
 
-                    <TextBlock x:Name="createTitle"  Grid.Column="0" Height="30" FontSize="20" Margin="20,0,0,0">设迷统计:</TextBlock>
-                </Grid>
+                    <Grid Grid.Row="5" Grid.Column="0" Width="100">
 
-                <Grid Grid.Row="5" Grid.Column="1" MinWidth="200" HorizontalAlignment="Right" Margin="0,10,20,0">
-                    <ComboBox Name="createCombobox"  FontSize="20" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="createCombobox_DropDownClosed">
+                        <TextBlock x:Name="createTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="LightGoldenrodYellow" Margin="20,0,0,0" HorizontalAlignment="Center">设迷统计:</TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="1"  MinWidth="200" Margin="0,10,20,0">
+                        <ComboBox Name="createCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="createCombobox_DropDownClosed" HorizontalAlignment="Center">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" Margin="1">
@@ -143,24 +156,25 @@
                     </ComboBox>
                 
                 </Grid>
+                </Grid>
 
                 <!--第6行：游戏设迷数据展示区 解谜统计：对应谜题被解决成功/失败次数统计textblock-->
-                <TextBlock Name="createTextBlock" Grid.Row="6" HorizontalAlignment="Center" FontSize="20"  Width="auto" Height="30"  Margin="10,0,10,0">设迷数目（成功/失败）：</TextBlock>
+                <TextBlock Name="createTextBlock" Grid.Row="6" HorizontalAlignment="Center" FontSize="16" Foreground="LightGoldenrodYellow" Width="auto" Height="30"  Margin="10,0,10,0">设迷数目（成功/失败）：</TextBlock>
 
 
                 <!--第7行：游戏宣言 TextBlock-->
 
-                <TextBlock x:Name="psTitle" Grid.Row="7" HorizontalAlignment="Stretch"  Margin="20,0,10,0" Height="30" FontSize="20">游戏宣言:</TextBlock>
+                <TextBlock x:Name="psTitle" Grid.Row="7" HorizontalAlignment="Stretch"  Margin="20,0,10,0" Height="30" FontSize="18" Foreground="LightGoldenrodYellow">游戏宣言:</TextBlock>
                 <!--第8行：游戏宣言 TextBox-->
-                <TextBox Name="psTextBox" Grid.Row="8" HorizontalAlignment="Stretch"  RelativePanel.Below="psTitle" Margin="20,0,20,0" Height="auto" MinWidth="330" TextWrapping="Wrap" Text="{Binding ps}" TextChanged="psTextBox_TextChanged" PlaceholderText="请输入您的游戏宣言~"></TextBox>
+                <TextBox Name="psTextBox" Grid.Row="8" HorizontalAlignment="Stretch"  RelativePanel.Below="psTitle" Margin="20,0,20,0" Height="auto" MinWidth="330" TextWrapping="Wrap" Text="{Binding ps}" TextChanged="psTextBox_TextChanged" PlaceholderText="请输入您的游戏宣言~" FontSize="15" Foreground="LightGoldenrodYellow"></TextBox>
 
 
                 <!--第9行：提交信息修改按钮 submitWholeButton 包含flyout中：确认修改 submitWholeChange 和 取消修改 cancelWholeChange-->
-                <Button Grid.Row="9"  Name="submitWholeButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10,20,0" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+                <Button Grid.Row="9"  Name="submitWholeButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10,20,0" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="LightGoldenrodYellow">
                             <Button.Flyout>
                                 <Flyout  Placement="Bottom">
                                     <RelativePanel Height="50">
-                                        <TextBlock Name="confirmButtonTextBlock" HorizontalAlignment="Center">确认提交修改么？</TextBlock>
+                                        <TextBlock Name="confirmButtonTextBlock" HorizontalAlignment="Center" >确认提交修改么？</TextBlock>
                                         <Button Name="submitWholeChange" Click="submitWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock">提交</Button>
                                         <Button Name="cancelWholeChange" Click="cancelWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock" RelativePanel.AlignRightWithPanel="True">取消</Button>
                                     </RelativePanel>
