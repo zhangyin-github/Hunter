@@ -7,6 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     
     mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\ButtonDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid >
         <Grid.Background>
@@ -62,7 +69,7 @@
                         <TextBlock x:Name="dickNameTitle" FontSize="20" Foreground="LightGoldenrodYellow" Margin="10,5,5,0">昵称：</TextBlock>
                         <TextBlock x:Name="dickName" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="dickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
 
-                        <Button Name="changeDickNameButton" RelativePanel.RightOf="dickName" Width="16" VerticalAlignment="Stretch" Margin="10,5,-6,0">
+                        <Button Name="changeDickNameButton" RelativePanel.RightOf="dickName" Width="16" VerticalAlignment="Stretch" Margin="10,5,-6,0" Style="{StaticResource mostbutton}">
                             <Button.RenderTransform>
                                 <CompositeTransform ScaleX="-1" TranslateX="3.68"/>
                             </Button.RenderTransform>
