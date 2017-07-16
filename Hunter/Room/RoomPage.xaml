@@ -84,31 +84,33 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button  Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource mostbutton}"  Click="NewTask_Click">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8E5;" HorizontalAlignment="Center" Foreground="DarkGoldenrod" FontSize="36"/>
-                    <TextBlock Margin="0 5 0 0" Text="发布任务" Foreground="DarkGoldenrod" FontSize="12" HorizontalAlignment="Center"/>
-                </StackPanel>
+            <Button  Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}"  Click="NewTask_Click">
+                <TextBlock HorizontalAlignment="Center" TextAlignment="Center" >
+                    <Run  FontFamily="Segoe MDL2 Assets" Text="&#xE8E5;" FontSize="36"/>
+                    <LineBreak />
+                    <Run Text="发布任务" FontSize="12" />
+                </TextBlock>
             </Button>
-            <Button  Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource mostbutton}"  Click="MyItems_Click">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8D4;" HorizontalAlignment="Center" Foreground="DarkGoldenrod" FontSize="36"/>
-                    <TextBlock Margin="0 5 0 0" Text="我的道具" Foreground="DarkGoldenrod" FontSize="12" HorizontalAlignment="Center"/>
-                </StackPanel>
+            <Button  Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}"  Click="MyItems_Click">
+                <TextBlock HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run  FontFamily="Segoe MDL2 Assets" Text="&#xE8D4;" FontSize="36"/>
+                     <LineBreak />
+                    <Run Text="我的道具" FontSize="12" />
+                </TextBlock>
             </Button>
-            <Button  Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource mostbutton}"  Click="Shop_Click">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE719;" HorizontalAlignment="Center" Foreground="DarkGoldenrod" FontSize="36"/>
-                    <TextBlock Margin="0 5 0 0" Text="积分商城" Foreground="DarkGoldenrod" FontSize="12" HorizontalAlignment="Center"/>
-                </StackPanel>
+            <Button  Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}"  Click="Shop_Click">
+                <TextBlock HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run  FontFamily="Segoe MDL2 Assets" Text="&#xE719;" FontSize="36"/>
+                    <LineBreak />
+                    <Run  Text="积分商城" FontSize="12" />
+                </TextBlock>
             </Button>
-            <Button  Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource mostbutton}"  Click="Set_Click">
-                <Button.Content>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE115;" HorizontalAlignment="Center" Foreground="DarkGoldenrod" FontSize="36" />
-                        <TextBlock  Margin="0 5 0 0" Text="系统设置" Foreground="DarkGoldenrod" FontSize="12" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button.Content>
+            <Button  Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}"  Click="Set_Click">
+                <TextBlock HorizontalAlignment="Center" TextAlignment="Center">
+                        <Run FontFamily="Segoe MDL2 Assets" Text="&#xE115;"  FontSize="36" />
+                         <LineBreak />
+                        <Run  Text="系统设置" FontSize="12" />
+                </TextBlock>
             </Button>
         </Grid>
     </Grid>
