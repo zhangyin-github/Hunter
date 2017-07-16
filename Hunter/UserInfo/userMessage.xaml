@@ -31,7 +31,7 @@
                 </Grid>
                 <!--第1行：空白区，用于布局设计-->
                 <Grid Grid.Row="1">
-                    <Rectangle Stroke="Black" StrokeThickness="3" HorizontalAlignment="Center"/>
+                    <Rectangle Fill="LightGoldenrodYellow" StrokeThickness="3" Height="auto" Width="auto"/>
                 </Grid>
                 <!--第2行：玩家信息区-->
                 <Grid Grid.Row="2" HorizontalAlignment="Stretch" Width="auto" Height="auto" Margin="30,0,30,0">
