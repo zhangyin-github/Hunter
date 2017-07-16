@@ -8,7 +8,10 @@
     
     mc:Ignorable="d">
 
-    <Grid Background="LightBlue">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <!--页面滚动条-->
         <ScrollViewer x:Name="userScrollViewer" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
             <Grid MinWidth="360">

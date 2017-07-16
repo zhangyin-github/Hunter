@@ -7,7 +7,10 @@
     x:Class="Hunter.User_Upload.User_Upload"
     mc:Ignorable="d">
 
-    <Grid Margin="10,0,0,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Margin="10,0,0,0" >
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
