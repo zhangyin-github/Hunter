@@ -23,16 +23,16 @@
         <ScrollViewer x:Name="userScrollViewer" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
             <Grid MinWidth="360">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="2"/>
-                    <RowDefinition Height="2.5*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <!--第0行：标题：玩家信息 TextBlock-->
@@ -51,8 +51,8 @@
                     </Grid.ColumnDefinitions>
                     <!--第2行  第0列：玩家头像区（更换头像flyout按钮 ：选择图片按钮 SelectPicButton_Click  +  确认选择按钮  confirmPicButton_Click）-->
                     <StackPanel Orientation="Vertical">
-                    <Image Name="headPic"  Grid.Row="2" Grid.Column="0" Source="/Assets/a.jpg" VerticalAlignment="Top" MinHeight="80" MinWidth="80" MaxHeight="200" MaxWidth="200" HorizontalAlignment="Stretch"/>
-                    <Button Name="changeHeadPic" Grid.Row="2" Grid.Column="0" FontSize="15" Foreground="LightGoldenrodYellow"   Height="30" Margin="0,10,0,0" HorizontalAlignment="Center" Content="更换头像">
+                        <Image Name="headPic"  Grid.Row="2" Grid.Column="0" Source="/Assets/a.jpg" VerticalAlignment="Top" MinHeight="80" MinWidth="80" MaxHeight="200" MaxWidth="200" HorizontalAlignment="Stretch"/>
+                        <Button Name="changeHeadPic" Grid.Row="2" Grid.Column="0" FontSize="15" Foreground="LightGoldenrodYellow"   Height="30" Margin="0,10,0,0" HorizontalAlignment="Center" Content="更换头像">
 
                             <Button.Flyout>
                                 <Flyout>
@@ -109,40 +109,44 @@
                         <ColumnDefinition  Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Row="3"  Grid.Column="0" Width="100">
+                    <Grid Grid.Row="3"  Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="22*"/>
+                        </Grid.RowDefinitions>
 
-                        <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" Margin="20,0,0,0" HorizontalAlignment="Center">设迷统计:</TextBlock>
+                        <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" HorizontalAlignment="Center" Grid.Row="1">设迷统计:</TextBlock>
                     </Grid>
 
-                    <Grid Grid.Row="3"  Grid.Column="1" MinWidth="200" Margin="0,10,20,0">
-                    <ComboBox Name="solveCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed" HorizontalAlignment="Left" Margin="20,0,0,0">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Vertical" Margin="1">
-                                    <TextBlock Width="auto"  TextWrapping="Wrap" Text="{Binding difficulty}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
+                    <Grid Grid.Row="3"  Grid.Column="1" MinWidth="200">
+                        <ComboBox Name="solveCombobox"  FontSize="18" Foreground="Goldenrod" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" Margin="1">
+                                        <TextBlock Width="auto"  TextWrapping="Wrap" Text="{Binding difficulty}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
 
-                </Grid>
+                    </Grid>
                 </Grid>
 
                 <!--第4行：游戏解谜数据展示区 解谜统计：解谜数数据显示textblock-->
                 <Grid Grid.Row="4">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition  Width="*"/>
-                    <ColumnDefinition Width="4*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Name="solveTextBlock" Grid.Column="1"  VerticalAlignment="Center" FontSize="16" Foreground="LightGoldenrodYellow" Width="auto">解谜数目（成功/失败）：</TextBlock>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="solveTextBlock" Grid.Column="1"  VerticalAlignment="Center" FontSize="16" Foreground="Goldenrod" Width="auto">解谜数目（成功/失败）：</TextBlock>
 
                 </Grid>
                 <!--第5行：游戏设迷数据展示区 解谜统计：combobox下拉菜单包含：用户上传过的谜题标题-->
 
-                <Grid Grid.Row="5" Width="auto">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition  Width="1.5*"/>
-                            <ColumnDefinition Width="2*"/>
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition  Width="*"/>
                     </Grid.ColumnDefinitions>
 
@@ -151,8 +155,8 @@
                         <TextBlock x:Name="createTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" Margin="20,0,0,0" HorizontalAlignment="Center">设迷统计:</TextBlock>
                     </Grid>
 
-                    <Grid Grid.Row="5" Grid.Column="1"  MinWidth="200" Margin="0,10,20,0">
-                        <ComboBox Name="createCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="createCombobox_DropDownClosed" HorizontalAlignment="Left" Margin="20,0,0,0">
+                    <Grid Grid.Row="5" Grid.Column="1"  MinWidth="200">
+                        <ComboBox Name="createCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="createCombobox_DropDownClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" Margin="1">
@@ -160,9 +164,9 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
-                    </ComboBox>
-                
-                </Grid>
+                        </ComboBox>
+
+                    </Grid>
                 </Grid>
 
                 <!--第6行：游戏设迷数据展示区 解谜统计：对应谜题被解决成功/失败次数统计textblock-->
@@ -171,14 +175,14 @@
                         <ColumnDefinition  Width="*"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Name="createTextBlock" Grid.Column="1"  VerticalAlignment="Center" FontSize="16" Foreground="LightGoldenrodYellow" Width="auto" Height="30">设迷数目（成功/失败）：</TextBlock>
+                    <TextBlock Name="createTextBlock" Grid.Column="1"  VerticalAlignment="Center" FontSize="16" Foreground="Goldenrod" Width="auto" Height="30">设迷数目（成功/失败）：</TextBlock>
                 </Grid>
 
                 <!--第7行：游戏宣言 TextBlock-->
                 <Grid Grid.Row="7">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition  Width="1.5*"/>
-                    <ColumnDefinition Width="2*"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition  Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" x:Name="psTitle" Grid.Row="7"   Margin="20,0,0,0" HorizontalAlignment="Center" Height="30" FontSize="18" Foreground="Goldenrod">游戏宣言:</TextBlock>
@@ -189,7 +193,7 @@
                         <ColumnDefinition  Width="*"/>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition  Width="*"/>
-                        
+
                     </Grid.ColumnDefinitions>
                     <TextBox Name="psTextBox" Grid.Column="1" HorizontalAlignment="Stretch"  RelativePanel.Below="psTitle" Margin="20,0,20,0" MinHeight="130" MinWidth="330" TextWrapping="Wrap" Text="{Binding ps}" TextChanged="psTextBox_TextChanged" PlaceholderText="请输入您的游戏宣言~" FontSize="15" Foreground="LightGoldenrodYellow"></TextBox>
 
@@ -200,7 +204,7 @@
                         <ColumnDefinition  Width="*"/>
                         <ColumnDefinition Width="8*"/>
                         <ColumnDefinition  Width="*"/>
-                        
+
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="1"  Name="submitWholeButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10,20,0" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="LightGoldenrodYellow">
                         <Button.Flyout>
