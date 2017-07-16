@@ -29,7 +29,7 @@ namespace Hunter.Room
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var room = (MissionList)e.ClickedItem;
-            Frame.Navigate(typeof(Task.TastMessage));
+            Frame.Navigate(typeof(Missions.Task_Message));
         }
         public RoomPage()
         {
@@ -43,14 +43,26 @@ namespace Hunter.Room
             Frame.Navigate(typeof(UserInfo.userMessage));
         }
 
-        private void setbutton_Click(object sender, RoutedEventArgs e)
+        private void refreshbutton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Settings.Settings));
+           
         }
 
         private void NewTask_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(User_Upload.User_Upload));
+        }
+        private void MyItems_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Shop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Set_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Settings.Settings));
         }
     }
 }
