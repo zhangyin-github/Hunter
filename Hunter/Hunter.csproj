@@ -110,6 +110,7 @@
     <Compile Include="Missions\Task_Message.xaml.cs">
       <DependentUpon>Task_Message.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\BgmPlayer.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\userMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,6 +139,7 @@
   <ItemGroup>
     <Content Include="Assets\a.jpg" />
     <Content Include="Assets\bg.jpeg" />
+    <Content Include="Assets\bgm.mp3" />
     <Content Include="Assets\change.png" />
     <Content Include="Assets\loud.jpg" />
     <Content Include="Assets\music2.jpg" />

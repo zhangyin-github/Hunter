@@ -9,5 +9,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Frame Name="MainFrame"/>
+        <Grid Name="Music"/>
     </Grid>
 </Page>

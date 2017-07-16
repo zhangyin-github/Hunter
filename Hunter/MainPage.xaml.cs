@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hunter.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,7 +26,17 @@ namespace Hunter
     {
         public MainPage()
         {
+           
             this.InitializeComponent();
+            BgmPlayer.getInstance();
+            BgmPlayer.MusicPlayer.Name = "MusicPlayer";
+            Music.Children.Add(BgmPlayer.MusicPlayer);
+            BgmPlayer.MusicPlayer.Visibility = Visibility.Collapsed;
+            BgmPlayer.MusicPlayer.IsLooping = true;
+            BgmPlayer.MusicPlayer.AutoPlay = true;
+            BgmPlayer.MusicPlayer.Source = new Uri("ms-appx:///Assets/bgm.mp3");
+            BgmPlayer.MusicPlayer.Play();
+            BgmPlayer.MusicPlayer.Volume = 1;
             MainFrame.Navigate(typeof(Log.Login));
             MainFrame.Navigated += OnNavigated;
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += BackRequested;
