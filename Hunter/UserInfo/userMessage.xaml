@@ -83,8 +83,8 @@
                         <TextBlock x:Name="rateTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
                         <TextBlock x:Name="rate" FontSize="20" FontFamily="楷体"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0">23</TextBlock>
                         <TextBlock x:Name="scoreTitle" FontSize="20" FontFamily="楷体" RelativePanel.Below="rateTitle"  Margin="10,10,5,0">积分：</TextBlock>
-                        <ProgressBar x:Name="scoreBar" RelativePanel.RightOf="scoreTitle" RelativePanel.Below="rate"  Margin="5,13,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True" Value="92"></ProgressBar>
-                        <TextBlock x:Name="score"  RelativePanel.Below="rate" RelativePanel.AlignRightWith="scoreBar" Margin="-110,10,0,0">82888/99999</TextBlock>
+                        <ProgressBar x:Name="scoreBar" RelativePanel.RightOf="scoreTitle" RelativePanel.Below="rate"  Margin="5,13,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True" Maximum="{Binding Max}" Minimum="{Binding Min}" Value="{Binding scoreValue}"></ProgressBar>
+                        <TextBlock x:Name="score"  RelativePanel.Below="rate" RelativePanel.AlignRightWith="scoreBar" Margin="-110,10,0,0" Text="{Binding scoreValue}"></TextBlock>
                     </RelativePanel>
                 </Grid>
 

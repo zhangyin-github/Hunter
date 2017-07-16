@@ -24,10 +24,6 @@ namespace Hunter.Models
         /// </summary>
         public int rate { get; set; }
         /// <summary>
-        /// 玩家积分score
-        /// </summary>
-        public double score { get; set; }
-        /// <summary>
         /// 玩家游戏宣言ps
         /// </summary>
         public string ps { get; set; }
@@ -63,4 +59,55 @@ namespace Hunter.Models
         /// </summary>
         public string createScores { get; set; }
     }
+
+    /// <summary>
+    /// 玩家积分score
+    /// </summary>
+    public sealed class score
+    {
+        private int _max, _min, _currvalue;
+
+        public int Max
+        {
+            get { return _max; }
+            set
+            {
+                if (value != _max)
+                {
+                    _max = value;
+                    
+                }
+            }
+        }
+
+        
+
+        public int Min
+        {
+            get { return _min; }
+            set
+            {
+                if (value != _min)
+                {
+                    _min = value;
+                    
+                }
+            }
+        }
+
+        public int CurrentValue
+        {
+            get { return _currvalue; }
+            set
+            {
+                if (value != _currvalue)
+                {
+                    _currvalue = value;
+                   
+                }
+            }
+        }
+    }
+
+
 }
