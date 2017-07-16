@@ -96,8 +96,8 @@
                         <TextBlock x:Name="rateTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
                         <TextBlock x:Name="rate" FontSize="20" Foreground="LightGoldenrodYellow"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0">23</TextBlock>
                         <TextBlock x:Name="scoreTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="rateTitle"  Margin="10,10,5,0">积分：</TextBlock>
-                        <ProgressBar x:Name="scoreBar" RelativePanel.RightOf="scoreTitle" RelativePanel.Below="rate"  Margin="5,16,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True" Maximum="{Binding Max}" Minimum="{Binding Min}" Value="{Binding scoreValue}"></ProgressBar>
-                        <TextBlock x:Name="score" Foreground="LightGoldenrodYellow" RelativePanel.Below="rate" RelativePanel.AlignRightWith="scoreBar" Margin="-110,16,0,0" Text="{Binding scoreValue}"></TextBlock>
+                        <ProgressBar x:Name="scoreBar" RelativePanel.RightOf="scoreTitle" RelativePanel.Below="rate"  Margin="5,16,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True" Maximum="{Binding Max}" Minimum="{Binding Min}" Value="50"></ProgressBar>
+                        <TextBlock x:Name="score" Foreground="LightGoldenrodYellow" RelativePanel.Below="rate" RelativePanel.AlignRightWith="scoreBar" Margin="-110,16,0,0" Text="66666/99999"></TextBlock>
                     </RelativePanel>
                 </Grid>
 
