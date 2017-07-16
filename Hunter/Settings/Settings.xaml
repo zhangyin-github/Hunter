@@ -13,13 +13,8 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid  >
-        <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
-        </Grid.Background>
-        
+    <Grid  Background="BurlyWood">
         <Grid.RowDefinitions>
-           
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
@@ -27,55 +22,69 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <TextBlock Text="设置" FontSize="24" HorizontalAlignment="Center" Margin="0,15,0,0" />
+        <Grid Grid.Row="0" Margin="0,20,0,0">
+            <TextBlock Text="设置" FontSize="36" HorizontalAlignment="Center" />
         </Grid>
-        <RelativePanel Grid.Row="1">
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
 
 
-            <Button Name="music3"  Margin="10,10,10,10" Padding="0" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" RelativePanel.AlignVerticalCenterWithPanel="True"
-                   RelativePanel.AlignHorizontalCenterWithPanel="True"
-                   Height="60" Width="80">
-                <Button.Content>
-                    <Ellipse Margin="0,0,0,0" Height="50" Width="70">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="..\Assets/music2.jpg" />
-                        </Ellipse.Fill>
-                    </Ellipse>
-                </Button.Content>
-            </Button>
-            <ToggleSwitch Height="50" Width="50"
-                RelativePanel.AlignVerticalCenterWithPanel="True"
-                          RelativePanel.RightOf="music3"
-                Margin="20,0,0,0" />
+            <TextBlock Grid.Column="0"
+                       Name="music3" 
+                       FontFamily="Segoe MDL2 Assets"
+                       Text="&#xE189;"
+                       FontSize="36"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,30,0"
+                   >
+
+            </TextBlock>
+            <ToggleSwitch Height="50" Width="50" Grid.Column="1"
+                HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          Margin="30,0,0,0"
+               />
 
 
 
 
-        </RelativePanel>
+        </Grid>
 
-        <RelativePanel Grid.Row="2">
-            <Button Name="loud3"  Margin="10,10,10,10" Padding="0" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" RelativePanel.AlignVerticalCenterWithPanel="True"
-                   RelativePanel.AlignHorizontalCenterWithPanel="True"
-                   Height="60" Width="80">
-                <Button.Content>
-                    <Ellipse Margin="0,0,0,0" Height="50" Width="70">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="..\Assets/loud.jpg" />
-                        </Ellipse.Fill>
-                    </Ellipse>
-                </Button.Content>
-            </Button>
-            <Slider 
-                RelativePanel.AlignVerticalCenterWith="loud3"
-                RelativePanel.RightOf="loud3"
-                Margin="20,0,0,0"
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Name="loud3" 
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                        FontFamily="Segoe MDL2 Assets" 
+                       Text="&#xE15D;"
+                       FontSize="36"
+                       Margin="0,0,30,0"
+                   >
+
+            </TextBlock>
+            <Slider x:Name="volumeSlider" 
+                    Header="Volume"
+                    Grid.Column="1"
+               HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                Margin="30,0,0,0"
                 Maximum="100"
                 Minimum="0"
-                Width="100" />
+                Width="100"
+             
+                />
 
 
-        </RelativePanel>
+        </Grid>
         <Button Name="BackgroundButton" Content="Background" Grid.Row="3" HorizontalAlignment="Center">
 
         </Button>
