@@ -14,74 +14,130 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Margin="10,0,0,0" >
+    <Grid  >
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2.2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Text="发布任务" FontSize="30" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
-        <TextBlock Grid.Row="0" Text="主题:" FontSize="22" HorizontalAlignment="Right" Margin="0,40,130,0" />
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Width="120"  >
-            <ComboBoxItem Content="悬疑" Height="40" Width="120"/>
-            <ComboBoxItem Content="推理" Height="40" Width="120"/>
-            <ComboBoxItem Content="日常" Height="40" Width="120"/>
-            <ComboBoxItem Content="其他" Height="40" Width="120"/>
-        </ComboBox>
-        <TextBlock Grid.Row="0"  Grid.Column="1" Text="场景:" FontSize="22" HorizontalAlignment="Left" Margin="10,40,0,0" />
-        <ComboBox x:Name="comboBox1" Grid.Column="1" HorizontalAlignment="Left" Margin="60,40,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="校园" Height="40" Width="115"/>
-            <ComboBoxItem Content="密室" Height="40" Width="115"/>
-            <ComboBoxItem Content="街道" Height="40" Width="115"/>
-            <ComboBoxItem Content="其他" Height="40" Width="115"/>
-        </ComboBox>
-        <TextBlock Grid.Row="1" Text="标题:" FontSize="22" Margin="35,0,0,0"/>
-        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Margin="35,29,35,10" Height="20" MaxLength="400"/>
-        <TextBlock Grid.Row="2" Text="内容:" FontSize="22" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="2" Grid.ColumnSpan="2" Margin="10,43,10,10"/>
-        <TextBlock Grid.Row="3" Text="图片:" FontSize="22" Margin="5,0,0,0"/>
-        <Image x:Name="picture1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="124,32.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="picture2" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="65,32.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
-        <TextBlock Grid.Row="4" Text="提示:" FontSize="22" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="4" Grid.Column="0" Margin="10,29.333,10,10" Height="10"/>
-        <TextBlock Grid.Row="4" Grid.Column="1" Text="答案:" FontSize="22" Margin="5,0,0,0"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="10,29.333,10,10" Height="10"/>
-        <Button x:Name="upload" 
-                Content="发布任务" 
-                HorizontalAlignment="Center" 
-                Grid.ColumnSpan="2"
-                Grid.Row="5" 
-                VerticalAlignment="Center" 
-                Width="200" 
-                Height="35" 
-                Click="upload_Click" FontSize="20"/>
-        <Button x:Name="add" 
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2.1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="发布任务" FontSize="30" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="Goldenrod"/>
+            <TextBlock Grid.Row="0" Text="主题:" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,130,5"  Foreground="Goldenrod"/>
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0"  Width="130"  >
+                <ComboBoxItem Content="悬疑" Height="40" Width="130"/>
+                <ComboBoxItem Content="推理" Height="40" Width="130"/>
+                <ComboBoxItem Content="日常" Height="40" Width="130"/>
+                <ComboBoxItem Content="其他" Height="40" Width="130"/>
+            </ComboBox>
+            <TextBlock Grid.Row="0"  Grid.Column="1" Text="场景:" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="10,0,0,5" Foreground="Goldenrod" />
+            <ComboBox x:Name="comboBox1" Grid.Column="1" HorizontalAlignment="Left" Margin="60,45,0,0" VerticalAlignment="Bottom" Width="130">
+                <ComboBoxItem Content="校园" Height="40" Width="130"/>
+                <ComboBoxItem Content="密室" Height="40" Width="130"/>
+                <ComboBoxItem Content="街道" Height="40" Width="130"/>
+                <ComboBoxItem Content="其他" Height="40" Width="130"/>
+            </ComboBox>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="标题:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
+                <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                </TextBox>
+            </Grid>
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="3.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="内容:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
+                <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Grid>
+            <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="3.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="图片:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
+                <Image x:Name="picture1" Grid.Column="1" HorizontalAlignment="Right" Height="100" Grid.Row="1" VerticalAlignment="Top" Margin="25,0,0,0" Width="100"/>
+                <Button x:Name="add" 
                 Content="+"
-                Grid.Row="3"
-                Grid.Column="0"
-                Margin="10,32.667,0,9.667" 
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"    
+                Margin="5,0,0,0"
                 Height="100" 
                 Width="100" 
                 FontSize="48"
-                RenderTransformOrigin="0.522,0.207" 
                 Background="#33FBD65A">
-            <Button.Flyout>
-                <MenuFlyout Placement="Bottom">
-                    <MenuFlyoutItem Text="从相册中选择" Click="Choose_Click"/>
-                    <MenuFlyoutItem Text="拍照" Click="Photo_Click"/>
-                </MenuFlyout>
-            </Button.Flyout>
-        </Button>
-    </Grid>
+                    <Button.Flyout>
+                        <MenuFlyout Placement="Bottom">
+                            <MenuFlyoutItem Text="从相册中选择" Click="Choose_Click"/>
+                            <MenuFlyoutItem Text="拍照" Click="Photo_Click"/>
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="4" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.75*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.75*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="提示:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
+                <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="答案:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
+                <TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0" />
+            </Grid>
+            <Grid Grid.Row="5" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="upload" 
+                Content="发布任务" 
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.AlignVerticalCenterWithPanel="True"
+                Foreground="LightGoldenrodYellow"
+                Grid.Column="1"
+                Grid.Row="5" 
+                Margin="20,10,20,10" 
+                Click="upload_Click" FontSize="30"/>
+            </Grid>
+        </Grid>
 </Page>
 
