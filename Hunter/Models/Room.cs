@@ -20,7 +20,10 @@ namespace Hunter.Models
         public static List<MissionList> getInstance()
         {
             var lists = new List<MissionList> { };
-            lists.Add(new MissionList { name = "111111111" });
+            lists.Add(new MissionList { name = "新手引导任务" });
+            lists.Add(new MissionList { name = "故事模式1" });
+            lists.Add(new MissionList { name = "故事模式2" });
+            lists.Add(new MissionList { name = "故事模式3" });
             return lists;
         }
     }

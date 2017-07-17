@@ -15,13 +15,13 @@
         </ResourceDictionary>
     </Page.Resources>
     
-    <Grid Margin="10,0,0,0" >
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="2"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -29,35 +29,57 @@
             <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid Grid.Row="0" Width="auto" Height="auto">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="Goldenrod" Text="云霄飞车杀人事件"></TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Text="云霄飞车杀人事件">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="83*"/>
                 <ColumnDefinition Width="77*"/>
             </Grid.ColumnDefinitions>
-            <Rectangle Fill="Goldenrod" StrokeThickness="3" Height="auto" Width="auto" Grid.ColumnSpan="2"/>
+            <Rectangle  StrokeThickness="3" Height="auto" Width="auto" Grid.ColumnSpan="2">
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
         </Grid>
-        <TextBlock Grid.Row="2" FontSize="16" Margin="5,3,0,141.667"  Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Run Text="这里" Foreground="Goldenrod"/>
+        <TextBlock Grid.Row="2" FontSize="20" HorizontalAlignment="Center" Margin="0 50 0 0" Grid.ColumnSpan="3" Foreground="Goldenrod">
+            <Run Text="这里" />
             <LineBreak/>
-            <Run Text="有些" Foreground="Goldenrod"/>
+            <Run Text="有些" />
             <LineBreak/>
-            <Run Text="线索" Foreground="Goldenrod"/>
-            <LineBreak Foreground="Goldenrod"/>
+            <Run Text="线索" />
+            <LineBreak />
             <Run/>
-            <LineBreak Foreground="Goldenrod"/>
+            <LineBreak />
             <Run/>
         </TextBlock>
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="3" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-             <Image Grid.Row="3" Grid.Column="0"></Image>
              <Image Grid.Row="3" Grid.Column="1"></Image>
-             <Button Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent">
+             <Image Grid.Row="3" Grid.Column="2"></Image>
+             <Button Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}">
                 <TextBlock HorizontalAlignment="Center" TextAlignment="Center" >
                     <Run  FontFamily="Segoe MDL2 Assets" Text="&#xE10C;" FontSize="36"/>
                 </TextBlock>
@@ -65,22 +87,51 @@
         </Grid>
 
 
-        <TextBlock Grid.Row="4" Grid.ColumnSpan="3" Text="答题区：" FontSize="20" Foreground="Goldenrod" FontWeight="Bold"></TextBlock>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock  Grid.Column="1" Text="请输入答案：" FontSize="20"  FontWeight="Bold">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+
+            </TextBlock>
+        </Grid>
         <Grid Grid.Row="5" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" Height="auto" Grid.RowSpan="2"></TextBox>
-                <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Click="Button_Click">
+            <TextBox Grid.Row="0" HorizontalAlignment="Stretch"  Height="200" Grid.RowSpan="2" Grid.Column="1" BorderThickness="3">
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
+                <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Click="Button_Click" Style="{StaticResource mostbutton}">
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Text="&#xE114;" FontSize="36" TextAlignment="Center" >
                     </TextBlock>
                 </Button>
-                <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent">
+                <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}">
                     <TextBlock HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets" Text="&#xE11C;" FontSize="36" TextAlignment="Center" >
                     </TextBlock>
                 </Button>

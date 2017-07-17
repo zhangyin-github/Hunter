@@ -85,7 +85,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="StoryMode" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="Transparent" Style="{StaticResource mostbutton}">
+            <Button Name="StoryMode" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="故事模式" FontSize="36" Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -96,7 +96,7 @@
                     </LinearGradientBrush>
                 </Button.BorderBrush>
             </Button>
-            <Button Name="UserMode" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   Background="Transparent" Style="{StaticResource mostbutton}">
+            <Button Name="UserMode" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="自由模式"  FontSize="36" Foreground="DarkGoldenrod"  Background="Transparent" Style="{StaticResource mostbutton}">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
