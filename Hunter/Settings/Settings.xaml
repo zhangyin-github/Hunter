@@ -108,7 +108,17 @@
                  Foreground="Goldenrod" Background="Transparent" Style="{StaticResource mostbutton}">
             <Button.Content>
                 <Grid>
-                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
+                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170"  StrokeThickness="5">
+                        <Rectangle.Stroke>
+                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                <GradientStop Color="#FF554022" Offset="0"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                                <GradientStop Color="Goldenrod" Offset="0.5"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                                <GradientStop Color="#FF554022" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Stroke>
+                    </Rectangle>
                     <TextBlock FontSize="16" Text="更换背景" HorizontalAlignment="Center"  FontWeight="Bold" />
                 </Grid>
             </Button.Content>
@@ -128,7 +138,17 @@
         </Button>
         <Button Name="ReturnButton" Height="50" Width="180" FontSize="20" Grid.Row="5" Background="Transparent" Foreground="DarkGoldenrod" HorizontalAlignment="Center" Style="{StaticResource mostbutton}" Click="ReturnButton_Click">
             <Grid>
-                <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
+                <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170"  StrokeThickness="5">
+                    <Rectangle.Stroke>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#FF554022" Offset="0"/>
+                            <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                            <GradientStop Color="Goldenrod" Offset="0.5"/>
+                            <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                            <GradientStop Color="#FF554022" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Stroke>
+                </Rectangle>
                 <TextBlock FontSize="16" Text="退出登录" HorizontalAlignment="Center"  FontWeight="Bold" />
             </Grid>
         </Button>

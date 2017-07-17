@@ -7,7 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Height="80" Background="DarkGoldenrod" Margin="0 5 0 5">
+    <Grid Height="80" Margin="0 5 0 5">
         <TextBlock FontSize="24" HorizontalAlignment="Left" Text="{x:Bind Contact.name}"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FF554022" Offset="0"/>
+                <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                <GradientStop Color="Goldenrod" Offset="0.5"/>
+                <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                <GradientStop Color="#FF554022" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
     </Grid>
 </UserControl>
