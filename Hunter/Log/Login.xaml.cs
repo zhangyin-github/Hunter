@@ -35,7 +35,7 @@ namespace Hunter.Log
             if (userinfo.Text == "user1" && passwordinfo.Password == "123")
             {
                 Frame.Navigate(typeof(Room.RoomPage));
-                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+                Frame.BackStack.Clear();
             }
             if (userinfo.Text != "user1")
             {

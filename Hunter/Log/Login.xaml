@@ -33,6 +33,17 @@
             </Grid.ColumnDefinitions>
             <Grid Name="picture" Grid.ColumnSpan="2">
                 <Image Source="#"></Image>
+                <TextBlock Text="Hunter" FontSize="96" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#FF554022" Offset="0"/>
+                            <GradientStop Color="DarkGoldenrod" Offset="0.10"/>
+                            <GradientStop Color="Goldenrod" Offset="0.5"/>
+                            <GradientStop Color="DarkGoldenrod" Offset="0.90"/>
+                            <GradientStop Color="#FF554022" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
             </Grid>
             <RelativePanel Grid.Column="0"
                     Grid.Row="1">

@@ -57,8 +57,8 @@ namespace Hunter
             {
                 e.Handled = true;
                 rootFrame.GoBack();
-                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
+            
         }
     }
     

@@ -36,6 +36,7 @@ namespace Hunter.Room
             MyList = ListManager.getInstance();
             this.InitializeComponent();
             
+            
         }
 
         private void headicon_Click(object sender, RoutedEventArgs e)
