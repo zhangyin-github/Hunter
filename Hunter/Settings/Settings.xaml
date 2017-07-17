@@ -13,9 +13,13 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid  Background="BurlyWood">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="2"/>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
@@ -23,9 +27,12 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="0,20,0,0">
-            <TextBlock Text="设置" FontSize="36" HorizontalAlignment="Center" />
+            <TextBlock Text="设   置" FontSize="20" HorizontalAlignment="Center"  Foreground="Goldenrod" />
         </Grid>
         <Grid Grid.Row="1">
+            <Rectangle Fill="LightGoldenrodYellow" StrokeThickness="3" Height="auto" Width="auto"/>
+        </Grid>
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -40,6 +47,7 @@
                        HorizontalAlignment="Right"
                        VerticalAlignment="Center"
                        Margin="0,0,30,0"
+                       Foreground="Goldenrod"
                    >
 
             </TextBlock>
@@ -47,6 +55,7 @@
                 HorizontalAlignment="Left"
                           VerticalAlignment="Center"
                           Margin="30,0,0,0"
+                          Foreground="Goldenrod"
                />
 
 
@@ -54,7 +63,7 @@
 
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -68,6 +77,7 @@
                        Text="&#xE15D;"
                        FontSize="36"
                        Margin="0,0,30,0"
+                       Foreground="Goldenrod"
                    >
 
             </TextBlock>
@@ -80,15 +90,32 @@
                 Maximum="100"
                 Minimum="0"
                 Width="100"
+                    Foreground="Goldenrod"
              
                 />
 
 
         </Grid>
-        <Button Name="BackgroundButton" Content="Background" Grid.Row="3" HorizontalAlignment="Center">
+        <Button Grid.Row="4"
+               HorizontalAlignment="Center"
+                Content="Background"
+                FontSize="20"
+                 Foreground="Goldenrod">
+            <Button.Flyout>
+                <MenuFlyout Placement="Bottom">
+
+                    <MenuFlyoutItem Text="背景 1" />
+                    <MenuFlyoutItem Text="背景 2" />
+                    <MenuFlyoutItem Text="背景 3" />
+                    <MenuFlyoutItem Text="背景 4" />
+
+                </MenuFlyout>
+               
+
+            </Button.Flyout>
 
         </Button>
-        <Button Name="ReturnButton" Content="Exit" Grid.Row="4" HorizontalAlignment="Center">
+        <Button Name="ReturnButton" Content="Exit" Grid.Row="5" HorizontalAlignment="Center" Foreground="Goldenrod">
 
         </Button>
 
