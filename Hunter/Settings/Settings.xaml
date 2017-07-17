@@ -13,12 +13,12 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid >
+    <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.3*" />
             <RowDefinition Height="2"/>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
@@ -26,8 +26,8 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="0,20,0,0">
-            <TextBlock Text="系统设置" FontSize="20" HorizontalAlignment="Center"  Foreground="Goldenrod" />
+        <Grid Grid.Row="0" Width="auto" Height="auto">
+            <TextBlock Text="系统设置" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Goldenrod"/>
         </Grid>
         <Grid Grid.Row="1">
             <Rectangle Fill="LightGoldenrodYellow" StrokeThickness="3" Height="auto" Width="auto"/>
@@ -106,7 +106,7 @@
             <Button.Content>
                 <Grid>
                     <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
-                    <TextBlock FontSize="16" Text="注册" HorizontalAlignment="Center"  FontWeight="Bold" />
+                    <TextBlock FontSize="16" Text="更换主题背景" HorizontalAlignment="Center"  FontWeight="Bold" />
                 </Grid>
             </Button.Content>
             <Button.Flyout>
@@ -126,7 +126,7 @@
         <Button Name="ReturnButton" Height="50" Width="180" FontSize="20" Grid.Row="5" Background="Transparent" Foreground="DarkGoldenrod" HorizontalAlignment="Center" Style="{StaticResource mostbutton}">
             <Grid>
                 <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
-                <TextBlock FontSize="16" Text="注册" HorizontalAlignment="Center"  FontWeight="Bold" />
+                <TextBlock FontSize="16" Text="退出登录" HorizontalAlignment="Center"  FontWeight="Bold" />
             </Grid>
         </Button>
 
