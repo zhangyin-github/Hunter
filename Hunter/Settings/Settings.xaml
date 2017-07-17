@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="0,20,0,0">
-            <TextBlock Text="设   置" FontSize="20" HorizontalAlignment="Center"  Foreground="Goldenrod" />
+            <TextBlock Text="系统设置" FontSize="20" HorizontalAlignment="Center"  Foreground="Goldenrod" />
         </Grid>
         <Grid Grid.Row="1">
             <Rectangle Fill="LightGoldenrodYellow" StrokeThickness="3" Height="auto" Width="auto"/>
@@ -98,9 +98,17 @@
         </Grid>
         <Button Grid.Row="4"
                HorizontalAlignment="Center"
-                Content="Background"
+               
+                Height="50"
+                Width="180"
                 FontSize="20"
-                 Foreground="Goldenrod">
+                 Foreground="Goldenrod" Background="Transparent" Style="{StaticResource mostbutton}">
+            <Button.Content>
+                <Grid>
+                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
+                    <TextBlock FontSize="16" Text="注册" HorizontalAlignment="Center"  FontWeight="Bold" />
+                </Grid>
+            </Button.Content>
             <Button.Flyout>
                 <MenuFlyout Placement="Bottom">
 
@@ -115,8 +123,11 @@
             </Button.Flyout>
 
         </Button>
-        <Button Name="ReturnButton" Content="Exit" Grid.Row="5" HorizontalAlignment="Center" Foreground="Goldenrod">
-
+        <Button Name="ReturnButton" Height="50" Width="180" FontSize="20" Grid.Row="5" Background="Transparent" Foreground="DarkGoldenrod" HorizontalAlignment="Center" Style="{StaticResource mostbutton}">
+            <Grid>
+                <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
+                <TextBlock FontSize="16" Text="注册" HorizontalAlignment="Center"  FontWeight="Bold" />
+            </Grid>
         </Button>
 
     </Grid>
