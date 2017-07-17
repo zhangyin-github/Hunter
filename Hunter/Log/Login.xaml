@@ -81,7 +81,12 @@
                         Height="50"
                         Width="180"
                         RelativePanel.AlignRightWithPanel="True"
-                        RelativePanel.AlignVerticalCenterWithPanel="True"  Style="{StaticResource mostbutton}">注册</Button>
+                        RelativePanel.AlignVerticalCenterWithPanel="True" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}">
+                    <Grid>
+                        <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="3"/>
+                        <TextBlock FontSize="16" Text="注册" HorizontalAlignment="Center"  FontWeight="Bold" />
+                    </Grid>
+                </Button>
             </RelativePanel>
             <Button Name="login"
                     Click="login_Click"
@@ -89,7 +94,12 @@
                     Width="180"
                     Grid.Column="1"
                     FontSize="18"
-                    Grid.Row="5" HorizontalAlignment="Left" Margin="15 -20 0 0"  Style="{StaticResource mostbutton}" >登录</Button>
+                    Grid.Row="5" HorizontalAlignment="Left" Margin="15 -20 0 0" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}" >
+                <Grid>
+                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="3"/>
+                    <TextBlock FontSize="16" Text="登录" HorizontalAlignment="Center"  FontWeight="Bold" />
+                </Grid>
+            </Button>
         </Grid>
     </Grid>
 </Page>
