@@ -99,7 +99,19 @@ namespace Hunter.UserInfo
         /// <param name="e"></param>
         private void newDickNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            dickName.Text = newDickNameTextBox.Text;
+            if(dickName.Text == newDickNameTextBox.Text)
+            {
+                newDickNameTitleTextBlock.Text = "昵称已存在请重新输入！";
+                checkTextBlockISWrong.Visibility = Visibility.Collapsed;
+                checkTextBlockIsOk.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                newDickNameTitleTextBlock.Text = "新昵称可用";
+                checkTextBlockIsOk.Visibility = Visibility.Collapsed;
+                checkTextBlockISWrong.Visibility = Visibility.Visible;
+                dickName.Text = newDickNameTextBox.Text;
+            }
         }
 
 
