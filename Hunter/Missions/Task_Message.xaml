@@ -7,7 +7,50 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Margin="10,0,0,0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Text="云霄飞车杀人案件" FontSize="22" Margin="5,0,0,0" Grid.ColumnSpan="3"/>
+        <TextBlock Grid.Row="1" FontSize="22" Margin="5,0,0,141.667"  Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Run Text="这里"/>
+            <LineBreak/>
+            <Run Text="有些"/>
+            <LineBreak/>
+            <Run Text="线索"/>
+            <LineBreak/>
+            <Run/>
+            <LineBreak/>
+            <Run/>
+        </TextBlock>
+        <Image Grid.Row="2" Grid.Column="0"></Image>
+        <Image Grid.Row="2" Grid.Column="1"></Image>
+        <Button Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent">
+            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" >
+                    <Run  FontFamily="Segoe MDL2 Assets" Text="&#xE10C;" FontSize="36"/>
+            </TextBlock>
+        </Button>
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Text="答题区：" FontSize="22"></TextBlock>
+        <TextBox Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="2"  Height="180"   ></TextBox>
+        <Button Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Click="Button_Click">
+            <TextBlock HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets" Text="&#xE114;" FontSize="36" TextAlignment="Center" >
+            </TextBlock>
+        </Button>
+        <Button Grid.Row="5" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent">
+            <TextBlock HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets" Text="&#xE11C;" FontSize="36" TextAlignment="Center" >
+            </TextBlock>
+        </Button>
+
 
     </Grid>
 </Page>
