@@ -147,6 +147,20 @@ namespace Hunter.UserInfo
         {
             
         }
-        
+
+        private async void submitWholeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ContentDialog()
+            {
+                Title = "消息提示",
+                Content = "确认提交信息修改么?",
+                PrimaryButtonText = "确定",
+                SecondaryButtonText = "取消",
+                FullSizeDesired = false,
+            };
+
+            dialog.PrimaryButtonClick += (_s, _e) => { };
+            await dialog.ShowAsync();
+        }
     }
 }

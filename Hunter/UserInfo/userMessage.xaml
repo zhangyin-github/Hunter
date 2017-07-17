@@ -206,6 +206,7 @@
                         <ColumnDefinition  Width="*"/>
 
                     </Grid.ColumnDefinitions>
+                    <!--
                     <Button Grid.Column="1"  Name="submitWholeButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10,20,0" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="LightGoldenrodYellow">
                         <Button.Flyout>
                             <Flyout  Placement="Bottom">
@@ -217,6 +218,9 @@
                             </Flyout>
                         </Button.Flyout>
                     </Button>
+                    -->
+
+                    <Button Grid.Column="1"  Name="submitWholeButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10,20,0" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="LightGoldenrodYellow" Click="submitWholeButton_Click"/>
                 </Grid>
 
             </Grid>
