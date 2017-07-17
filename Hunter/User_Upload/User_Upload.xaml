@@ -51,13 +51,13 @@
             <ComboBoxItem Content="其他" Height="40" Width="130"/>
             <ComboBox.BorderBrush>
 
-                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Color="#FF554022" Offset="0"/>
-                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
-                        <GradientStop Color="Goldenrod" Offset="0.5"/>
-                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
-                        <GradientStop Color="#FF554022" Offset="1"/>
-                    </LinearGradientBrush>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF554022" Offset="0"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                    <GradientStop Color="Goldenrod" Offset="0.5"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                    <GradientStop Color="#FF554022" Offset="1"/>
+                </LinearGradientBrush>
 
             </ComboBox.BorderBrush>
         </ComboBox>
@@ -126,7 +126,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="内容:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap">
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -264,7 +264,11 @@
                 Click="upload_Click" 
                 FontSize="16" Style="{StaticResource mostbutton}">
                 <Grid>
-                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170"  StrokeThickness="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10,-10,-10,-20" Fill="Transparent" Width="170"  StrokeThickness="5" Grid.ColumnSpan="2">
                         <Rectangle.Stroke>
                             <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                                 <GradientStop Color="#FF554022" Offset="0"/>
@@ -275,7 +279,7 @@
                             </LinearGradientBrush>
                         </Rectangle.Stroke>
                     </Rectangle>
-                    <TextBlock FontSize="16" Text="发布任务" HorizontalAlignment="Center"  FontWeight="Bold" />
+                    <TextBlock FontSize="16" Text="发布任务" HorizontalAlignment="Center"  FontWeight="Bold" Margin="43,-10,42.667,-20" Height="61" VerticalAlignment="Top" RenderTransformOrigin="0.375,1.651" />
                 </Grid>
             </Button>
         </Grid>
