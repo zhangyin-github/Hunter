@@ -33,22 +33,32 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Text="发布任务" FontSize="20" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="Goldenrod" FontWeight="Bold"/>
-        <TextBlock Grid.Row="2" Text="主题:" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,130,5"  Foreground="Goldenrod"/>
-        <ComboBox x:Name="comboBox"  Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0"  Width="130"  >
-            <ComboBoxItem Content="悬疑" Height="40" Width="130"/>
-            <ComboBoxItem Content="推理" Height="40" Width="130"/>
-            <ComboBoxItem Content="日常" Height="40" Width="130"/>
-            <ComboBoxItem Content="其他" Height="40" Width="130"/>
-        </ComboBox>
-        <TextBlock Grid.Row="2"  Grid.Column="1" Text="场景:" FontSize="18" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="10,0,0,5" Foreground="Goldenrod" />
-        <ComboBox x:Name="comboBox1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="51,0,0,0" Width="130">
-            <ComboBoxItem Content="校园" Height="40" Width="130"/>
-            <ComboBoxItem Content="密室" Height="40" Width="130"/>
-            <ComboBoxItem Content="街道" Height="40" Width="130"/>
-            <ComboBoxItem Content="其他" Height="40" Width="130"/>
-        </ComboBox>
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
-            <Rectangle Fill="LightGoldenrodYellow" StrokeThickness="3" Height="auto" Width="auto"/>
+            <Rectangle Fill="Goldenrod" StrokeThickness="3" Height="auto" Width="auto"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.7*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                <ColumnDefinition Width="2.3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                <ColumnDefinition Width="2.3*"></ColumnDefinition>
+                <ColumnDefinition Width="1.7*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="主题:" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,0,5"  Foreground="Goldenrod"/>
+            <ComboBox  Grid.Column="2" x:Name="comboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,8,30,0" >
+                <ComboBoxItem Content="悬疑" Height="40"/>
+                <ComboBoxItem Content="推理" Height="40"/>
+                <ComboBoxItem Content="日常" Height="40"/>
+                <ComboBoxItem Content="其他" Height="40"/>
+            </ComboBox>
+            <TextBlock Grid.Column="3" Text="场景:" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,0,5" Foreground="Goldenrod" />
+            <ComboBox x:Name="comboBox1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,8,30,0">
+                <ComboBoxItem Content="校园" Height="40"/>
+                <ComboBoxItem Content="密室" Height="40"/>
+                <ComboBoxItem Content="街道" Height="40"/>
+                <ComboBoxItem Content="其他" Height="40"/>
+            </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
