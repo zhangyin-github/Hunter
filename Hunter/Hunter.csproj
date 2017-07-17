@@ -141,9 +141,9 @@
     <Content Include="Assets\bg.jpeg" />
     <Content Include="Assets\bgm.mp3" />
     <Content Include="Assets\change.png" />
+    <Content Include="Assets\log_bg.jpg" />
     <Content Include="Assets\loud.jpg" />
     <Content Include="Assets\music2.jpg" />
-    <Content Include="Assets\log_bg.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
