@@ -30,7 +30,17 @@
             <TextBlock Text="系统设置" FontSize="20" HorizontalAlignment="Center"  Foreground="Goldenrod" FontWeight="Bold"/>
         </Grid>
         <Grid Grid.Row="1">
-            <Rectangle Fill="Goldenrod" StrokeThickness="3" Height="auto" Width="auto"/>
+            <Rectangle  StrokeThickness="3" Height="auto" Width="auto">
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

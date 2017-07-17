@@ -45,7 +45,17 @@
                         <ColumnDefinition Width="83*"/>
                         <ColumnDefinition Width="77*"/>
                     </Grid.ColumnDefinitions>
-                    <Rectangle Fill="Goldenrod" StrokeThickness="3" Height="auto" Width="auto" Grid.ColumnSpan="2"/>
+                    <Rectangle  StrokeThickness="3" Height="auto" Width="auto" Grid.ColumnSpan="2">
+                        <Rectangle.Stroke>
+                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                <GradientStop Color="#FF554022" Offset="0"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                                <GradientStop Color="Goldenrod" Offset="0.5"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                                <GradientStop Color="#FF554022" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Stroke>
+                    </Rectangle>
                 </Grid>
                 <!--第2行：玩家信息区-->
                 <Grid Grid.Row="2" HorizontalAlignment="Stretch" Width="auto" Height="auto" Margin="30,10,30,0" >
