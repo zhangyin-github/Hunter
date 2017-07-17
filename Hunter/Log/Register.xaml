@@ -103,7 +103,12 @@
                     HorizontalAlignment="Center"
                     Grid.ColumnSpan="2"
                     FontSize="18"
-                    Grid.Row="7"  Style="{StaticResource mostbutton}">注册</Button>
+                    Grid.Row="7" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}">
+                <Grid>
+                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
+                    <TextBlock FontSize="16" Text="注册" HorizontalAlignment="Center"  FontWeight="Bold" />
+                </Grid>
+            </Button>
         </Grid>
     </Grid>
 </Page>
