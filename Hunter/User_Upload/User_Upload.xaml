@@ -32,13 +32,34 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Text="发布任务" FontSize="20" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="Goldenrod" FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Text="发布任务" FontSize="20" Grid.ColumnSpan="2" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontWeight="Bold">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF554022" Offset="0"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                    <GradientStop Color="Goldenrod" Offset="0.5"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                    <GradientStop Color="#FF554022" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
         <TextBlock Grid.Row="2" Text="主题:" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,130,5"  Foreground="Goldenrod"/>
         <ComboBox x:Name="comboBox"  Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0"  Width="130"  >
             <ComboBoxItem Content="悬疑" Height="40" Width="130"/>
             <ComboBoxItem Content="推理" Height="40" Width="130"/>
             <ComboBoxItem Content="日常" Height="40" Width="130"/>
             <ComboBoxItem Content="其他" Height="40" Width="130"/>
+            <ComboBox.BorderBrush>
+
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+
+            </ComboBox.BorderBrush>
         </ComboBox>
         <TextBlock Grid.Row="2"  Grid.Column="1" Text="场景:" FontSize="18" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="10,0,0,5" Foreground="Goldenrod" />
         <ComboBox x:Name="comboBox1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="51,0,0,0" Width="130">
@@ -46,6 +67,17 @@
             <ComboBoxItem Content="密室" Height="40" Width="130"/>
             <ComboBoxItem Content="街道" Height="40" Width="130"/>
             <ComboBoxItem Content="其他" Height="40" Width="130"/>
+            <ComboBox.BorderBrush>
+
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF554022" Offset="0"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                    <GradientStop Color="Goldenrod" Offset="0.5"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                    <GradientStop Color="#FF554022" Offset="1"/>
+                </LinearGradientBrush>
+
+            </ComboBox.BorderBrush>
         </ComboBox>
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Rectangle  StrokeThickness="3" Height="auto" Width="auto">
@@ -72,6 +104,15 @@
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="标题:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
             <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
             </TextBox>
         </Grid>
         <Grid Grid.Row="4" Grid.ColumnSpan="2">
@@ -85,7 +126,17 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="内容:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
         </Grid>
         <Grid Grid.Row="5" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
@@ -170,9 +221,29 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="提示:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0"/>
+            <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0">
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
             <TextBlock Grid.Row="0" Grid.Column="2" Text="答案:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0" />
+            <TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0" >
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
         </Grid>
         <Grid Grid.Row="7" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
@@ -181,17 +252,32 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button x:Name="upload" 
-                Content="发布任务" 
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                    Width="360"
                 RelativePanel.AlignHorizontalCenterWithPanel="True"
                 RelativePanel.AlignVerticalCenterWithPanel="True"
-                Foreground="LightGoldenrodYellow"
+                Foreground="DarkGoldenrod"
                 Grid.Column="1"
                 Grid.Row="5" 
-                Margin="20,10,20,10" 
+                Margin="0,0,0,30" 
                 Click="upload_Click" 
-                FontSize="16"/>
+                FontSize="16" Style="{StaticResource mostbutton}">
+                <Grid>
+                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170"  StrokeThickness="5">
+                        <Rectangle.Stroke>
+                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                <GradientStop Color="#FF554022" Offset="0"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                                <GradientStop Color="Goldenrod" Offset="0.5"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                                <GradientStop Color="#FF554022" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Stroke>
+                    </Rectangle>
+                    <TextBlock FontSize="16" Text="发布任务" HorizontalAlignment="Center"  FontWeight="Bold" />
+                </Grid>
+            </Button>
         </Grid>
     </Grid>
 </Page>

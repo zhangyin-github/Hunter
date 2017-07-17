@@ -149,7 +149,7 @@
             </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Margin="20">
-            <ListView ItemsSource="{x:Bind MyList}"  HorizontalAlignment="Stretch" Background="Transparent" IsItemClickEnabled="True" ItemClick="ListView_ItemClick" >
+            <ListView ItemsSource="{x:Bind MyList}"  HorizontalAlignment="Stretch" Background="Transparent" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="data:MissionList">
                         <local:RoomControl Width="1920"/>
