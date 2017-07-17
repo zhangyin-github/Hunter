@@ -52,6 +52,7 @@ namespace Hunter.User_Upload
             dialog.PrimaryButtonClick += (_s, _e) => { };
             await dialog.ShowAsync();
         }
+
         private async void Choose_Click(System.Object sender, RoutedEventArgs e)
         {
             FileOpenPicker openPicker = new FileOpenPicker(); //打开文件选择器。
@@ -68,11 +69,65 @@ namespace Hunter.User_Upload
 
                 image.SetSource(stream);
                 picture1.Source = image;
-
             }
+            add1.Visibility = Visibility.Visible;
+            add.Visibility = Visibility.Collapsed;
         }
 
         private void Photo_Click(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void Choose_Click1(System.Object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker(); //打开文件选择器。
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            openPicker.FileTypeFilter.Add(".jpg");//过滤文件类型，目前只支持jpg, png,选择其他文件会报错。
+            openPicker.FileTypeFilter.Add(".png");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+            {
+
+                var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                var image = new BitmapImage();
+
+                image.SetSource(stream);
+                picture2.Source = image;
+            }
+            add2.Visibility = Visibility.Visible;
+            add1.Visibility = Visibility.Collapsed;
+        }
+
+        private void Photo_Click1(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private async void Choose_Click2(System.Object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker(); //打开文件选择器。
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            openPicker.FileTypeFilter.Add(".jpg");//过滤文件类型，目前只支持jpg, png,选择其他文件会报错。
+            openPicker.FileTypeFilter.Add(".png");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+            {
+
+                var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                var image = new BitmapImage();
+
+                image.SetSource(stream);
+                picture3.Source = image;
+            }
+            add2.Visibility = Visibility.Collapsed;
+        }
+
+
+        private void Photo_Click2(System.Object sender, RoutedEventArgs e)
         {
 
         }
