@@ -13,12 +13,12 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid>
+    <Grid >
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.35*" />
             <RowDefinition Height="2"/>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
@@ -26,16 +26,16 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Width="auto" Height="auto">
-            <TextBlock Text="系统设置" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Goldenrod"/>
+        <Grid Grid.Row="0" VerticalAlignment="Center">
+            <TextBlock Text="系统设置" FontSize="20" HorizontalAlignment="Center"  Foreground="Goldenrod" FontWeight="Bold"/>
         </Grid>
         <Grid Grid.Row="1">
-            <Rectangle Fill="LightGoldenrodYellow" StrokeThickness="3" Height="auto" Width="auto"/>
+            <Rectangle Fill="Goldenrod" StrokeThickness="3" Height="auto" Width="auto"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
 
@@ -46,16 +46,18 @@
                        FontSize="36"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Center"
-                       Margin="0,0,30,0"
+                       Margin="0,0,50,0"
                        Foreground="Goldenrod"
                    >
 
             </TextBlock>
-            <ToggleSwitch Height="50" Width="50" Grid.Column="1"
+            <ToggleSwitch Name="bgmswitch" Height="50" Width="50" Grid.Column="1"
                 HorizontalAlignment="Left"
                           VerticalAlignment="Center"
                           Margin="30,0,0,0"
-                          Foreground="Goldenrod"
+                          Foreground="LightGoldenrodYellow"
+                          IsOn="True"
+                          Toggled="ToggleSwitch_Toggled"
                />
 
 
@@ -65,8 +67,8 @@
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <TextBlock Name="loud3" 
@@ -76,22 +78,23 @@
                         FontFamily="Segoe MDL2 Assets" 
                        Text="&#xE15D;"
                        FontSize="36"
-                       Margin="0,0,30,0"
+                       Margin="0,0,50,0"
                        Foreground="Goldenrod"
                    >
 
             </TextBlock>
             <Slider x:Name="volumeSlider" 
-                    Header="Volume"
+                    Background="LightGoldenrodYellow"
                     Grid.Column="1"
+                    Value="100"
                HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                 Margin="30,0,0,0"
                 Maximum="100"
                 Minimum="0"
                 Width="100"
-                    Foreground="Goldenrod"
-             
+                    Foreground="LightGoldenrodYellow"
+                ValueChanged="volumeSlider_ValueChanged"
                 />
 
 
@@ -106,7 +109,7 @@
             <Button.Content>
                 <Grid>
                     <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
-                    <TextBlock FontSize="16" Text="更换主题背景" HorizontalAlignment="Center"  FontWeight="Bold" />
+                    <TextBlock FontSize="16" Text="更换背景" HorizontalAlignment="Center"  FontWeight="Bold" />
                 </Grid>
             </Button.Content>
             <Button.Flyout>
@@ -123,7 +126,7 @@
             </Button.Flyout>
 
         </Button>
-        <Button Name="ReturnButton" Height="50" Width="180" FontSize="20" Grid.Row="5" Background="Transparent" Foreground="DarkGoldenrod" HorizontalAlignment="Center" Style="{StaticResource mostbutton}">
+        <Button Name="ReturnButton" Height="50" Width="180" FontSize="20" Grid.Row="5" Background="Transparent" Foreground="DarkGoldenrod" HorizontalAlignment="Center" Style="{StaticResource mostbutton}" Click="ReturnButton_Click">
             <Grid>
                 <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" Stroke="DarkGoldenrod" StrokeThickness="5"/>
                 <TextBlock FontSize="16" Text="退出登录" HorizontalAlignment="Center"  FontWeight="Bold" />

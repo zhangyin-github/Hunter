@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hunter.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,28 @@ namespace Hunter.Settings
         public Settings()
         {
             this.InitializeComponent();
+        }
+
+        private void volumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            BgmPlayer.MusicPlayer.Volume = (double)(volumeSlider.Value / 100);
+        }
+
+        private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+           if(bgmswitch.IsOn==true)
+            {
+                BgmPlayer.MusicPlayer.Play();
+            }
+            else if (bgmswitch.IsOn == false)
+            {
+                BgmPlayer.MusicPlayer.Stop();
+            }
+        }
+
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Log.Login));
         }
     }
 }

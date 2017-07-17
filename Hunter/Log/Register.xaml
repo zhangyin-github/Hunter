@@ -14,7 +14,10 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/log_bg.jpg"/>
+        </Grid.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*"/>
@@ -41,7 +44,7 @@
                        FontSize="18"
                        Margin="0 0 40 0"
                        RelativePanel.AlignRightWithPanel="True"
-                        RelativePanel.AlignVerticalCenterWithPanel="True"> 用户名</TextBlock>
+                        RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="LightGoldenrodYellow"> 用户名</TextBlock>
             </RelativePanel>
             <TextBox Name="userinfo"
                          Height="40"
@@ -62,6 +65,7 @@
                        Height="40"
                        FontSize="18"
                        Margin="0 0 40 0"
+                           Foreground="LightGoldenrodYellow"
                        > 密码</TextBlock>
             </RelativePanel>
             <PasswordBox Name="passwordinfo"
@@ -83,6 +87,7 @@
                        Height="40"
                        FontSize="18"
                        Margin="0 0 40 0"
+                           Foreground="LightGoldenrodYellow"
                        > 确认密码</TextBlock>
             </RelativePanel>
             <PasswordBox Name="password_againinfo"
