@@ -37,11 +37,15 @@
 
                 <!--第0行：标题：玩家信息 TextBlock-->
                 <Grid Grid.Row="0" Width="auto" Height="auto">
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Goldenrod">玩家信息</TextBlock>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="Goldenrod">玩家信息</TextBlock>
                 </Grid>
                 <!--第1行：空白区，用于布局设计-->
                 <Grid Grid.Row="1">
-                    <Rectangle Fill="LightGoldenrodYellow" StrokeThickness="3" Height="auto" Width="auto"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="83*"/>
+                        <ColumnDefinition Width="77*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="Goldenrod" StrokeThickness="3" Height="auto" Width="auto" Grid.ColumnSpan="2"/>
                 </Grid>
                 <!--第2行：玩家信息区-->
                 <Grid Grid.Row="2" HorizontalAlignment="Stretch" Width="auto" Height="auto" Margin="30,10,30,0" >
