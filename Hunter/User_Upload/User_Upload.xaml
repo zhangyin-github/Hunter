@@ -43,12 +43,12 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
-        <TextBlock Grid.Row="2" Text="主题:" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,130,5"  Foreground="Goldenrod"/>
-        <ComboBox x:Name="comboBox"  Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0"  Width="130"  >
-            <ComboBoxItem Content="悬疑" Height="40" Width="130"/>
-            <ComboBoxItem Content="推理" Height="40" Width="130"/>
-            <ComboBoxItem Content="日常" Height="40" Width="130"/>
-            <ComboBoxItem Content="其他" Height="40" Width="130"/>
+        <TextBlock Grid.Row="2" Text="主题:" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,110,5"  Foreground="Goldenrod"/>
+        <ComboBox x:Name="comboBox"  Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="110"  >
+            <ComboBoxItem Content="悬疑" Height="40" Width="110" FontSize="18" Foreground="Goldenrod"/>
+            <ComboBoxItem Content="推理" Height="40" Width="110" FontSize="18" Foreground="Goldenrod"/>
+            <ComboBoxItem Content="日常" Height="40" Width="110" FontSize="18" Foreground="Goldenrod"/>
+            <ComboBoxItem Content="其他" Height="40" Width="110" FontSize="18" Foreground="Goldenrod"/>
             <ComboBox.BorderBrush>
 
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
@@ -62,11 +62,11 @@
             </ComboBox.BorderBrush>
         </ComboBox>
         <TextBlock Grid.Row="2"  Grid.Column="1" Text="场景:" FontSize="18" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="10,0,0,5" Foreground="Goldenrod" />
-        <ComboBox x:Name="comboBox1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="51,0,0,0" Width="130">
-            <ComboBoxItem Content="校园" Height="40" Width="130"/>
-            <ComboBoxItem Content="密室" Height="40" Width="130"/>
-            <ComboBoxItem Content="街道" Height="40" Width="130"/>
-            <ComboBoxItem Content="其他" Height="40" Width="130"/>
+        <ComboBox x:Name="comboBox1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="51,0,0,0" Width="110">
+            <ComboBoxItem Content="校园" Height="35" Width="110" FontSize="18" Foreground="Goldenrod"/>
+            <ComboBoxItem Content="密室" Height="35" Width="110" FontSize="18" Foreground="Goldenrod"/>
+            <ComboBoxItem Content="街道" Height="35" Width="110" FontSize="18" Foreground="Goldenrod"/>
+            <ComboBoxItem Content="其他" Height="35" Width="110" FontSize="18" Foreground="Goldenrod"/>
             <ComboBox.BorderBrush>
 
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
@@ -125,8 +125,24 @@
                 <ColumnDefinition Width="3.5*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="内容:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap">
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="内容:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Goldenrod"/>
+            <ComboBox x:Name="stage" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="108" Height="33" FontSize="15">
+                <ComboBoxItem Content="第一阶段" Width="108" Height="33" FontSize="18" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Content="第二阶段" Width="108" Height="33" FontSize="18" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Content="第三阶段" Width="108" Height="33" FontSize="18" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBox.BorderBrush>
+
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+
+                </ComboBox.BorderBrush>
+            </ComboBox>
+            <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -264,11 +280,7 @@
                 Click="upload_Click" 
                 FontSize="16" Style="{StaticResource mostbutton}">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="0*"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10,-10,-10,-20" Fill="Transparent" Width="170"  StrokeThickness="5" Grid.ColumnSpan="2">
+                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170"  StrokeThickness="5">
                         <Rectangle.Stroke>
                             <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                                 <GradientStop Color="#FF554022" Offset="0"/>
@@ -279,7 +291,7 @@
                             </LinearGradientBrush>
                         </Rectangle.Stroke>
                     </Rectangle>
-                    <TextBlock FontSize="16" Text="发布任务" HorizontalAlignment="Center"  FontWeight="Bold" Margin="43,-10,42.667,-20" Height="61" VerticalAlignment="Top" RenderTransformOrigin="0.375,1.651" />
+                    <TextBlock FontSize="16" Text="发布任务" HorizontalAlignment="Center"  FontWeight="Bold" Margin="43,0,43,-10" />
                 </Grid>
             </Button>
         </Grid>
