@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -30,21 +31,48 @@ namespace Hunter.Log
 
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
+        private async System.Threading.Tasks.Task login_ClickAsync(object sender, RoutedEventArgs e)
         {
-            if (userinfo.Text == "user1" && passwordinfo.Password == "123")
+            if (username.Text != "" && passwordinfo.Password != "")
             {
-                Frame.Navigate(typeof(Room.RoomPage));
-                Frame.BackStack.Clear();
+                using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                {
+                    TimeSpan ts = new TimeSpan(25000000);
+                    client.Timeout = ts;
+                    try
+                    {
+                        var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("username", username.Text),
+                        new KeyValuePair<string,string>("password", passwordinfo.Password),
+                        new KeyValuePair<string,string>("action", "login"),
+                    };
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("./test.php", new FormUrlEncodedContent(kvp));
+                        if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                        {
+                            Frame.Navigate(typeof(Room.RoomPage));
+                            Frame.BackStack.Clear();
+
+                        }
+                    }
+                    catch
+                    {
+                        
+                    }
+                    finally
+                    {
+
+                    }
+
+
+                }
             }
-            if (userinfo.Text != "user1")
-            {
-                ShowUserWrong();
-            }
-            if (userinfo.Text == "user1" && passwordinfo.Password != "123")
+            else
             {
                 ShowPasswordWrong();
             }
+
+           
         }
 
         private void register_Click(object sender, RoutedEventArgs e)
