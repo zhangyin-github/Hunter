@@ -12,9 +12,9 @@ namespace Hunter.Models
     public class userMessages
     {
         /// <summary>
-        /// 玩家昵称dickName
+        /// 玩家昵称nickName
         /// </summary>
-        public string dickName { get; set; }
+        public string nickName { get; set; }
         /// <summary>
         /// 玩家账号ID
         /// </summary>

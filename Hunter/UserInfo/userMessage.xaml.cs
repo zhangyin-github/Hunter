@@ -29,9 +29,9 @@ namespace Hunter.UserInfo
     {
         private StorageFile storageFile;
         private score scoreValue;
-
+        public string oldnickName;
         public object Console { get; private set; }
-        
+        public bool newnickNameCanBeCahenged = false;
 
         public userMessage()
         {
@@ -91,31 +91,72 @@ namespace Hunter.UserInfo
                 }
         }
 
-        
         /// <summary>
-        /// 修改昵称
+        /// 修改昵称打开Flyout
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void newDickNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void changenickNameFlyout_Opening(object sender, object e)
         {
-            if(dickName.Text == newDickNameTextBox.Text)
-            {
-                newDickNameTitleTextBlock.Text = "昵称已存在请重新输入！";
-                checkTextBlockISWrong.Visibility = Visibility.Collapsed;
-                checkTextBlockIsOk.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                newDickNameTitleTextBlock.Text = "新昵称可用";
-                checkTextBlockIsOk.Visibility = Visibility.Collapsed;
-                checkTextBlockISWrong.Visibility = Visibility.Visible;
-                dickName.Text = newDickNameTextBox.Text;
-            }
+            oldnickName = nickName.Text;
+            
         }
 
 
-        
+        /// <summary>
+        /// 修改昵称TextBox文本变化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newnickNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+
+            if (string.IsNullOrEmpty(newnickNameTextBox.Text))
+            {
+                newnickNameTitleTextBlock.Text = "昵称不能为空！请重新输入！";
+                checkTextBlockISWrong.Visibility = Visibility.Visible;
+                checkTextBlockIsOk.Visibility = Visibility.Collapsed;
+                newnickNameCanBeCahenged = false;
+                return;
+            }
+
+            if (newnickNameTextBox.Text == oldnickName)
+            {
+                newnickNameTitleTextBlock.Text = "昵称已存在请重新输入！";
+                checkTextBlockISWrong.Visibility = Visibility.Visible;
+                checkTextBlockIsOk.Visibility = Visibility.Collapsed;
+                newnickNameCanBeCahenged = false;
+                return;
+            }
+            
+            else
+            {
+                newnickNameTitleTextBlock.Text = "新昵称可用";
+                checkTextBlockIsOk.Visibility = Visibility.Visible;
+                checkTextBlockISWrong.Visibility = Visibility.Collapsed;
+                newnickNameCanBeCahenged = true;
+            }
+        }
+        /// <summary>
+        /// 修改昵称关闭Flyout的动作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void changenickNameFlyout_Closed(object sender, object e)
+        {
+            if(newnickNameCanBeCahenged)
+            {
+                nickName.Text = newnickNameTextBox.Text;
+            }
+            else
+            {
+                nickName.Text = oldnickName;
+            }
+            
+        }
+
+
         /// <summary>
         /// 解谜情况统计数据绑定
         /// </summary>
@@ -174,5 +215,7 @@ namespace Hunter.UserInfo
             dialog.PrimaryButtonClick += (_s, _e) => { };
             await dialog.ShowAsync();
         }
+
+        
     }
 }
