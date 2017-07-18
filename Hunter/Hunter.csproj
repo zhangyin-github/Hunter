@@ -120,6 +120,7 @@
       <DependentUpon>Task_Message.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\BgmPlayer.cs" />
+    <Compile Include="Models\Items.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\userMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

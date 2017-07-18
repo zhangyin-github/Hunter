@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
-
+    <Grid Height="150" Width="150">
+        <TextBlock Margin="5" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Goldenrod" Text="{x:Bind Contact.name}"/>
     </Grid>
 </UserControl>

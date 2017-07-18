@@ -19,9 +19,18 @@ namespace Hunter.Items
 {
     public sealed partial class ItemsControl : UserControl
     {
+        public Models.User_ItemList Contact
+        {
+            get
+            {
+                return this.DataContext as Models.User_ItemList;
+            }
+        }
+
         public ItemsControl()
         {
             this.InitializeComponent();
+            this.DataContextChanged += (s, e) => Bindings.Update();
         }
     }
 }

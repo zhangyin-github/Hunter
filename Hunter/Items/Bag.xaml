@@ -5,9 +5,109 @@
     xmlns:local="using:Hunter.Items"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Hunter.Models"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\ButtonDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.05*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="2.5*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1"  Text="我的道具" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"  Foreground="Goldenrod" FontWeight="Bold"/>
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="$" FontSize="20" HorizontalAlignment="Center"  Foreground="Goldenrod" FontWeight="Bold"/>
+                <TextBlock Name="point" Margin="20 0 0 0" Text="0" FontSize="20" HorizontalAlignment="Center"  Foreground="Goldenrod" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Rectangle  StrokeThickness="3" Height="auto" Width="auto">
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <GridView Grid.Column="1" Margin="0 50 0 50" MaxWidth="1000" ItemsSource="{x:Bind MyList}" HorizontalAlignment="Left" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:User_ItemList">
+                        <local:ItemsControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" MinWidth="200" MaxWidth="800" Margin="20 20 0 20" BorderThickness="5">
+                <Grid.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF554022" Offset="0"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                        <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                        <GradientStop Color="#FF554022" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.BorderBrush>
+                <TextBlock Name="Item_Info" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="我的道具" FontSize="20" Margin="10"  Foreground="Goldenrod" FontWeight="Bold" />
+            </Grid>
+            <Button Name="usebutton"
+                        Grid.Column="2"
+                        FontSize="18"
+                        Margin="50 0 0 0"
+                        Height="100"
+                        Width="100"
+                        HorizontalAlignment="Left"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignVerticalCenterWithPanel="True" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}">
+                <Grid>
+                    <Rectangle RadiusX="30" RadiusY="30" Margin="-10" Fill="Transparent" Height="80" HorizontalAlignment="Stretch" MinWidth="100" StrokeThickness="5">
+                        <Rectangle.Stroke>
+                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                <GradientStop Color="#FF554022" Offset="0"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                                <GradientStop Color="Goldenrod" Offset="0.5"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                                <GradientStop Color="#FF554022" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Stroke>
+                    </Rectangle>
+                    <TextBlock FontSize="24" Text="使用" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" />
+                </Grid>
+            </Button>
+        </Grid>
     </Grid>
 </Page>

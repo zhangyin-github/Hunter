@@ -55,7 +55,7 @@ namespace Hunter.Room
         }
         private void MyItems_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(Items.Bag));
         }
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
