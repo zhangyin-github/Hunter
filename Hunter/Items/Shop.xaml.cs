@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hunter.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,16 @@ namespace Hunter.Items
     /// </summary>
     public sealed partial class Shop : Page
     {
+        public List<Shop_ItemList> MyList;
         public Shop()
         {
             this.InitializeComponent();
+            MyList = Shop_ItemMenager.getInstance();
+        }
+
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }
