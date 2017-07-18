@@ -57,7 +57,8 @@ namespace Hunter.Log
                     }
                     catch
                     {
-                        
+                        Frame.Navigate(typeof(Room.RoomPage));
+                        Frame.BackStack.Clear();
                     }
                     finally
                     {
