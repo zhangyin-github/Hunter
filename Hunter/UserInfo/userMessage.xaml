@@ -113,10 +113,12 @@
 
                             <Button.Flyout>
                                 <Flyout>
-                                    <StackPanel>
-                                        <TextBlock>请输入新的昵称</TextBlock>
-                                        <TextBox Name="newDickNameTextBox" TextChanged="newDickNameTextBox_TextChanged"></TextBox>
-                                    </StackPanel>
+                                    <RelativePanel>
+                                        <TextBlock Name="newDickNameTitleTextBlock" HorizontalAlignment="Center">请输入新的昵称</TextBlock>
+                                        <TextBox Name="newDickNameTextBox" TextChanged="newDickNameTextBox_TextChanged" RelativePanel.Below="newDickNameTitleTextBlock" MinWidth="115" Width="auto"></TextBox>
+                                        <TextBlock Name="checkTextBlockIsOk" FontFamily="Segoe MDL2 Assets" Text="&#xE10A;" RelativePanel.RightOf="newDickNameTextBox" RelativePanel.Below="newDickNameTitleTextBlock"  Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
+                                        <TextBlock Name="checkTextBlockISWrong" FontFamily="Segoe MDL2 Assets" Text="&#xE10B;" RelativePanel.RightOf="newDickNameTextBox" RelativePanel.Below="newDickNameTitleTextBlock"  Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
+                                    </RelativePanel>
                                 </Flyout>
                             </Button.Flyout>
                         </Button>
