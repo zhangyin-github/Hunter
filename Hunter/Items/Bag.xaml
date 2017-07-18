@@ -57,7 +57,7 @@
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
-            <GridView Grid.Column="1" Margin="0 50 0 50" MaxWidth="1000" ItemsSource="{x:Bind MyList}" HorizontalAlignment="Left" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
+            <GridView Grid.Column="1" Margin="0 50 0 50" MaxWidth="1800" ItemsSource="{x:Bind MyList}" HorizontalAlignment="Stretch" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:User_ItemList">
                         <local:ItemsControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
@@ -90,7 +90,7 @@
                         Margin="50 0 0 0"
                         Height="100"
                         Width="100"
-                        HorizontalAlignment="Left"
+                        HorizontalAlignment="Center"
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}">
                 <Grid>
