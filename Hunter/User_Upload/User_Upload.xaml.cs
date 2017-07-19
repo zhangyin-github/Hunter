@@ -28,14 +28,21 @@ namespace Hunter.User_Upload
     /// </summary>
     public sealed partial class User_Upload : Page
     {
+        /// <summary>
+        /// 三条线索的内容保存
+        /// </summary>
         public string clue1Text;
         public string clue2Text;
         public string clue3Text;
-
+        /// <summary>
+        /// 线索能否被更改标记
+        /// </summary>
         public bool clue1TextCanBeChange=false;
         public bool clue2TextCanBeChange = false;
         public bool clue3TextCanBeChange = false;
-
+        /// <summary>
+        /// 线索是否已经被更改标记
+        /// </summary>
         public bool clue1TextHasBeenChanged = false;
         public bool clue2TextHasBeenChanged = false;
         public bool clue3TextHasBeenChanged = false;
@@ -127,7 +134,11 @@ namespace Hunter.User_Upload
             }
             add2.Visibility = Visibility.Collapsed;
         }
-
+        /// <summary>
+        /// clueComboBox_DropDownClosed某线索被选中规则
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clueComboBox_DropDownClosed(object sender, object e)
         {
             if (clue1.IsSelected)
@@ -141,6 +152,7 @@ namespace Hunter.User_Upload
                 if (clue2.IsSelected)
                 {
                     contentTextBox.Text = "";
+                    clue2TextCanBeChange = true;
                     contentTextBox.IsReadOnly = false;
                 }
             }
@@ -152,6 +164,7 @@ namespace Hunter.User_Upload
                     if (clue3.IsSelected)
                     {
                         contentTextBox.Text = "";
+                        clue3TextCanBeChange = true;
                         contentTextBox.IsReadOnly = false;
                     }
                 }
@@ -159,7 +172,11 @@ namespace Hunter.User_Upload
             
 
         }
-
+        /// <summary>
+        /// contentTextBox文本被改变对应操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void contentTextBox_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
         {
             if (clue1TextCanBeChange)
