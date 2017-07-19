@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,20 +28,67 @@ namespace Hunter.Log
             this.InitializeComponent();
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
+        private async void login_ClickAsync(object sender, RoutedEventArgs e)
         {
-            if (passwordinfo.Password != password_againinfo.Password)//判断是否一致
+            if (username.Text != "" && passwordinfo.Password != "")
             {
-                ShowNotComponent();
+                if (passwordinfo.Password != password_againinfo.Password)//判断是否一致
+                {
+                    ShowNotComponent();
+                }
+                if (userinfo.Text == "")//判段是否输入
+                {
+                    ShowNotHave();
+                }
+                else
+                {
+                    using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                    {
+                        TimeSpan ts = new TimeSpan(25000000);
+                        client.Timeout = ts;
+                        try
+                        {
+                            var kvp = new List<KeyValuePair<string, string>>
+                            {
+                                 new KeyValuePair<string,string>("action", "reg"),
+                                 new KeyValuePair<string,string>("userid", userinfo.Text),
+                                  new KeyValuePair<string,string>("password", passwordinfo.Password),
+                       
+                            };
+                            System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                            if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                            {
+                                string responseBody = await response.Content.ReadAsStringAsync();
+                                if (responseBody == "success")
+                                {
+                                    Frame.Navigate(typeof(Room.RoomPage));
+                                    Frame.BackStack.Clear();
+                                }
+                                else
+                                {
+                                    var msgDialog = new Windows.UI.Popups.MessageDialog("用户名已存在，请修改用户名") { Title = "注册失败" };
+                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                                    await msgDialog.ShowAsync();
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            var msgDialog = new Windows.UI.Popups.MessageDialog("服务器可能开小差了，请稍后再试") { Title = "注册失败" };
+                            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                            await msgDialog.ShowAsync();
+
+                        }
+                        finally
+                        {
+
+                        }
+
+
+                    }
+                }
             }
-            if (userinfo.Text == "")//判段是否输入
-            {
-                ShowNotHave();
-            }
-            if (userinfo.Text == "user1")//判断是否已存在
-            {
-                ShowHad();
-            }
+        
         }
 
         private async void ShowNotComponent()//密码不一致弹窗内容
