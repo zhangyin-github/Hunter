@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid  >
+    <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
@@ -182,7 +182,6 @@
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
                         <MenuFlyoutItem Text="从相册中选择" Click="Choose_Click"/>
-                        <MenuFlyoutItem Text="拍照" Click="Photo_Click"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
@@ -201,7 +200,6 @@
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
                         <MenuFlyoutItem Text="从相册中选择" Click="Choose_Click1"/>
-                        <MenuFlyoutItem Text="拍照" Click="Photo_Click1"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
@@ -220,7 +218,6 @@
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
                         <MenuFlyoutItem Text="从相册中选择" Click="Choose_Click2"/>
-                        <MenuFlyoutItem Text="拍照" Click="Photo_Click2"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
