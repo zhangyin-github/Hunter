@@ -126,7 +126,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="内容:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Goldenrod"/>
-            <ComboBox x:Name="clueComboBox" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="108" Height="33" FontSize="15" SelectionChanged="clueComboBox_SelectionChanged">
+            <ComboBox x:Name="clueComboBox" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="108" Height="33" FontSize="15">
                 <ComboBoxItem x:Name="clue1" Content="线索一" Width="108" Height="33" FontSize="18" Foreground="Goldenrod"></ComboBoxItem>
                 <ComboBoxItem x:Name="clue2" Content="线索二" Width="108" Height="33" FontSize="18" Foreground="Goldenrod"></ComboBoxItem>
                 <ComboBoxItem x:Name="clue3" Content="线索三" Width="108" Height="33" FontSize="18" Foreground="Goldenrod"></ComboBoxItem>
