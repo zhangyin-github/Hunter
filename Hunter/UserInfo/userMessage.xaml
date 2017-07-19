@@ -96,10 +96,10 @@
                     </StackPanel>
                     <!--第2行  第1列：玩家信息展示区（更换昵称的图片/Assets/change.png   +  账号 + 等级 + 积分ProgressBar -->
                     <RelativePanel Grid.Row="1" Grid.Column="1" Margin="50,0,0,0" HorizontalAlignment="Left" Width="auto">
-                        <TextBlock x:Name="dickNameTitle" FontSize="20" Foreground="LightGoldenrodYellow" Margin="10,5,5,0">昵称：</TextBlock>
-                        <TextBlock x:Name="dickName" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="dickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
+                        <TextBlock x:Name="nickNameTitle" FontSize="20" Foreground="LightGoldenrodYellow" Margin="10,5,5,0">昵称：</TextBlock>
+                        <TextBlock x:Name="nickName" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="nickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
 
-                        <Button Name="changeDickNameButton" RelativePanel.RightOf="dickName" Width="16" VerticalAlignment="Stretch" Margin="10,5,-6,0" Style="{StaticResource mostbutton}">
+                        <Button Name="changenickNameButton" RelativePanel.RightOf="nickName" Width="16" VerticalAlignment="Stretch" Margin="10,5,-6,0" Style="{StaticResource mostbutton}">
                             <Button.RenderTransform>
                                 <CompositeTransform ScaleX="-1" TranslateX="3.68"/>
                             </Button.RenderTransform>
@@ -112,19 +112,19 @@
                             </Button.Content>
 
                             <Button.Flyout>
-                                <Flyout>
+                                <Flyout x:Name="changenickNameFlyout" Opening="changenickNameFlyout_Opening" Closed="changenickNameFlyout_Closed">
                                     <RelativePanel>
-                                        <TextBlock Name="newDickNameTitleTextBlock" HorizontalAlignment="Center">请输入新的昵称</TextBlock>
-                                        <TextBox Name="newDickNameTextBox" TextChanged="newDickNameTextBox_TextChanged" RelativePanel.Below="newDickNameTitleTextBlock" MinWidth="115" Width="auto"></TextBox>
-                                        <TextBlock Name="checkTextBlockIsOk" FontFamily="Segoe MDL2 Assets" Text="&#xE10A;" RelativePanel.RightOf="newDickNameTextBox" RelativePanel.Below="newDickNameTitleTextBlock"  Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
-                                        <TextBlock Name="checkTextBlockISWrong" FontFamily="Segoe MDL2 Assets" Text="&#xE10B;" RelativePanel.RightOf="newDickNameTextBox" RelativePanel.Below="newDickNameTitleTextBlock"  Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
+                                        <TextBlock Name="newnickNameTitleTextBlock" HorizontalAlignment="Center">请输入新的昵称</TextBlock>
+                                        <TextBox Name="newnickNameTextBox" TextChanged="newnickNameTextBox_TextChanged" RelativePanel.Below="newnickNameTitleTextBlock" MinWidth="115" Width="auto"></TextBox>
+                                        <TextBlock Name="checkTextBlockIsOk" FontFamily="Segoe MDL2 Assets" Text="&#xE10B;" RelativePanel.RightOf="newnickNameTextBox" RelativePanel.Below="newnickNameTitleTextBlock"  Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
+                                        <TextBlock Name="checkTextBlockISWrong" FontFamily="Segoe MDL2 Assets" Text="&#xE10A;" RelativePanel.RightOf="newnickNameTextBox" RelativePanel.Below="newnickNameTitleTextBlock"  Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
                                     </RelativePanel>
                                 </Flyout>
                             </Button.Flyout>
                         </Button>
 
-                        <TextBlock x:Name="IDTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="dickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
-                        <TextBlock x:Name="ID" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="dickNameTitle"  RelativePanel.Below="dickName" Margin="5,10,0,0">668990003</TextBlock>
+                        <TextBlock x:Name="IDTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="nickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
+                        <TextBlock x:Name="ID" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="nickNameTitle"  RelativePanel.Below="nickName" Margin="5,10,0,0">668990003</TextBlock>
                         <TextBlock x:Name="rateTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
                         <TextBlock x:Name="rate" FontSize="20" Foreground="LightGoldenrodYellow"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0">23</TextBlock>
                         <TextBlock x:Name="scoreTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="rateTitle"  Margin="10,10,5,0">积分：</TextBlock>
