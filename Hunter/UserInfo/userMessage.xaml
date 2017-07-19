@@ -147,7 +147,7 @@
                             <RowDefinition Height="22*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" HorizontalAlignment="Center" Grid.Row="1">设迷统计:</TextBlock>
+                        <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" HorizontalAlignment="Center" Grid.Row="1">解迷统计:</TextBlock>
                     </Grid>
 
                     <Grid Grid.Row="3"  Grid.Column="1" MinWidth="200">
@@ -167,8 +167,8 @@
                 <!--第4行：游戏解谜数据展示区 解谜统计：解谜数数据显示textblock-->
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition  Width="*"/>
-                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="288"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Name="solveTextBlock" Grid.Column="1"  VerticalAlignment="Center" FontSize="16" Foreground="Goldenrod" Width="auto">解谜数目（成功/失败）：</TextBlock>
 
