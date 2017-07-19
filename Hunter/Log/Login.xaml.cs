@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -30,21 +31,61 @@ namespace Hunter.Log
 
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
+        private async void login_ClickAsync(object sender, RoutedEventArgs e)
         {
-            if (userinfo.Text == "user1" && passwordinfo.Password == "123")
+            if (username.Text != "" && passwordinfo.Password != "")
             {
-                Frame.Navigate(typeof(Room.RoomPage));
-                Frame.BackStack.Clear();
+                using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                {
+                    TimeSpan ts = new TimeSpan(15000000);
+                    client.Timeout = ts;
+                    try
+                    {
+                        var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("userid", userinfo.Text),
+                        new KeyValuePair<string,string>("password", passwordinfo.Password),
+                        new KeyValuePair<string,string>("action", "login"),
+                    };
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                        if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                        {
+                            string responseBody = await response.Content.ReadAsStringAsync();
+                            if(responseBody=="success")
+                            {
+                                Frame.Navigate(typeof(Room.RoomPage));
+                                Frame.BackStack.Clear();
+                            }
+                            else
+                            {
+                                var msgDialog = new Windows.UI.Popups.MessageDialog("用户名或密码错误，请检查您的用户名和密码") { Title = "登录失败" };
+                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                                await msgDialog.ShowAsync();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        var msgDialog = new Windows.UI.Popups.MessageDialog("服务器可能开小差了，请稍后再试") { Title = "登录失败" };
+                        msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                        await msgDialog.ShowAsync();
+                       
+                    }
+                    finally
+                    {
+
+                    }
+
+
+                }
             }
-            if (userinfo.Text != "user1")
-            {
-                ShowUserWrong();
-            }
-            if (userinfo.Text == "user1" && passwordinfo.Password != "123")
+            else
             {
                 ShowPasswordWrong();
             }
+           
+
+
         }
 
         private void register_Click(object sender, RoutedEventArgs e)

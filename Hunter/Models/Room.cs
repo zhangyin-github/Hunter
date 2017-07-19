@@ -27,4 +27,6 @@ namespace Hunter.Models
             return lists;
         }
     }
+
+   
 }
