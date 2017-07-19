@@ -28,7 +28,6 @@ namespace Hunter.UserInfo
     public sealed partial class userMessage : Page
     {
         private StorageFile storageFile;
-        private score scoreValue;
         public string oldnickName;
         public object Console { get; private set; }
         public bool newnickNameCanBeCahenged = false;
@@ -36,17 +35,17 @@ namespace Hunter.UserInfo
         public userMessage()
         {
             StorageFile storageFile = null;
-
-            scoreValue = new score();
-            scoreValue.Max = 100;
-            scoreValue.Min = 0;
-            scoreValue.CurrentValue = 10;
-
+            
             NewUser = userInfo.getInstance();
 
             this.InitializeComponent();
+            ExpBar.Maximum = 1000;
+            ExpBar.Minimum = 0;
             nickName.Text = NewUser.nickName;
-
+            ID.Text = NewUser.ID;
+            rate.Text = (NewUser.Exp / 1000).ToString();
+            Exp.Text = (NewUser.Exp % 1000).ToString()+"/1000";
+            ExpBar.Value = NewUser.Exp % 1000;
             List<solve> difficulties = new List<solve>();
             difficulties.Add(new solve() { difficulty = "全部难度题目" , difficultyScores = "解谜数目（成功/失败）：16/20" });
             difficulties.Add(new solve() { difficulty = "五星难度题目" , difficultyScores = "解谜数目（成功/失败）：2/7" });
