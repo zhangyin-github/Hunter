@@ -74,11 +74,6 @@ namespace Hunter.User_Upload
             add.Visibility = Visibility.Collapsed;
         }
 
-        private void Photo_Click(System.Object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private async void Choose_Click1(System.Object sender, RoutedEventArgs e)
         {
             FileOpenPicker openPicker = new FileOpenPicker(); //打开文件选择器。
@@ -100,12 +95,7 @@ namespace Hunter.User_Upload
             add1.Visibility = Visibility.Collapsed;
         }
 
-        private void Photo_Click1(System.Object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
+     
         private async void Choose_Click2(System.Object sender, RoutedEventArgs e)
         {
             FileOpenPicker openPicker = new FileOpenPicker(); //打开文件选择器。
@@ -124,12 +114,6 @@ namespace Hunter.User_Upload
                 picture3.Source = image;
             }
             add2.Visibility = Visibility.Collapsed;
-        }
-
-
-        private void Photo_Click2(System.Object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
