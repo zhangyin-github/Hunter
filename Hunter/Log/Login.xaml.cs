@@ -62,15 +62,29 @@ namespace Hunter.Log
                                       new KeyValuePair<string,string>("action", "info"),
                                  };
                                 System.Net.Http.HttpResponseMessage user = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(info));
-                                if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                                if (user.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                                 {
                                     string userinfo = await user.Content.ReadAsStringAsync();
                                     var userdata = userinfo.Split(',');
                                     NewUser.ID = userdata[0];
                                     NewUser.nickName = userdata[1];
-                                    NewUser.Exp = int.Parse(userdata[2]);
+                                    if(userdata[2]=="")
+                                    {
+                                        NewUser.Exp =0;
+                                    }
+                                    else
+                                    {
+                                        NewUser.Exp = int.Parse(userdata[2]);
+                                    }
                                     NewUser.ps = userdata[3];
-                                    NewUser.money = int.Parse(userdata[4]);
+                                    if (userdata[4] == "")
+                                    {
+                                        NewUser.money = 0;
+                                    }
+                                    else
+                                    {
+                                        NewUser.money = int.Parse(userdata[4]);
+                                    }
                                 }
                                 Frame.Navigate(typeof(Room.RoomPage));
                                 Frame.BackStack.Clear();
