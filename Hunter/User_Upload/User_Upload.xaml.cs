@@ -17,6 +17,7 @@ using Windows.Storage.Pickers;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.Media.Capture;
 using Windows.Storage;
+using Hunter.Models;
 
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -28,8 +29,10 @@ namespace Hunter.User_Upload
     /// </summary>
     public sealed partial class User_Upload : Page
     {
+        public Missons NewMisson;
         public User_Upload()
         {
+            NewMisson = MissonInfo.getInstance();
             this.InitializeComponent();
         }
 
