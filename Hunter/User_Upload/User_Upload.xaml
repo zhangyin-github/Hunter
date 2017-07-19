@@ -246,7 +246,7 @@
                 </TextBox.BorderBrush>
             </TextBox>
             <TextBlock Grid.Row="0" Grid.Column="2" Text="答案:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox x:Name="keyTextBox"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0" TextChanged="TextBox_TextChanged" >
+            <TextBox x:Name="keyTextBox"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0">
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
