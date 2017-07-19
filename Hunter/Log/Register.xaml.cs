@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hunter.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,8 +24,10 @@ namespace Hunter.Log
     /// </summary>
     public sealed partial class Register : Page
     {
+        public userMessages NewUser;
         public Register()
         {
+            NewUser = userInfo.getInstance();
             this.InitializeComponent();
         }
 
@@ -61,6 +64,36 @@ namespace Hunter.Log
                                 string responseBody = await response.Content.ReadAsStringAsync();
                                 if (responseBody == "success")
                                 {
+                                    var info = new List<KeyValuePair<string, string>>
+                                 {
+                                      new KeyValuePair<string,string>("userid", userinfo.Text),
+                                      new KeyValuePair<string,string>("action", "info"),
+                                 };
+                                    System.Net.Http.HttpResponseMessage user = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(info));
+                                    if (user.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                                    {
+                                        string userinfo = await user.Content.ReadAsStringAsync();
+                                        var userdata = userinfo.Split(',');
+                                        NewUser.ID = userdata[0];
+                                        NewUser.nickName = userdata[1];
+                                        if (userdata[2] == "")
+                                        {
+                                            NewUser.Exp = 0;
+                                        }
+                                        else
+                                        {
+                                            NewUser.Exp = int.Parse(userdata[2]);
+                                        }
+                                        NewUser.ps = userdata[3];
+                                        if (userdata[4] == "")
+                                        {
+                                            NewUser.money = 0;
+                                        }
+                                        else
+                                        {
+                                            NewUser.money = int.Parse(userdata[4]);
+                                        }
+                                    }
                                     Frame.Navigate(typeof(Room.RoomPage));
                                     Frame.BackStack.Clear();
                                 }

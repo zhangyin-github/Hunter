@@ -32,7 +32,7 @@ namespace Hunter.UserInfo
         public string oldnickName;
         public object Console { get; private set; }
         public bool newnickNameCanBeCahenged = false;
-
+        public userMessages NewUser;
         public userMessage()
         {
             StorageFile storageFile = null;
@@ -41,10 +41,11 @@ namespace Hunter.UserInfo
             scoreValue.Max = 100;
             scoreValue.Min = 0;
             scoreValue.CurrentValue = 10;
-            
 
+            NewUser = userInfo.getInstance();
 
             this.InitializeComponent();
+            nickName.Text = NewUser.nickName;
 
             List<solve> difficulties = new List<solve>();
             difficulties.Add(new solve() { difficulty = "全部难度题目" , difficultyScores = "解谜数目（成功/失败）：16/20" });
