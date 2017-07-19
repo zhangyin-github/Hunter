@@ -28,6 +28,18 @@ namespace Hunter.User_Upload
     /// </summary>
     public sealed partial class User_Upload : Page
     {
+        public string clue1Text;
+        public string clue2Text;
+        public string clue3Text;
+
+        public bool clue1TextCanBeChange=false;
+        public bool clue2TextCanBeChange = false;
+        public bool clue3TextCanBeChange = false;
+
+        public bool clue1TextHasBeenChanged = false;
+        public bool clue2TextHasBeenChanged = false;
+        public bool clue3TextHasBeenChanged = false;
+
         public User_Upload()
         {
             this.InitializeComponent();
@@ -114,6 +126,62 @@ namespace Hunter.User_Upload
                 picture3.Source = image;
             }
             add2.Visibility = Visibility.Collapsed;
+        }
+
+        private void clueComboBox_DropDownClosed(object sender, object e)
+        {
+            if (clue1.IsSelected)
+            {
+                contentTextBox.IsReadOnly = false;
+                clue1TextCanBeChange = true;
+            }
+
+            if(clue1TextHasBeenChanged)
+            {
+                if (clue2.IsSelected)
+                {
+                    contentTextBox.Text = "";
+                    contentTextBox.IsReadOnly = false;
+                }
+            }
+
+            if (clue1TextHasBeenChanged)
+            {
+                if (clue2TextHasBeenChanged)
+                {
+                    if (clue3.IsSelected)
+                    {
+                        contentTextBox.Text = "";
+                        contentTextBox.IsReadOnly = false;
+                    }
+                }
+            }
+            
+
+        }
+
+        private void contentTextBox_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            if (clue1TextCanBeChange)
+            {
+                clue1Text = contentTextBox.Text;
+                clue1TextHasBeenChanged = true;
+
+            }
+
+            if (clue2TextCanBeChange)
+            {
+
+                clue2Text = contentTextBox.Text;
+                clue2TextHasBeenChanged = true;
+            }
+
+            if (clue3TextCanBeChange)
+            {
+                clue3Text = contentTextBox.Text;
+                clue3TextHasBeenChanged = true;
+            }
+
         }
     }
 }
