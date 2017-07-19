@@ -97,7 +97,7 @@
                     <!--第2行  第1列：玩家信息展示区（更换昵称的图片/Assets/change.png   +  账号 + 等级 + 积分ProgressBar -->
                     <RelativePanel Grid.Row="1" Grid.Column="1" Margin="50,0,0,0" HorizontalAlignment="Left" Width="auto">
                         <TextBlock x:Name="nickNameTitle" FontSize="20" Foreground="LightGoldenrodYellow" Margin="10,5,5,0">昵称：</TextBlock>
-                        <TextBlock x:Name="nickName" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="nickNameTitle" Margin="5,5,0,0">幸福的相遇了</TextBlock>
+                        <TextBlock x:Name="nickName" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="nickNameTitle" Margin="5,5,0,0"></TextBlock>
 
                         <Button Name="changenickNameButton" RelativePanel.RightOf="nickName" Width="16" VerticalAlignment="Stretch" Margin="10,5,-6,0" Style="{StaticResource mostbutton}">
                             <Button.RenderTransform>
