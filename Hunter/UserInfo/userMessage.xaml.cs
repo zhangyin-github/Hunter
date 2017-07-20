@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -143,17 +144,62 @@ namespace Hunter.UserInfo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void changenickNameFlyout_Closed(object sender, object e)
+        private async void changenickNameFlyout_ClosedAsync(object sender, object e)
         {
-            if(newnickNameCanBeCahenged)
+            if (newnickNameCanBeCahenged)
             {
                 nickName.Text = newnickNameTextBox.Text;
+                NewUser.nickName = nickName.Text;
+                using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                {
+                    TimeSpan ts = new TimeSpan(15000000);
+                    client.Timeout = ts;
+                    try
+                    {
+                        var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("name", NewUser.nickName),
+                        new KeyValuePair<string,string>("id", NewUser.ID),
+                        new KeyValuePair<string,string>("action", "changename"),
+                    };
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                        if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                        {
+                            string responseBody = await response.Content.ReadAsStringAsync();
+                            if (responseBody == "success")
+                            {
+                                var msgDialog = new Windows.UI.Popups.MessageDialog("修改成功") { Title = "提示" };
+                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                                await msgDialog.ShowAsync();
+                            }
+                            else
+                            {
+                                var msgDialog = new Windows.UI.Popups.MessageDialog("修改失败，服务器可能开小差了，要不待会儿重试一下？") { Title = "提示" };
+                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                                await msgDialog.ShowAsync();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        var msgDialog = new Windows.UI.Popups.MessageDialog("服务器可能开小差了，请稍后再试") { Title = "登录失败" };
+                        msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                        await msgDialog.ShowAsync();
+
+                    }
+                    finally
+                    {
+
+                    }
+
+
+                }
             }
             else
             {
                 nickName.Text = oldnickName;
             }
-            
+
         }
 
 

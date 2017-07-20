@@ -112,7 +112,7 @@
                             </Button.Content>
 
                             <Button.Flyout>
-                                <Flyout x:Name="changenickNameFlyout" Opening="changenickNameFlyout_Opening" Closed="changenickNameFlyout_Closed">
+                                <Flyout x:Name="changenickNameFlyout" Opening="changenickNameFlyout_Opening" Closed="changenickNameFlyout_ClosedAsync">
                                     <RelativePanel>
                                         <TextBlock Name="newnickNameTitleTextBlock" HorizontalAlignment="Center">请输入新的昵称</TextBlock>
                                         <TextBox Name="newnickNameTextBox" TextChanged="newnickNameTextBox_TextChanged" RelativePanel.Below="newnickNameTitleTextBlock" MinWidth="115" Width="auto"></TextBox>
