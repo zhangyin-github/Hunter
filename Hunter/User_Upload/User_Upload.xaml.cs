@@ -91,7 +91,7 @@ namespace Hunter.User_Upload
                     {
                         new KeyValuePair<string,string>("id", NewUser.ID),
                         new KeyValuePair<string,string>("title", TitleTextbox.Text),
-                        new KeyValuePair<string,string>("class", themeComboBox.SelectionBoxItem.ToString()),
+                        new KeyValuePair<string,string>("classes", themeComboBox.SelectionBoxItem.ToString()),
                         new KeyValuePair<string,string>("addr", backgroundComboBox.SelectionBoxItem.ToString()),
                         new KeyValuePair<string,string>("content1",clueText[0]),
                         new KeyValuePair<string,string>("content2",clueText[1]),

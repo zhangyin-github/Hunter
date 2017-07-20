@@ -3,7 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
@@ -46,9 +49,43 @@ namespace Hunter.Room
             Frame.Navigate(typeof(UserInfo.userMessage));
         }
 
-        private void refreshbutton_Click(object sender, RoutedEventArgs e)
+        private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)
         {
-           
+            using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+            {
+                TimeSpan ts = new TimeSpan(15000000);
+                client.Timeout = ts;
+                try
+                {
+                    var kvp = new List<KeyValuePair<string, string>>
+                    {
+
+                        new KeyValuePair<string,string>("action", "getmission"),
+                    };
+                    System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var s = new DataContractJsonSerializer(typeof(RootObject));
+                        var ms = new MemoryStream(Encoding.UTF8.GetBytes(responseBody));
+                        var data = (RootObject)s.ReadObject(ms);
+
+                    }
+                }
+                catch
+                {
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("网络可能开小差了，请稍后再试") { Title = "登录失败" };
+                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                    await msgDialog.ShowAsync();
+
+                }
+                finally
+                {
+
+                }
+
+
+            }
         }
 
         private void NewTask_Click(object sender, RoutedEventArgs e)
