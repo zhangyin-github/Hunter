@@ -141,17 +141,12 @@
                         <ColumnDefinition  Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Row="3"  Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="3*"/>
-                            <RowDefinition Height="22*"/>
-                        </Grid.RowDefinitions>
-
-                        <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" HorizontalAlignment="Center" Grid.Row="1">解迷统计:</TextBlock>
+                    <Grid Grid.Row="3"  Grid.Column="0" Width="100">
+                        <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" Margin="20,0,0,0" HorizontalAlignment="Center" Grid.Row="1">解迷统计:</TextBlock>
                     </Grid>
 
                     <Grid Grid.Row="3"  Grid.Column="1" MinWidth="200">
-                        <ComboBox Name="solveCombobox"  FontSize="18" Foreground="Goldenrod" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                        <ComboBox Name="solveCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" Width="auto" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" Margin="1">
@@ -167,8 +162,8 @@
                 <!--第4行：游戏解谜数据展示区 解谜统计：解谜数数据显示textblock-->
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="288"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Name="solveTextBlock" Grid.Column="1"  VerticalAlignment="Center" FontSize="16" Foreground="Goldenrod" Width="auto">解谜数目（成功/失败）：</TextBlock>
 
@@ -188,7 +183,11 @@
                     </Grid>
 
                     <Grid Grid.Row="5" Grid.Column="1"  MinWidth="200">
-                        <ComboBox Name="createCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" ItemsSource="{Binding}" DropDownClosed="createCombobox_DropDownClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="12*"/>
+                            <RowDefinition Height="13*"/>
+                        </Grid.RowDefinitions>
+                        <ComboBox Name="createCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" Width="auto" ItemsSource="{Binding}" DropDownClosed="createCombobox_DropDownClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,7,-20,6" Grid.RowSpan="2">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" Margin="1">
