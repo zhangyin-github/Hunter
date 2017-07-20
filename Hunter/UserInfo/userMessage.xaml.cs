@@ -122,13 +122,13 @@ namespace Hunter.UserInfo
                 newnickNameCanBeCahenged = false;
                 return;
             }
-            /*else
+            else
             {
-                newnickNameTitleTextBlock.Text = "新昵称可用";
+              //  newnickNameTitleTextBlock.Text = "新昵称可用";
                 checkTextBlockIsOk.Visibility = Visibility.Visible;
                 checkTextBlockISWrong.Visibility = Visibility.Collapsed;
                 newnickNameCanBeCahenged = true;
-            }*/
+            }
         }
         /// <summary>
         /// 修改昵称关闭Flyout的动作
