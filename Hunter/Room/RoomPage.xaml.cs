@@ -57,20 +57,7 @@ namespace Hunter.Room
                 client.Timeout = ts;
                 try
                 {
-                    var kvp = new List<KeyValuePair<string, string>>
-                    {
-
-                        new KeyValuePair<string,string>("action", "getmission"),
-                    };
-                    System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
-                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
-                    {
-                        string responseBody = await response.Content.ReadAsStringAsync();
-                        var s = new DataContractJsonSerializer(typeof(RootObject));
-                        var ms = new MemoryStream(Encoding.UTF8.GetBytes(responseBody));
-                        var data = (RootObject)s.ReadObject(ms);
-
-                    }
+                    RootObject[] MissionLists = await Proxy.GetMission();
                 }
                 catch
                 {

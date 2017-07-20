@@ -55,6 +55,7 @@ namespace Hunter.User_Upload
             themeComboBox.SelectedIndex = 0;
             backgroundComboBox.SelectedIndex = 0;
             clueComboBox.SelectedIndex = 0;
+            item = clue1;
             for (int i=0;i<3;i++)
             {
                 clueText[i] = "";
@@ -83,6 +84,24 @@ namespace Hunter.User_Upload
             {
                 using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
                 {
+                    if (item == clue1)
+                    {
+                        clueText[0] = contentTextBox.Text;
+                        reminderText[0] = reminderTextBox.Text;
+                        keyText[0] = keyTextBox.Text;
+                    }
+                    else if (item == clue2)
+                    {
+                        clueText[1] = contentTextBox.Text;
+                        reminderText[1] = reminderTextBox.Text;
+                        keyText[1] = keyTextBox.Text;
+                    }
+                    else if (item == clue3)
+                    {
+                        clueText[2] = contentTextBox.Text;
+                        reminderText[2] = reminderTextBox.Text;
+                        keyText[2] = keyTextBox.Text;
+                    }
                     TimeSpan ts = new TimeSpan(15000000);
                     client.Timeout = ts;
                     try

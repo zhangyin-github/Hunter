@@ -17,6 +17,10 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>Hunter_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>FE6E6EE7E1E09EDD43C81810518A8BC81759BD26</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -89,6 +93,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="Hunter_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +133,7 @@
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\userMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room\Proxy.cs" />
     <Compile Include="Room\RoomControl.xaml.cs">
       <DependentUpon>RoomControl.xaml</DependentUpon>
     </Compile>

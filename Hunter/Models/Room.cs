@@ -31,40 +31,5 @@ namespace Hunter.Models
 
 
 
-    [DataContract]
-    public class RootObject
-    {
-        [DataMember]
-        public string title { get; set; }
-        [DataMember]
-        public string classes { get; set; }
-        [DataMember]
-        public string addr { get; set; }
-        [DataMember]
-        public string content1 { get; set; }
-        [DataMember]
-        public string content2 { get; set; }
-        [DataMember]
-        public string content3 { get; set; }
-        [DataMember]
-        public object img1 { get; set; }
-        [DataMember]
-        public object img2 { get; set; }
-        [DataMember]
-        public object img3 { get; set; }
-        [DataMember]
-        public string tips1 { get; set; }
-        [DataMember]
-        public string tips2 { get; set; }
-        [DataMember]
-        public string tips3 { get; set; }
-        [DataMember]
-        public string answer1 { get; set; }
-        [DataMember]
-        public string answer2 { get; set; }
-        [DataMember]
-        public string answer3 { get; set; }
-        [DataMember]
-        public string user { get; set; }
-    }
+   
 }
