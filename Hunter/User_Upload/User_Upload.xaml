@@ -234,7 +234,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="提示:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox x:Name="reminderTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0">
+            <TextBox x:Name="reminderTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0" TextChanging="reminderTextBox_TextChanging" IsReadOnly="True">
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -246,7 +246,7 @@
                 </TextBox.BorderBrush>
             </TextBox>
             <TextBlock Grid.Row="0" Grid.Column="2" Text="答案:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox x:Name="keyTextBox"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0">
+            <TextBox x:Name="keyTextBox"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0" TextChanging="keyTextBox_TextChanging" IsReadOnly="True">
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>

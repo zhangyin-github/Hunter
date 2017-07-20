@@ -31,21 +31,54 @@ namespace Hunter.User_Upload
         /// <summary>
         /// 三条线索的内容保存
         /// </summary>
-        public string clue1Text;
-        public string clue2Text;
-        public string clue3Text;
+        public string[] clueText = new string[3];
+        
+        /// <summary>
+        /// 三条提示的内容保存
+        /// </summary>
+        public string[] reminderText = new string[3];
+
+        /// <summary>
+        /// 三条答案的内容保存
+        /// </summary>
+        public string[] keyText = new string[3];
+
         /// <summary>
         /// 线索能否被更改标记
         /// </summary>
-        public bool clue1TextCanBeChange=false;
+        public bool reminder1TextCanBeChange = false;
+        public bool reminder2TextCanBeChange = false;
+        public bool reminder3TextCanBeChange = false;
+        /// <summary>
+        /// 线索是否已经被更改标记
+        /// </summary>
+        public bool reminder1TextHasBeenChanged = false;
+        public bool reminder2TextHasBeenChanged = false;
+        public bool reminder3TextHasBeenChanged = false;
+        /// <summary>
+        /// 提示能否被更改标记
+        /// </summary>
+        public bool clue1TextCanBeChange = false;
         public bool clue2TextCanBeChange = false;
         public bool clue3TextCanBeChange = false;
         /// <summary>
-        /// 线索是否已经被更改标记
+        /// 提示是否已经被更改标记
         /// </summary>
         public bool clue1TextHasBeenChanged = false;
         public bool clue2TextHasBeenChanged = false;
         public bool clue3TextHasBeenChanged = false;
+        /// <summary>
+        /// 答案能否被更改标记
+        /// </summary>
+        public bool key1TextCanBeChange = false;
+        public bool key2TextCanBeChange = false;
+        public bool key3TextCanBeChange = false;
+        /// <summary>
+        /// 答案是否已经被更改标记
+        /// </summary>
+        public bool key1TextHasBeenChanged = false;
+        public bool key2TextHasBeenChanged = false;
+        public bool key3TextHasBeenChanged = false;
 
         public Missons NewMisson;
         public User_Upload()
@@ -141,33 +174,69 @@ namespace Hunter.User_Upload
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void clueComboBox_DropDownClosed(object sender, object e)
+        private async void clueComboBox_DropDownClosed(object sender, object e)
         {
             if (clue1.IsSelected)
             {
                 contentTextBox.IsReadOnly = false;
+                reminderTextBox.IsReadOnly = false;
+                keyTextBox.IsReadOnly = false;
                 clue1TextCanBeChange = true;
+                reminder1TextCanBeChange = true;
+                key1TextCanBeChange = true;
+
             }
 
-            if(clue1TextHasBeenChanged)
+            if (clue1TextHasBeenChanged&&reminder1TextHasBeenChanged&&key1TextHasBeenChanged)
             {
                 if (clue2.IsSelected)
                 {
                     contentTextBox.Text = "";
+                    reminderTextBox.Text = "";
+                    keyTextBox.Text = "";
                     clue2TextCanBeChange = true;
+                    reminder2TextCanBeChange = true;
+                    key2TextCanBeChange = true;
                     contentTextBox.IsReadOnly = false;
+                    reminderTextBox.IsReadOnly = false;
+                    keyTextBox.IsReadOnly = false;
                 }
             }
+            else
+            {
+                if (clue2.IsSelected|| clue3.IsSelected)
+                {
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("请先填写线索一") { Title = "提示" };
+                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                    await msgDialog.ShowAsync();
+                }
+            }
+        
 
-            if (clue1TextHasBeenChanged)
+            if (clue1TextHasBeenChanged&&reminder2TextHasBeenChanged && key2TextHasBeenChanged)
             {
                 if (clue2TextHasBeenChanged)
                 {
                     if (clue3.IsSelected)
                     {
                         contentTextBox.Text = "";
+                        reminderTextBox.Text = "";
+                        keyTextBox.Text = "";
                         clue3TextCanBeChange = true;
+                        reminder3TextCanBeChange = true;
+                        key3TextCanBeChange = true;
                         contentTextBox.IsReadOnly = false;
+                        reminderTextBox.IsReadOnly = false;
+                        keyTextBox.IsReadOnly = false;
+                    }
+                }
+                else
+                {
+                    if (clue3.IsSelected)
+                    {
+                        var msgDialog = new Windows.UI.Popups.MessageDialog("请先填写线索二") { Title = "提示" };
+                        msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                        await msgDialog.ShowAsync();
                     }
                 }
             }
@@ -183,24 +252,79 @@ namespace Hunter.User_Upload
         {
             if (clue1TextCanBeChange)
             {
-                clue1Text = contentTextBox.Text;
+                clueText[0] = contentTextBox.Text;
                 clue1TextHasBeenChanged = true;
+                clue1TextCanBeChange = false;
 
             }
 
             if (clue2TextCanBeChange)
             {
 
-                clue2Text = contentTextBox.Text;
+                clueText[1] = contentTextBox.Text;
                 clue2TextHasBeenChanged = true;
+                clue2TextCanBeChange = false;
             }
 
             if (clue3TextCanBeChange)
             {
-                clue3Text = contentTextBox.Text;
+                clueText[2] = contentTextBox.Text;
                 clue3TextHasBeenChanged = true;
+                clue3TextCanBeChange = false;
             }
 
+        }
+
+        private void reminderTextBox_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            if (reminder1TextCanBeChange)
+            {
+                reminderText[0] = reminderTextBox.Text;
+                reminder1TextHasBeenChanged = true;
+                reminder1TextCanBeChange = false;
+
+            }
+
+            if (reminder2TextCanBeChange)
+            {
+
+                reminderText[1] = reminderTextBox.Text;
+                reminder2TextHasBeenChanged = true;
+                reminder2TextCanBeChange = false;
+            }
+
+            if (reminder3TextCanBeChange)
+            {
+                reminderText[2] = reminderTextBox.Text;
+                reminder3TextHasBeenChanged = true;
+                reminder3TextCanBeChange = false;
+            }
+        }
+
+        private void keyTextBox_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            if (key1TextCanBeChange)
+            {
+                keyText[0] = keyTextBox.Text;
+                key1TextHasBeenChanged = true;
+                key1TextCanBeChange = false;
+
+            }
+
+            if (key2TextCanBeChange)
+            {
+
+                keyText[1] = keyTextBox.Text;
+                key2TextHasBeenChanged = true;
+                key2TextCanBeChange = false;
+            }
+
+            if (key3TextCanBeChange)
+            {
+                keyText[2] = keyTextBox.Text;
+                key3TextHasBeenChanged = true;
+                key3TextCanBeChange = false;
+            }
         }
     }
 }
