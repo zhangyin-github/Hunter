@@ -52,7 +52,9 @@ namespace Hunter.User_Upload
             NewUser = userInfo.getInstance();
             NewMisson = MissonInfo.getInstance();
             this.InitializeComponent();
-           
+            themeComboBox.SelectedIndex = 0;
+            backgroundComboBox.SelectedIndex = 0;
+            clueComboBox.SelectedIndex = 0;
             for (int i=0;i<3;i++)
             {
                 clueText[i] = "";
@@ -89,8 +91,8 @@ namespace Hunter.User_Upload
                     {
                         new KeyValuePair<string,string>("id", NewUser.ID),
                         new KeyValuePair<string,string>("title", TitleTextbox.Text),
-                        new KeyValuePair<string,string>("class", themeComboBox.SelectedValue.ToString()),
-                        new KeyValuePair<string,string>("addr", backgroundComboBox.SelectedValue.ToString()),
+                        new KeyValuePair<string,string>("class", themeComboBox.SelectionBoxItem.ToString()),
+                        new KeyValuePair<string,string>("addr", backgroundComboBox.SelectionBoxItem.ToString()),
                         new KeyValuePair<string,string>("content1",clueText[0]),
                         new KeyValuePair<string,string>("content2",clueText[1]),
                         new KeyValuePair<string,string>("content3", clueText[2]),
