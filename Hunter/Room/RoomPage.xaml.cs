@@ -25,7 +25,7 @@ namespace Hunter.Room
     public sealed partial class RoomPage : Page
     {
         public List<MissionList> MyList;
-      
+        public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var room = (MissionList)e.ClickedItem;
@@ -33,10 +33,12 @@ namespace Hunter.Room
         }
         public RoomPage()
         {
+            NewUser = userInfo.getInstance();
             MyList = ListManager.getInstance();
             this.InitializeComponent();
-            
-            
+
+            ExpBar.Value = NewUser.Exp % 1000;
+            Pointbar.Value = NewUser.money;
         }
 
         private void headicon_Click(object sender, RoutedEventArgs e)

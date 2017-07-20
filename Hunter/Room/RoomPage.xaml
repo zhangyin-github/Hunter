@@ -39,8 +39,8 @@
                 </Button>
                 <TextBlock Grid.Column="0" Height="26" Width="80" Text="User" Foreground="LightGoldenrodYellow" FontSize="18" Padding="10 0 0 0" RelativePanel.RightOf="headicon" Margin="0 15 0 0"/>
             </RelativePanel>
-            <TextBlock  Grid.Column="1" Name="Health"  Foreground="LightGoldenrodYellow" Text="Health" Margin="0 20 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="50"/>
-            <ProgressBar  Grid.Column="1" Name="Healthbar" Margin="50 20 15 0" Height="30" MinWidth="60"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="Transparent" BorderThickness="3" >
+            <TextBlock  Grid.Column="1" Name="Health"  Foreground="LightGoldenrodYellow" Text="Point" Margin="0 20 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="50"/>
+            <ProgressBar  Grid.Column="1" Name="Pointbar" Margin="50 20 15 0" Height="30" MinWidth="60"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="Transparent" BorderThickness="3" Maximum="10000" Minimum="0">
                 <ProgressBar.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -52,7 +52,7 @@
                 </ProgressBar.BorderBrush>
             </ProgressBar>
             <TextBlock  Grid.Column="2" Name="Exp"  Foreground="LightGoldenrodYellow" Text="Exp" Margin="0 20 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="30"/>
-            <ProgressBar  Grid.Column="2" Name="ExpBar" Margin="30 20 15 0" Height="30" MinWidth="60"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="Transparent" BorderThickness="3" >
+            <ProgressBar  Grid.Column="2" Name="ExpBar" Margin="30 20 15 0" Height="30" MinWidth="60"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="Transparent" BorderThickness="3" Maximum="1000" Minimum="0">
                 <ProgressBar.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
