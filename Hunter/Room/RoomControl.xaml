@@ -13,7 +13,7 @@
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Column="0" Margin="5" Source="..\Assets/log_bg.jpg" Stretch="Fill" MaxHeight="70" MaxWidth="120"/>
-        <TextBlock Grid.Column="1" Margin="5" FontSize="24" HorizontalAlignment="Left" Text="{x:Bind Contact.name}"/>
+        <TextBlock Grid.Column="1" Margin="5" FontSize="24" HorizontalAlignment="Left" Text="{x:Bind Contact.Title}"/>
         <Grid.Background>
             <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                 <GradientStop Color="#FF554022" Offset="0"/>

@@ -27,6 +27,7 @@ namespace Hunter.Room
     /// </summary>
     public sealed partial class RoomPage : Page
     {
+        public List<RootObject> MissionList;
         public List<MissionList> MyList;
         public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
@@ -36,8 +37,9 @@ namespace Hunter.Room
         }
         public RoomPage()
         {
+            MissionList = ListManager.getInstance();
             NewUser = userInfo.getInstance();
-            MyList = ListManager.getInstance();
+            MyList = Models.ListManager.getInstance();
             this.InitializeComponent();
 
             ExpBar.Value = NewUser.Exp % 1000;
@@ -58,6 +60,13 @@ namespace Hunter.Room
                 try
                 {
                     RootObject[] MissionLists = await Proxy.GetMission();
+                    int i = 0;
+                    while(MissionLists[i]!=null)
+                    {
+                        MissionList.Add(MissionLists[i]);
+                        i++;
+                    }
+                    
                 }
                 catch
                 {

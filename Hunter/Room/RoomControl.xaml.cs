@@ -19,11 +19,11 @@ namespace Hunter.Room
 {
     public sealed partial class RoomControl : UserControl
     {
-        public Models.MissionList Contact
+        public Room.RootObject Contact
         {
             get
             {
-                return this.DataContext as Models.MissionList;
+                return this.DataContext as RootObject;
             }
         }
 

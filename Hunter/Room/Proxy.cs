@@ -29,7 +29,17 @@ namespace Hunter.Room
             return data;
         }
     }
-   
+
+
+    public class ListManager
+    {
+
+        public static List<RootObject> getInstance()
+        {
+            var lists = new List<RootObject> { };
+            return lists;
+        }
+    }
 
     [DataContract]
     public class RootObject
