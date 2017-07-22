@@ -1,9 +1,13 @@
 ﻿using Hunter.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
@@ -24,19 +28,28 @@ namespace Hunter.Room
     /// </summary>
     public sealed partial class RoomPage : Page
     {
-        public List<MissionList> MyList;
-      
+        public ObservableCollection<RootObject> MissionList;
+        public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var room = (MissionList)e.ClickedItem;
+            var room = (RootObject)e.ClickedItem;
+            NowMission.Task = room;
             Frame.Navigate(typeof(Missions.Task_Message));
         }
         public RoomPage()
         {
-            MyList = ListManager.getInstance();
+            object sender=null;
+            RoutedEventArgs e=null;
+            MissionList = MissionManager.getInstance();
+            NewUser = userInfo.getInstance();
+            NowMission.getInstance();
+            UserAnswer.getInstance();
             this.InitializeComponent();
-            
-            
+            refreshbutton_ClickAsync(sender,e);
+            UserAnswer.Answer.answer = "";
+            UserAnswer.Answer.time = 1;
+            ExpBar.Value = NewUser.Exp % 1000;
+            Pointbar.Value = NewUser.money;
         }
 
         private void headicon_Click(object sender, RoutedEventArgs e)
@@ -44,9 +57,55 @@ namespace Hunter.Room
             Frame.Navigate(typeof(UserInfo.userMessage));
         }
 
-        private void refreshbutton_Click(object sender, RoutedEventArgs e)
+        private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)
         {
-           
+            using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+            {
+                TimeSpan ts = new TimeSpan(15000000);
+                client.Timeout = ts;
+                try
+                {
+                    var kvp = new List<KeyValuePair<string, string>>
+                    {
+
+                        new KeyValuePair<string,string>("action", "getmission"),
+                    };
+                    var response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+
+                    string result = await response.Content.ReadAsStringAsync();
+                   if(result=="false")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        var s = new DataContractJsonSerializer(typeof(RootObject[]));
+                        var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
+                        RootObject[] data = (RootObject[])s.ReadObject(ms);
+                        int i = 0;
+                        MissionList.Clear();
+                        while (i < data.Length)
+                        {
+                            MissionList.Add(data[i]);
+                            i++;
+                        }
+                    }
+                    
+                }
+                catch
+                {
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("网络可能开小差了，请稍后再试") { Title = "刷新失败" };
+                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                    await msgDialog.ShowAsync();
+
+                }
+                finally
+                {
+
+                }
+
+
+            }
         }
 
         private void NewTask_Click(object sender, RoutedEventArgs e)

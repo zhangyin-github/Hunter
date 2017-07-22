@@ -66,7 +66,6 @@
                           VerticalAlignment="Center"
                           Margin="30,0,0,0"
                           Foreground="LightGoldenrodYellow"
-                          IsOn="True"
                           Toggled="ToggleSwitch_Toggled"
                />
 
@@ -96,7 +95,6 @@
             <Slider x:Name="volumeSlider" 
                     Background="LightGoldenrodYellow"
                     Grid.Column="1"
-                    Value="100"
                HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                 Margin="30,0,0,0"
