@@ -28,18 +28,16 @@ namespace Hunter.Room
     public sealed partial class RoomPage : Page
     {
         public List<RootObject> MissionList;
-        public List<MissionList> MyList;
         public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var room = (MissionList)e.ClickedItem;
+            var room = (RootObject)e.ClickedItem;
             Frame.Navigate(typeof(Missions.Task_Message));
         }
         public RoomPage()
         {
-            MissionList = ListManager.getInstance();
+            MissionList = MissionManager.getInstance();
             NewUser = userInfo.getInstance();
-            MyList = Models.ListManager.getInstance();
             this.InitializeComponent();
 
             ExpBar.Value = NewUser.Exp % 1000;
@@ -61,16 +59,16 @@ namespace Hunter.Room
                 {
                     RootObject[] MissionLists = await Proxy.GetMission();
                     int i = 0;
-                    while(MissionLists[i]!=null)
+                    while(i<MissionLists.Length)
                     {
-                        MissionList.Add(MissionLists[i]);
+                        MissionList.Add( MissionLists[i]);
                         i++;
                     }
                     
                 }
                 catch
                 {
-                    var msgDialog = new Windows.UI.Popups.MessageDialog("网络可能开小差了，请稍后再试") { Title = "登录失败" };
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("网络可能开小差了，请稍后再试") { Title = "刷新失败" };
                     msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
                     await msgDialog.ShowAsync();
 

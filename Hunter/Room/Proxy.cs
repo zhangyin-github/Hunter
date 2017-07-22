@@ -30,17 +30,6 @@ namespace Hunter.Room
         }
     }
 
-
-    public class ListManager
-    {
-
-        public static List<RootObject> getInstance()
-        {
-            var lists = new List<RootObject> { };
-            return lists;
-        }
-    }
-
     [DataContract]
     public class RootObject
     {
@@ -77,4 +66,17 @@ namespace Hunter.Room
         [DataMember]
         public string User { get; set; }
     }
+
+    public class MissionManager
+    {
+
+        public static List<RootObject> getInstance()
+        {
+            var lists = new List<RootObject> { };
+            lists.Add(new RootObject { Title = "111111" });
+            return lists;
+        }
+    }
+
+   
 }

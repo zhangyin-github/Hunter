@@ -16,7 +16,6 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.Media.Capture;
-using Windows.Storage;
 using Hunter.Models;
 using System.Net.Http;
 

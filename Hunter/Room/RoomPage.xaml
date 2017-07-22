@@ -5,7 +5,7 @@
     xmlns:local="using:Hunter.Room"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data="using:Hunter.Models"
+    xmlns:data="using:Hunter.Room"
     mc:Ignorable="d">
     <Page.Resources>
         <ResourceDictionary>
@@ -149,9 +149,9 @@
             </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Margin="20">
-            <ListView ItemsSource="{x:Bind MyList}"  HorizontalAlignment="Stretch" Background="Transparent" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+            <ListView ItemsSource="{x:Bind MissionList}"  HorizontalAlignment="Stretch" Background="Transparent" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="data:MissionList">
+                    <DataTemplate x:DataType="data:RootObject">
                         <local:RoomControl Width="1920"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
