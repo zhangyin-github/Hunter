@@ -133,10 +133,10 @@
             <Button.Flyout>
                 <MenuFlyout Placement="Bottom">
 
-                    <MenuFlyoutItem Text="背景 1" />
-                    <MenuFlyoutItem Text="背景 2" />
-                    <MenuFlyoutItem Text="背景 3" />
-                    <MenuFlyoutItem Text="背景 4" />
+                    <MenuFlyoutItem Name="Bg1" Text="背景 1" Click="Bg1_Click" />
+                    <MenuFlyoutItem Name="Bg2" Text="背景 2" Click="Bg2_Click" />
+                    <MenuFlyoutItem Name="Bg3" Text="背景 3"  Click="Bg3_Click" />
+                    <MenuFlyoutItem Name="Bg4" Text="背景 4" Click="Bg4_Click" />
 
                 </MenuFlyout>
                
