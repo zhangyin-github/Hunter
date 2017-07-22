@@ -88,6 +88,7 @@ namespace Hunter.Log
                                 }
                                 Frame.Navigate(typeof(Room.RoomPage));
                                 Frame.BackStack.Clear();
+                                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
                             }
                             else
                             {

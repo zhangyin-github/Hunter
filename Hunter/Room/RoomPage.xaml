@@ -24,11 +24,12 @@
             <RowDefinition Height="120"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" MinWidth="120"/>
+                <ColumnDefinition Width="2.5*" MinWidth="120"/>
                 <ColumnDefinition Width="2*" MinWidth="140"/>
                 <ColumnDefinition Width="2*" MinWidth="120"/>
                 <ColumnDefinition Width="2*"/>
@@ -37,7 +38,7 @@
                 <Button Name="headicon" Grid.Column="0" Margin="20 15 0 0" Padding="-20" Height="50" Width="50" Background="Transparent"  Style="{StaticResource mostbutton}" Click="headicon_Click">
                     <Rectangle RadiusX="50" RadiusY="50" Fill="LightGray" Height="50" Width="50" Stroke="DarkGoldenrod" StrokeThickness="3"/>
                 </Button>
-                <TextBlock Grid.Column="0" Height="26" Width="80" Text="User" Foreground="LightGoldenrodYellow" FontSize="18" Padding="10 0 0 0" RelativePanel.RightOf="headicon" Margin="0 15 0 0"/>
+                <TextBlock Name="username" Grid.Column="0" Height="26" Width="auto" TextWrapping="WrapWholeWords" Foreground="LightGoldenrodYellow" FontSize="18" Padding="10 0 0 0" RelativePanel.RightOf="headicon" Margin="0 15 0 0"/>
             </RelativePanel>
             <TextBlock  Grid.Column="1" Name="Health"  Foreground="LightGoldenrodYellow" Text="Point" Margin="0 20 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Width="50"/>
             <ProgressBar  Grid.Column="1" Name="Pointbar" Margin="50 20 15 0" Height="30" MinWidth="60"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="Transparent" BorderThickness="3" Maximum="10000" Minimum="0">
@@ -172,6 +173,17 @@
             </ListView>
         </Grid>
         <Grid Grid.Row="4">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#FF554022" Offset="0"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                    <GradientStop Color="Goldenrod" Offset="0.5"/>
+                    <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                    <GradientStop Color="#FF554022" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+        <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

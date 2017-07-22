@@ -50,6 +50,7 @@ namespace Hunter.Room
             UserAnswer.Answer.time = 1;
             ExpBar.Value = NewUser.Exp % 1000;
             Pointbar.Value = NewUser.money;
+            username.Text = NewUser.nickName;
         }
 
         private void headicon_Click(object sender, RoutedEventArgs e)
