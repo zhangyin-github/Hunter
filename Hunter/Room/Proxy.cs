@@ -24,7 +24,7 @@ namespace Hunter.Room
             string result = await response.Content.ReadAsStringAsync();
              var s = new DataContractJsonSerializer(typeof(RootObject[]));
              var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
-             RootObject[] data =(RootObject[]) s.ReadObject(ms);
+            RootObject[] data = (RootObject[])s.ReadObject(ms);
             /*JavaScriptSerializer js = new JavaScriptSerializer();   //实例化一个能够序列化数据的类
             ToJsonMy list = js.Deserialize<ToJsonMy>(json);*/
             return data;
@@ -74,10 +74,20 @@ namespace Hunter.Room
         public static ObservableCollection<RootObject> getInstance()
         {
             var lists = new ObservableCollection<RootObject> { };
-            lists.Add(new RootObject { Title = "111111" });
             return lists;
         }
     }
+    public class NowMission
+    {
+        public static RootObject Task;
+        public static RootObject getInstance()
+        {
+            if (Task == null)
+            {
+                Task = new RootObject();
+            }
+            return Task;
+        }
+    }
 
-   
 }
