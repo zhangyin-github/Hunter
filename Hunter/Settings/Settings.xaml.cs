@@ -62,5 +62,25 @@ namespace Hunter.Settings
         {
             Frame.Navigate(typeof(Log.Login));
         }
+
+        private void Bg1_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Bg2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bg3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bg4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
