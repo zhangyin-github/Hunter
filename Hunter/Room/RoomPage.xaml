@@ -114,7 +114,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ComboBox x:Name="selectByThemeComboBox" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="0" DropDownClosed="selectByThemeComboBox_DropDownClosed">
+            <ComboBox x:Name="selectByThemeComboBox" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="0" DropDownClosed="selectByThemeComboBox_DropDownClosedAsync">
                 <ComboBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -124,13 +124,13 @@
                         <GradientStop Color="#FF554022" Offset="1"/>
                     </LinearGradientBrush>
                 </ComboBox.BorderBrush>
-                <ComboBoxItem Content="按主题选择" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="悬疑" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="推理" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="日常" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="其他" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="theme0" Content="按主题选择" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="theme1" Content="悬疑" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="theme2" Content="推理" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="theme3" Content="日常" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="theme4" Content="其他" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
             </ComboBox>
-            <ComboBox x:Name="selectByBackgroundComboBox" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="0" DropDownClosed="selectByBackgroundComboBox_DropDownClosed">
+            <ComboBox x:Name="selectByBackgroundComboBox" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="0" DropDownClosed="selectByBackgroundComboBox_DropDownClosedAsync">
                 <ComboBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -140,13 +140,13 @@
                         <GradientStop Color="#FF554022" Offset="1"/>
                     </LinearGradientBrush>
                 </ComboBox.BorderBrush>
-                <ComboBoxItem Content="按场景选择" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="校园" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="密室" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="街道" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="其他" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="background0" Content="按场景选择" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="background1" Content="校园" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="background2" Content="密室" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="background3" Content="街道" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="background4" Content="其他" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
             </ComboBox>
-            <ComboBox x:Name="selectByDifficultyComboBox" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="0" DropDownClosed="selectByDifficultyComboBox_DropDownClosed">
+            <ComboBox x:Name="selectByDifficultyComboBox" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="0" DropDownClosed="selectByDifficultyComboBox_DropDownClosedAsync">
                 <ComboBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -156,10 +156,10 @@
                         <GradientStop Color="#FF554022" Offset="1"/>
                     </LinearGradientBrush>
                 </ComboBox.BorderBrush>
-                <ComboBoxItem Content="按题目难度选择" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="一星难度" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="二星难度" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
-                <ComboBoxItem Content="三星难度" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="level0" Content="按题目难度选择" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="level1" Content="一星难度" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="level2" Content="二星难度" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
+                <ComboBoxItem Name="level3" Content="三星难度" FontSize="16" Foreground="Goldenrod"></ComboBoxItem>
             </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Margin="20">
