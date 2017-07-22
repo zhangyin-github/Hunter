@@ -24,7 +24,7 @@ namespace Hunter.Room
             string result = await response.Content.ReadAsStringAsync();
              var s = new DataContractJsonSerializer(typeof(RootObject[]));
              var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
-             RootObject[] data =(RootObject[]) s.ReadObject(ms);
+            RootObject[] data = (RootObject[])s.ReadObject(ms);
             /*JavaScriptSerializer js = new JavaScriptSerializer();   //实例化一个能够序列化数据的类
             ToJsonMy list = js.Deserialize<ToJsonMy>(json);*/
             return data;
