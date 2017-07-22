@@ -38,10 +38,13 @@ namespace Hunter.Room
         }
         public RoomPage()
         {
+            object sender=null;
+            RoutedEventArgs e=null;
             MissionList = MissionManager.getInstance();
             NewUser = userInfo.getInstance();
             NowMission.getInstance();
             this.InitializeComponent();
+            refreshbutton_ClickAsync(sender,e);
 
             ExpBar.Value = NewUser.Exp % 1000;
             Pointbar.Value = NewUser.money;

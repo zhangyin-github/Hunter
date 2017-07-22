@@ -74,7 +74,6 @@ namespace Hunter.Room
         public static ObservableCollection<RootObject> getInstance()
         {
             var lists = new ObservableCollection<RootObject> { };
-            lists.Add(new RootObject { Title = "111111" });
             return lists;
         }
     }
