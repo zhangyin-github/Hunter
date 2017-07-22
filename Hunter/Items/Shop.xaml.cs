@@ -32,6 +32,11 @@ namespace Hunter.Items
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
+           
+        }
+
+        private void usebutton_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
