@@ -1,6 +1,7 @@
 ﻿using Hunter.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -27,7 +28,7 @@ namespace Hunter.Room
     /// </summary>
     public sealed partial class RoomPage : Page
     {
-        public List<RootObject> MissionList;
+        public ObservableCollection<RootObject> MissionList;
         public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {

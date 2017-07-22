@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -70,9 +71,9 @@ namespace Hunter.Room
     public class MissionManager
     {
 
-        public static List<RootObject> getInstance()
+        public static ObservableCollection<RootObject> getInstance()
         {
-            var lists = new List<RootObject> { };
+            var lists = new ObservableCollection<RootObject> { };
             lists.Add(new RootObject { Title = "111111" });
             return lists;
         }
