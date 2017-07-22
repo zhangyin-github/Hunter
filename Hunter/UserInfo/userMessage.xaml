@@ -124,9 +124,9 @@
                         </Button>
 
                         <TextBlock x:Name="IDTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="nickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
-                        <TextBlock x:Name="ID" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="nickNameTitle"  RelativePanel.Below="nickName" Margin="5,10,0,0">668990003</TextBlock>
+                        <TextBlock x:Name="ID" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="nickNameTitle"  RelativePanel.Below="nickName" Margin="5,10,0,0"></TextBlock>
                         <TextBlock x:Name="rateTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
-                        <TextBlock x:Name="rate" FontSize="20" Foreground="LightGoldenrodYellow"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0">23</TextBlock>
+                        <TextBlock x:Name="rate" FontSize="20" Foreground="LightGoldenrodYellow"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0"></TextBlock>
                         <TextBlock x:Name="ExpTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="rateTitle"  Margin="10,10,5,0">经验：</TextBlock>
                         <ProgressBar x:Name="ExpBar" RelativePanel.RightOf="ExpTitle" RelativePanel.Below="rate"  Margin="5,16,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True"></ProgressBar>
                         <TextBlock x:Name="Exp" Foreground="LightGoldenrodYellow" RelativePanel.Below="rate" RelativePanel.AlignRightWith="ExpBar" Margin="-110,16,0,0" Text=""></TextBlock>
