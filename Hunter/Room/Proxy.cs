@@ -90,4 +90,20 @@ namespace Hunter.Room
         }
     }
 
+    public class User_Answer
+    {
+        public string answer { get; set; }
+    }
+    public class UserAnswer
+    {
+        public static User_Answer Answer;
+        public static User_Answer getInstance()
+        {
+            if (Answer == null)
+            {
+                Answer = new User_Answer();
+            }
+            return Answer;
+        }
+    }
 }

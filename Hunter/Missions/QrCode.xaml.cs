@@ -26,6 +26,7 @@ using System.Diagnostics;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Core;
 using Windows.Devices.Enumeration;
+using Hunter.Room;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -42,6 +43,7 @@ namespace Hunter.Missions
         private bool IsBusy;
         public QrCode()
         {
+            UserAnswer.getInstance();
             this.InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -187,6 +189,7 @@ namespace Hunter.Missions
                     await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
                         tbkResult.Text = _result.Text;
+                        UserAnswer.Answer.answer = tbkResult.Text;
                     });
                 }
             }

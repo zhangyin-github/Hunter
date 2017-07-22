@@ -25,7 +25,17 @@ namespace Hunter.Settings
     {
         public Settings()
         {
+            BgmPlayer.getInstance();
             this.InitializeComponent();
+            volumeSlider.Value = BgmPlayer.MusicPlayer.Volume*100;
+            if(BgmPlayer.MusicPlayer.AutoPlay)
+            {
+                bgmswitch.IsOn = true;
+            }
+            else
+            {
+                bgmswitch.IsOn = false;
+            }
         }
 
         private void volumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -38,10 +48,13 @@ namespace Hunter.Settings
            if(bgmswitch.IsOn==true)
             {
                 BgmPlayer.MusicPlayer.Play();
+                BgmPlayer.MusicPlayer.AutoPlay = true;
+                
             }
             else if (bgmswitch.IsOn == false)
             {
                 BgmPlayer.MusicPlayer.Stop();
+                BgmPlayer.MusicPlayer.AutoPlay = false;
             }
         }
 

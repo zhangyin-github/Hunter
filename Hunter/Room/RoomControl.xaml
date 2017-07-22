@@ -7,19 +7,33 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Height="80" Margin="0 5 0 5">
+    <Grid Height="100" Margin="0 5 0 5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="0" Margin="5" Source="..\Assets/log_bg.jpg" Stretch="Fill" MaxHeight="70" MaxWidth="120"/>
-        <TextBlock Grid.Column="1" Margin="5" FontSize="24" HorizontalAlignment="Left" Text="{x:Bind Contact.Title}"/>
+        <Image Grid.Column="0" Margin="5" Source="..\Assets/log_bg.jpg" Stretch="Fill" MaxHeight="90" MaxWidth="120"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Margin="5 0 0 0" FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{x:Bind Contact.Title}"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <TextBlock Grid.Column="1" Margin="5 10 0 0" FontSize="14"  HorizontalAlignment="Left" Text="类型"/>
+                <TextBlock Grid.Column="1" Margin="10 10 0 0" FontSize="14" HorizontalAlignment="Left" Text="{x:Bind Contact.Classes}"/>
+                <TextBlock Grid.Column="1" Margin="30 10 0 0" FontSize="14" HorizontalAlignment="Left" Text="场景"/>
+                <TextBlock Grid.Column="1" Margin="10 10 0 0" FontSize="14" HorizontalAlignment="Left" Text="{x:Bind Contact.Addr}"/>
+                <TextBlock Grid.Column="1" Margin="30 10 0 0" FontSize="14" HorizontalAlignment="Left" Text="上传者"/>
+                <TextBlock Grid.Column="1" Margin="10 10 0 0" FontSize="14" HorizontalAlignment="Left" Text="{x:Bind Contact.User}"/>
+            </StackPanel>
+        </Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                 <GradientStop Color="#FF554022" Offset="0"/>
-                <GradientStop Color="DarkGoldenrod" Offset="0.1"/>
+                <GradientStop Color="DarkGoldenrod" Offset="0.2"/>
                 <GradientStop Color="Goldenrod" Offset="0.5"/>
-                <GradientStop Color="DarkGoldenrod" Offset="0.9"/>
+                <GradientStop Color="DarkGoldenrod" Offset="0.8"/>
                 <GradientStop Color="#FF554022" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>

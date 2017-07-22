@@ -27,18 +27,26 @@ namespace Hunter.Missions
         public Task_Message()
         {
             NowMission.getInstance();
-           
+            UserAnswer.getInstance();
             this.InitializeComponent();
             title.Text = NowMission.Task.Title;
             content.Text = NowMission.Task.Content1;
             tips.Text = NowMission.Task.Tips1;
             time = 1;
+            if(UserAnswer.Answer.answer!=null)
+            {
+                answer.Text = UserAnswer.Answer.answer;
+            }
+            else
+            {
+                answer.Text = "";
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Missions.QrCode));
-           
+
         }
 
         private async void Button_Click_1Async(object sender, RoutedEventArgs e)
