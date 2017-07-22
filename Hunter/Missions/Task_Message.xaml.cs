@@ -47,7 +47,7 @@ namespace Hunter.Missions
             {
                 if (answer.Text == NowMission.Task.Answer1)
                 {
-                   if(NowMission.Task.Content2!=null)
+                   if(NowMission.Task.Content2!="")
                     {
                         var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功解开本阶段谜题，即将进入下一阶段") { Title = "提示" };
                         msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
@@ -72,11 +72,11 @@ namespace Hunter.Missions
                     await msgDialog.ShowAsync();
                 }
             }
-            else if (time == 2 && NowMission.Task.Content2 != null)
+            else if (time == 2 && NowMission.Task.Content2 !="")
             {
                 if (answer.Text == NowMission.Task.Answer2)
                 {
-                    if (NowMission.Task.Content3 != null)
+                    if (NowMission.Task.Content3 != "")
                     {
                         var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功解开本阶段谜题，即将进入下一阶段") { Title = "提示" };
                         msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
@@ -101,7 +101,7 @@ namespace Hunter.Missions
                     await msgDialog.ShowAsync();
                 }
             }
-            else if (time == 3 && NowMission.Task.Content3 != null)
+            else if (time == 3 && NowMission.Task.Content3 != "")
             {
                 if (answer.Text == NowMission.Task.Answer3)
                 {
