@@ -124,5 +124,20 @@ namespace Hunter.Room
         {
             Frame.Navigate(typeof(Settings.Settings));
         }
+
+        private void selectByThemeComboBox_DropDownClosed(object sender, object e)
+        {
+
+        }
+
+        private void selectByBackgroundComboBox_DropDownClosed(object sender, object e)
+        {
+
+        }
+
+        private void selectByDifficultyComboBox_DropDownClosed(object sender, object e)
+        {
+
+        }
     }
 }

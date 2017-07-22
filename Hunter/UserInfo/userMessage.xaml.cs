@@ -50,8 +50,6 @@ namespace Hunter.UserInfo
             psTextBox.Text = NewUser.ps;
             List<solve> difficulties = new List<solve>();
             difficulties.Add(new solve() { difficulty = "全部难度题目" , difficultyScores = "解谜数目（成功/失败）：16/20" });
-            difficulties.Add(new solve() { difficulty = "五星难度题目" , difficultyScores = "解谜数目（成功/失败）：2/7" });
-            difficulties.Add(new solve() { difficulty = "四星难度题目" , difficultyScores = "解谜数目（成功/失败）：6/8" });
             difficulties.Add(new solve() { difficulty = "三星难度题目" , difficultyScores = "解谜数目（成功/失败）：3/3" });
             difficulties.Add(new solve() { difficulty = "二星难度题目" , difficultyScores = "解谜数目（成功/失败）：3/2" });
             difficulties.Add(new solve() { difficulty = "一星难度题目" , difficultyScores = "解谜数目（成功/失败）：4/0" });
