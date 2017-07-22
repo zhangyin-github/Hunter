@@ -145,7 +145,7 @@
                 </Grid>
             </Grid>
             <!--扫描结果-->
-            <TextBlock x:Name="tbkResult" Grid.Row="1"  VerticalAlignment="Top" TextWrapping="Wrap"  Margin="12,18" FontSize="25" Text="扫描结果：">
+            <TextBlock x:Name="tbkResult" Grid.Row="1"  VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,50,0,0" FontSize="32" FontWeight="Bold" Text="扫描结果：">
                 <TextBlock.Foreground>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>

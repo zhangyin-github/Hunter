@@ -23,27 +23,48 @@ namespace Hunter.Missions
     /// </summary>
     public sealed partial class Task_Message : Page
     {
-        public int time;
         public Task_Message()
         {
             NowMission.getInstance();
-           
+            UserAnswer.getInstance();
             this.InitializeComponent();
-            title.Text = NowMission.Task.Title;
-            content.Text = NowMission.Task.Content1;
-            tips.Text = NowMission.Task.Tips1;
-            time = 1;
+            if(UserAnswer.Answer.time==1)
+            {
+                title.Text = NowMission.Task.Title;
+                content.Text = NowMission.Task.Content1;
+                tips.Text = NowMission.Task.Tips1;
+            }
+            else if(UserAnswer.Answer.time==2)
+            {
+                title.Text = NowMission.Task.Title;
+                content.Text = NowMission.Task.Content2;
+                tips.Text = NowMission.Task.Tips2;
+            }
+            else if (UserAnswer.Answer.time == 3)
+            {
+                title.Text = NowMission.Task.Title;
+                content.Text = NowMission.Task.Content3;
+                tips.Text = NowMission.Task.Tips3;
+            }
+            if (UserAnswer.Answer.answer!=null)
+            {
+                answer.Text = UserAnswer.Answer.answer;
+            }
+            else
+            {
+                answer.Text = "";
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Missions.QrCode));
-           
+
         }
 
         private async void Button_Click_1Async(object sender, RoutedEventArgs e)
         {
-            if (time == 1)
+            if (UserAnswer.Answer.time == 1)
             {
                 if (answer.Text == NowMission.Task.Answer1)
                 {
@@ -52,17 +73,19 @@ namespace Hunter.Missions
                         var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功解开本阶段谜题，即将进入下一阶段") { Title = "提示" };
                         msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
                         await msgDialog.ShowAsync();
-                        time++;
+                        UserAnswer.Answer.time++;
                         content.Text = NowMission.Task.Content2;
                         tips.Text = NowMission.Task.Tips2;
                         answer.Text = "";
+                        UserAnswer.Answer.answer = "";
                     }
                     else
                     {
                         var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
                         msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { submit.IsEnabled = false;scan.IsEnabled = false; }));
                         await msgDialog.ShowAsync();
-                        time = 0;
+                        UserAnswer.Answer.time = 1;
+                        UserAnswer.Answer.answer = "";
                     }
                 }
                 else
@@ -72,7 +95,7 @@ namespace Hunter.Missions
                     await msgDialog.ShowAsync();
                 }
             }
-            else if (time == 2 && NowMission.Task.Content2 !="")
+            else if (UserAnswer.Answer.time == 2 && NowMission.Task.Content2 !="")
             {
                 if (answer.Text == NowMission.Task.Answer2)
                 {
@@ -81,17 +104,19 @@ namespace Hunter.Missions
                         var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功解开本阶段谜题，即将进入下一阶段") { Title = "提示" };
                         msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
                         await msgDialog.ShowAsync();
-                        time++;
+                        UserAnswer.Answer.time++;
                         content.Text = NowMission.Task.Content3;
                         tips.Text = NowMission.Task.Tips3;
                         answer.Text = "";
+                        UserAnswer.Answer.answer = "";
                     }
                     else
                     {
                         var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
                         msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { submit.IsEnabled = false; scan.IsEnabled = false; }));
                         await msgDialog.ShowAsync();
-                        time = 0;
+                        UserAnswer.Answer.time = 1;
+                        UserAnswer.Answer.answer = "";
                     }
                 }
                 else
@@ -101,15 +126,16 @@ namespace Hunter.Missions
                     await msgDialog.ShowAsync();
                 }
             }
-            else if (time == 3 && NowMission.Task.Content3 != "")
+            else if (UserAnswer.Answer.time == 3 && NowMission.Task.Content3 != "")
             {
                 if (answer.Text == NowMission.Task.Answer3)
                 {
                     var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
                     msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { submit.IsEnabled = false; scan.IsEnabled = false; }));
                     await msgDialog.ShowAsync();
-                    time = 0;
-                    
+                    UserAnswer.Answer.time = 1;
+                    UserAnswer.Answer.answer = "";
+
                 }
                 else
                 {
