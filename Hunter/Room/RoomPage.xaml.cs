@@ -65,6 +65,7 @@ namespace Hunter.Room
                 {
                     RootObject[] MissionLists = await Proxy.GetMission();
                     int i = 0;
+                    MissionList.Clear();
                     while(i<MissionLists.Length)
                     {
                         MissionList.Add( MissionLists[i]);
