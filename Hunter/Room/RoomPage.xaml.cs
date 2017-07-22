@@ -1,9 +1,13 @@
 ﻿using Hunter.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
@@ -24,19 +28,21 @@ namespace Hunter.Room
     /// </summary>
     public sealed partial class RoomPage : Page
     {
-        public List<MissionList> MyList;
-      
+        public ObservableCollection<RootObject> MissionList;
+        public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var room = (MissionList)e.ClickedItem;
+            var room = (RootObject)e.ClickedItem;
             Frame.Navigate(typeof(Missions.Task_Message));
         }
         public RoomPage()
         {
-            MyList = ListManager.getInstance();
+            MissionList = MissionManager.getInstance();
+            NewUser = userInfo.getInstance();
             this.InitializeComponent();
-            
-            
+
+            ExpBar.Value = NewUser.Exp % 1000;
+            Pointbar.Value = NewUser.money;
         }
 
         private void headicon_Click(object sender, RoutedEventArgs e)
@@ -44,9 +50,37 @@ namespace Hunter.Room
             Frame.Navigate(typeof(UserInfo.userMessage));
         }
 
-        private void refreshbutton_Click(object sender, RoutedEventArgs e)
+        private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)
         {
-           
+            using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+            {
+                TimeSpan ts = new TimeSpan(15000000);
+                client.Timeout = ts;
+                try
+                {
+                    RootObject[] MissionLists = await Proxy.GetMission();
+                    int i = 0;
+                    while(i<MissionLists.Length)
+                    {
+                        MissionList.Add( MissionLists[i]);
+                        i++;
+                    }
+                    
+                }
+                catch
+                {
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("网络可能开小差了，请稍后再试") { Title = "刷新失败" };
+                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                    await msgDialog.ShowAsync();
+
+                }
+                finally
+                {
+
+                }
+
+
+            }
         }
 
         private void NewTask_Click(object sender, RoutedEventArgs e)

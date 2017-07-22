@@ -139,7 +139,7 @@
                 </PasswordBox.BorderBrush>
             </PasswordBox>
             <Button Name="login"
-                    Click="login_Click"
+                    Click="login_ClickAsync"
                     Height="50"
                     Width="180"
                     Margin="0 -15 0 0"

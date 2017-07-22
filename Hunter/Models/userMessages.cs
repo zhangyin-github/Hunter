@@ -27,9 +27,23 @@ namespace Hunter.Models
         /// 玩家游戏宣言ps
         /// </summary>
         public string ps { get; set; }
+        public int Exp { get; set; }
+        public int money { get; set; }
 
     }
 
+    public class userInfo
+    {
+        public static userMessages NewUser;
+        public static userMessages getInstance()
+        {
+            if (NewUser == null)
+            {
+                NewUser = new userMessages();
+            }
+            return NewUser;
+        }
+    }
     /// <summary>
     /// 解谜统计情况
     /// </summary>
