@@ -93,6 +93,7 @@ namespace Hunter.Room
     public class User_Answer
     {
         public string answer { get; set; }
+        public int time { get; set; }
     }
     public class UserAnswer
     {
@@ -102,6 +103,7 @@ namespace Hunter.Room
             if (Answer == null)
             {
                 Answer = new User_Answer();
+                Answer.time = 1;
             }
             return Answer;
         }

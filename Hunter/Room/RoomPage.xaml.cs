@@ -43,9 +43,11 @@ namespace Hunter.Room
             MissionList = MissionManager.getInstance();
             NewUser = userInfo.getInstance();
             NowMission.getInstance();
+            UserAnswer.getInstance();
             this.InitializeComponent();
             refreshbutton_ClickAsync(sender,e);
-
+            UserAnswer.Answer.answer = "";
+            UserAnswer.Answer.time = 1;
             ExpBar.Value = NewUser.Exp % 1000;
             Pointbar.Value = NewUser.money;
         }
