@@ -91,6 +91,7 @@
                         Height="100"
                         Width="100"
                         HorizontalAlignment="Center"
+                        Click="usebutton_Click"
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}">
                 <Grid>
