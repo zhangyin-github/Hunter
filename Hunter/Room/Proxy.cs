@@ -78,6 +78,17 @@ namespace Hunter.Room
             return lists;
         }
     }
+    public class NowMission
+    {
+        public static RootObject Task;
+        public static RootObject getInstance()
+        {
+            if (Task == null)
+            {
+                Task = new RootObject();
+            }
+            return Task;
+        }
+    }
 
-   
 }

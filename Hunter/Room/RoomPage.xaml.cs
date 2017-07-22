@@ -33,12 +33,14 @@ namespace Hunter.Room
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var room = (RootObject)e.ClickedItem;
+            NowMission.Task = room;
             Frame.Navigate(typeof(Missions.Task_Message));
         }
         public RoomPage()
         {
             MissionList = MissionManager.getInstance();
             NewUser = userInfo.getInstance();
+            NowMission.getInstance();
             this.InitializeComponent();
 
             ExpBar.Value = NewUser.Exp % 1000;
