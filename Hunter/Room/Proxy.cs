@@ -94,6 +94,7 @@ namespace Hunter.Room
     {
         public string answer { get; set; }
         public int time { get; set; }
+        public int show { get; set; }
     }
     public class UserAnswer
     {

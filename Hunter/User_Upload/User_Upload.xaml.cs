@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.Media.Capture;
 using Hunter.Models;
 using System.Net.Http;
+using Hunter.Room;
+using Windows.UI.Core;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -32,35 +34,135 @@ namespace Hunter.User_Upload
         /// <summary>
         /// 三条线索的内容保存
         /// </summary>
-        public string[] clueText = new string[3];
-        
-        /// <summary>
-        /// 三条提示的内容保存
-        /// </summary>
-        public string[] reminderText = new string[3];
-
-        /// <summary>
-        /// 三条答案的内容保存
-        /// </summary>
-        public string[] keyText = new string[3];
-
+      
         public object item;
         public Missons NewMisson;
         public User_Upload()
         {
             NewUser = userInfo.getInstance();
-            NewMisson = MissonInfo.getInstance();
             this.InitializeComponent();
-            themeComboBox.SelectedIndex = 0;
-            backgroundComboBox.SelectedIndex = 0;
-            clueComboBox.SelectedIndex = 0;
-            item = clue1;
-            for (int i=0;i<3;i++)
+            UserAnswer.getInstance();
+            NowMission.getInstance();
+            if(NowMission.Task.Title!=""&& NowMission.Task.Title!=null)
             {
-                clueText[i] = "";
-                reminderText[i] ="";
-                keyText[i] = "";
+                TitleTextbox.Text = NowMission.Task.Title;
             }
+            else
+            {
+                TitleTextbox.Text = "";
+            }
+            if(UserAnswer.Answer.show==1)
+            {
+                keyTextBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                keyTextBox.Visibility = Visibility.Collapsed;
+            }
+            if(UserAnswer.Answer.time==1)
+            {
+                clueComboBox.SelectedIndex = 0;
+                if (NowMission.Task.Classes!=""&&NowMission.Task.Classes !=null)
+                {
+                    
+                    
+                    
+                }
+                else
+                {
+                    themeComboBox.SelectedIndex = 0;
+                }
+                if(NowMission.Task.Addr != ""&& NowMission.Task.Addr !=null)
+                {
+
+                }
+                else
+                {
+                    backgroundComboBox.SelectedIndex = 0;
+                }
+                if(NowMission.Task.Content1 != ""&& NowMission.Task.Content1 !=null)
+                {
+                    contentTextBox.Text = NowMission.Task.Content1;
+                    reminderTextBox.Text = NowMission.Task.Tips1;
+                    keyTextBox.Text = NowMission.Task.Answer1;
+                }
+                else
+                {
+                    contentTextBox.Text = "";
+                    reminderTextBox.Text = "";
+                    keyTextBox.Text = "";
+                }
+            }
+            else if (UserAnswer.Answer.time == 2)
+            {
+                clueComboBox.SelectedIndex = 1;
+                if (NowMission.Task.Classes != ""&& NowMission.Task.Classes != null)
+                {
+
+
+
+                }
+                else
+                {
+                    themeComboBox.SelectedIndex = 0;
+                }
+                if (NowMission.Task.Addr != ""&& NowMission.Task.Addr !=null)
+                {
+
+                }
+                else
+                {
+                    backgroundComboBox.SelectedIndex = 0;
+                }
+                if (NowMission.Task.Content2 != ""&& NowMission.Task.Content2 !=null)
+                {
+                    contentTextBox.Text = NowMission.Task.Content2;
+                    reminderTextBox.Text = NowMission.Task.Tips2;
+                    keyTextBox.Text = NowMission.Task.Answer2;
+                }
+                else
+                {
+                    contentTextBox.Text = "";
+                    reminderTextBox.Text = "";
+                    keyTextBox.Text = "";
+                }
+            }
+            else if (UserAnswer.Answer.time == 3)
+            {
+                clueComboBox.SelectedIndex = 2;
+                if (NowMission.Task.Classes != ""&& NowMission.Task.Classes!=null)
+                {
+
+
+
+                }
+                else
+                {
+                    themeComboBox.SelectedIndex = 0;
+                }
+                if (NowMission.Task.Addr != ""&& NowMission.Task.Addr !=null)
+                {
+
+                }
+                else
+                {
+                    backgroundComboBox.SelectedIndex = 0;
+                }
+                if (NowMission.Task.Content3 != ""&& NowMission.Task.Content3 !=null)
+                {
+                    contentTextBox.Text = NowMission.Task.Content3;
+                    reminderTextBox.Text = NowMission.Task.Tips3;
+                    keyTextBox.Text = NowMission.Task.Answer3;
+                }
+                else
+                {
+                    contentTextBox.Text = "";
+                    reminderTextBox.Text = "";
+                    keyTextBox.Text = "";
+                }
+            }
+
+            item = clue1;
         }
         
         private void add_Click(System.Object sender, RoutedEventArgs e)
@@ -84,23 +186,41 @@ namespace Hunter.User_Upload
             {
                 using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
                 {
+                    if (NowMission.Task.Classes == "" || NowMission.Task.Classes == null)
+                    {
+                        NowMission.Task.Classes = themeComboBox.SelectionBoxItem.ToString();
+                    }
+                    if (NowMission.Task.Addr == "" || NowMission.Task.Addr == null)
+                    {
+                        NowMission.Task.Addr = backgroundComboBox.SelectionBoxItem.ToString();
+                    }
                     if (item == clue1)
                     {
-                        clueText[0] = contentTextBox.Text;
-                        reminderText[0] = reminderTextBox.Text;
-                        keyText[0] = keyTextBox.Text;
+                        NowMission.Task.Content1 = contentTextBox.Text;
+                        NowMission.Task.Tips1 = reminderTextBox.Text;
+                        if (keyTextBox.Text != "")
+                        {
+                            NowMission.Task.Answer1 = keyTextBox.Text;
+                        }
+                        
                     }
                     else if (item == clue2)
                     {
-                        clueText[1] = contentTextBox.Text;
-                        reminderText[1] = reminderTextBox.Text;
-                        keyText[1] = keyTextBox.Text;
+                        NowMission.Task.Content2 = contentTextBox.Text;
+                        NowMission.Task.Tips2 = reminderTextBox.Text;
+                        if (keyTextBox.Text != "")
+                        {
+                            NowMission.Task.Answer2 = keyTextBox.Text;
+                        }
                     }
                     else if (item == clue3)
                     {
-                        clueText[2] = contentTextBox.Text;
-                        reminderText[2] = reminderTextBox.Text;
-                        keyText[2] = keyTextBox.Text;
+                        NowMission.Task.Content3 = contentTextBox.Text;
+                        NowMission.Task.Tips3 = reminderTextBox.Text;
+                        if (keyTextBox.Text != "")
+                        {
+                            NowMission.Task.Answer3 = keyTextBox.Text;
+                        }
                     }
                     TimeSpan ts = new TimeSpan(15000000);
                     client.Timeout = ts;
@@ -109,18 +229,18 @@ namespace Hunter.User_Upload
                         var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("id", NewUser.ID),
-                        new KeyValuePair<string,string>("title", TitleTextbox.Text),
-                        new KeyValuePair<string,string>("classes", themeComboBox.SelectionBoxItem.ToString()),
-                        new KeyValuePair<string,string>("addr", backgroundComboBox.SelectionBoxItem.ToString()),
-                        new KeyValuePair<string,string>("content1",clueText[0]),
-                        new KeyValuePair<string,string>("content2",clueText[1]),
-                        new KeyValuePair<string,string>("content3", clueText[2]),
-                        new KeyValuePair<string,string>("tips1",reminderText[0]),
-                        new KeyValuePair<string,string>("tips2",reminderText[1]),
-                        new KeyValuePair<string,string>("tips3",reminderText[2]),
-                        new KeyValuePair<string,string>("answer1",keyText[0]),
-                        new KeyValuePair<string,string>("answer2",keyText[1]),
-                        new KeyValuePair<string,string>("answer3",keyText[2]),
+                        new KeyValuePair<string,string>("title", NowMission.Task.Title),
+                        new KeyValuePair<string,string>("classes",  NowMission.Task.Classes),
+                        new KeyValuePair<string,string>("addr",  NowMission.Task.Addr),
+                        new KeyValuePair<string,string>("content1",NowMission.Task.Content1),
+                        new KeyValuePair<string,string>("content2",NowMission.Task.Content2),
+                        new KeyValuePair<string,string>("content3", NowMission.Task.Content3),
+                        new KeyValuePair<string,string>("tips1",NowMission.Task.Tips1),
+                        new KeyValuePair<string,string>("tips2",NowMission.Task.Tips2),
+                        new KeyValuePair<string,string>("tips3",NowMission.Task.Tips3),
+                        new KeyValuePair<string,string>("answer1",NowMission.Task.Answer1),
+                        new KeyValuePair<string,string>("answer2",NowMission.Task.Answer2),
+                        new KeyValuePair<string,string>("answer3",NowMission.Task.Answer3),
                         new KeyValuePair<string,string>("action", "upload"),
                     };
                         System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
@@ -130,7 +250,9 @@ namespace Hunter.User_Upload
                             if (responseBody == "success")
                             {
                                 var msgDialog = new Windows.UI.Popups.MessageDialog("发布成功") { Title = "提示" };
-                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { NowMission.Task.Title = ""; NowMission.Task.Addr = ""; NowMission.Task.Content1 = ""; NowMission.Task.Content2 = ""; NowMission.Task.Content3 = ""; NowMission.Task.Classes = ""; NowMission.Task.Answer1 = ""; NowMission.Task.Answer2 = ""; NowMission.Task.Answer3 = ""; NowMission.Task.Tips1 = ""; NowMission.Task.Tips2 = ""; NowMission.Task.Tips3 = ""; NowMission.Task.Title = ""; NowMission.Task.User = "";Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
+                                    SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+                                }));
                                 await msgDialog.ShowAsync();
                             }
                             else
@@ -229,46 +351,61 @@ namespace Hunter.User_Upload
 
         private async void clueComboBox_DropDownClosed(object sender, object e)
         {
-           
             if (clue1.IsSelected)
             {
                 if (item == clue2)
                 {
-                    clueText[1] = contentTextBox.Text;
-                    reminderText[1] = reminderTextBox.Text;
-                    keyText[1] = keyTextBox.Text;
+                    NowMission.Task.Content2 = contentTextBox.Text;
+                    NowMission.Task.Tips2 = reminderTextBox.Text;
+                    if (keyTextBox.Text != "")
+                    {
+                        NowMission.Task.Answer2 = keyTextBox.Text;
+                    }
                 }
                 else if (item == clue3)
                 {
-                    clueText[2] = contentTextBox.Text;
-                    reminderText[2] = reminderTextBox.Text;
-                    keyText[2] = keyTextBox.Text;
+                    NowMission.Task.Content3 = contentTextBox.Text;
+                    NowMission.Task.Tips3 = reminderTextBox.Text;
+                    if (keyTextBox.Text != "")
+                    {
+                        NowMission.Task.Answer3 = keyTextBox.Text;
+                    }
                 }
                 contentTextBox.IsEnabled = true;
                 reminderTextBox.IsEnabled = true;
                 keyTextBox.IsEnabled = true;
-                contentTextBox.Text = clueText[0];
-                reminderTextBox.Text = reminderText[0];
-                keyTextBox.Text = keyText[0];
+                contentTextBox.Text = NowMission.Task.Content1;
+                reminderTextBox.Text = NowMission.Task.Tips1;
+                if (NowMission.Task.Answer1 != "")
+                {
+                    keyTextBox.Text = NowMission.Task.Answer1;
+                }
                 item=clueComboBox.SelectedItem;
+                UserAnswer.Answer.time = 1;
 
             }
            else if(clue2.IsSelected)
             {
                 if(item==clue1)
                 {
-                    clueText[0] = contentTextBox.Text;
-                    reminderText[0] = reminderTextBox.Text;
-                    keyText[0] = keyTextBox.Text;
+                    NowMission.Task.Content1 = contentTextBox.Text;
+                    NowMission.Task.Tips1 = reminderTextBox.Text;
+                    if (keyTextBox.Text != "")
+                    {
+                        NowMission.Task.Answer1 = keyTextBox.Text;
+                    }
                 }
                 else if(item==clue3)
                 {
-                    clueText[2] = contentTextBox.Text;
-                    reminderText[2] = reminderTextBox.Text;
-                    keyText[2] = keyTextBox.Text;
+                    NowMission.Task.Content3 = contentTextBox.Text;
+                    NowMission.Task.Tips3 = reminderTextBox.Text;
+                    if (keyTextBox.Text != "")
+                    {
+                        NowMission.Task.Answer3 = keyTextBox.Text;
+                    }
                 }
 
-                if (clueText[0] == "" || reminderText[0] == "" || keyText[0] == "")
+                if (NowMission.Task.Content1 == "" || NowMission.Task.Tips1 == "" || NowMission.Task.Answer1 == "")
                 {
                     contentTextBox.IsEnabled = false;
                     reminderTextBox.IsEnabled = false;
@@ -279,28 +416,41 @@ namespace Hunter.User_Upload
                 }
                 else
                 {
-                    contentTextBox.Text = clueText[1];
-                    reminderTextBox.Text = reminderText[1];
-                    keyTextBox.Text = keyText[1];
+                    contentTextBox.IsEnabled = true;
+                    reminderTextBox.IsEnabled = true;
+                    keyTextBox.IsEnabled = true;
+                    contentTextBox.Text = NowMission.Task.Content2;
+                    reminderTextBox.Text = NowMission.Task.Tips2;
+                    if (NowMission.Task.Answer2 != "")
+                    {
+                        keyTextBox.Text = NowMission.Task.Answer2;
+                    }
                     item = clueComboBox.SelectedItem;
+                    UserAnswer.Answer.time = 2;
                 }
             }
             else if (clue3.IsSelected)
             {
                 if (item == clue1)
                 {
-                    clueText[0] = contentTextBox.Text;
-                    reminderText[0] = reminderTextBox.Text;
-                    keyText[0] = keyTextBox.Text;
+                    NowMission.Task.Content1 = contentTextBox.Text;
+                    NowMission.Task.Tips1 = reminderTextBox.Text;
+                    if (keyTextBox.Text != "")
+                    {
+                        NowMission.Task.Answer1 = keyTextBox.Text;
+                    }
                 }
                 else if (item == clue2)
                 {
-                    clueText[1] = contentTextBox.Text;
-                    reminderText[1] = reminderTextBox.Text;
-                    keyText[1] = keyTextBox.Text;
+                    NowMission.Task.Content2 = contentTextBox.Text;
+                    NowMission.Task.Tips2 = reminderTextBox.Text;
+                    if (keyTextBox.Text != "")
+                    {
+                        NowMission.Task.Answer2 = keyTextBox.Text;
+                    }
                 }
 
-                if (clueText[1] == "" || reminderText[1] == "" || keyText[1] == "")
+                if (NowMission.Task.Content2 == "" || NowMission.Task.Tips2 == "" || NowMission.Task.Answer2 == "")
                 {
                     contentTextBox.IsEnabled = false;
                     reminderTextBox.IsEnabled = false;
@@ -311,18 +461,85 @@ namespace Hunter.User_Upload
                 }
                 else
                 {
-                    contentTextBox.Text = clueText[2];
-                    reminderTextBox.Text = reminderText[2];
-                    keyTextBox.Text = keyText[2];
+                    contentTextBox.IsEnabled = true;
+                    reminderTextBox.IsEnabled = true;
+                    keyTextBox.IsEnabled = true;
+                    contentTextBox.Text = NowMission.Task.Content3;
+                    reminderTextBox.Text = NowMission.Task.Tips3;
+                    if (NowMission.Task.Answer3!= "")
+                    {
+                        keyTextBox.Text = NowMission.Task.Answer3;
+                    }
                     item = clueComboBox.SelectedItem;
+                    UserAnswer.Answer.time = 3;
                 }
             }
         }
+
+        private async void scan_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            var msgDialog = new Windows.UI.Popups.MessageDialog("使用二维码答案会导致任务各个阶段仅能使用二维码解答，确定继续吗？") { Title = "提示" };
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
+                if(UserAnswer.Answer.time==1)
+                {
+                    NowMission.Task.Content1 = contentTextBox.Text;
+                    NowMission.Task.Tips1 = reminderTextBox.Text;
+                    NowMission.Task.Answer1 = "";
+                }
+                else if (UserAnswer.Answer.time == 2)
+                {
+                    NowMission.Task.Content2 = contentTextBox.Text;
+                    NowMission.Task.Tips2 = reminderTextBox.Text;
+                    NowMission.Task.Answer2 = "";
+                }
+                else if (UserAnswer.Answer.time == 3)
+                {
+                    NowMission.Task.Content3 = contentTextBox.Text;
+                    NowMission.Task.Tips3 = reminderTextBox.Text;
+                    NowMission.Task.Answer3 = "";
+                }
+                keyTextBox.Text = "";
+                keyTextBox.Visibility = Visibility.Collapsed;
+                UserAnswer.Answer.show = 0;
+                Frame.Navigate(typeof(QrCode));
+            }));
+            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("取消", uiCommand => { } ));
+            await msgDialog.ShowAsync();
+           
+        }
+
+        private void keyTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(keyTextBox.Text=="")
+            {
+                scan.IsEnabled = true;
+            }
+            else
+            {
+                scan.IsEnabled = false;
+            }
+        }
+
+        private void themeComboBox_DropDownClosed(object sender, object e)
+        {
+           NowMission.Task.Classes= themeComboBox.SelectionBoxItem.ToString();
+        }
+
+        private void backgroundComboBox_DropDownClosed(object sender, object e)
+        {
+            NowMission.Task.Addr = themeComboBox.SelectionBoxItem.ToString();
+        }
+
+        private void TitleTextbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            NowMission.Task.Title = TitleTextbox.Text;
+        }
+
         /// <summary>
         /// contentTextBox文本被改变对应操作
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-       
+
     }
 }

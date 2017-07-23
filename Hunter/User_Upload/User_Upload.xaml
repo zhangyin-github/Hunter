@@ -26,7 +26,8 @@
             <RowDefinition Height="2.1*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -44,7 +45,7 @@
             </TextBlock.Foreground>
         </TextBlock>
         <TextBlock Grid.Row="2" Text="主题:" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,110,5"  Foreground="Goldenrod"/>
-        <ComboBox x:Name="themeComboBox"  Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="110"  >
+        <ComboBox x:Name="themeComboBox"  Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="110" DropDownClosed="themeComboBox_DropDownClosed" >
             <ComboBoxItem Content="悬疑" Height="40" Width="110" FontSize="18" Foreground="Goldenrod"/>
             <ComboBoxItem Content="推理" Height="40" Width="110" FontSize="18" Foreground="Goldenrod"/>
             <ComboBoxItem Content="日常" Height="40" Width="110" FontSize="18" Foreground="Goldenrod"/>
@@ -62,7 +63,7 @@
             </ComboBox.BorderBrush>
         </ComboBox>
         <TextBlock Grid.Row="2"  Grid.Column="1" Text="场景:" FontSize="18" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="10,0,0,5" Foreground="Goldenrod" />
-        <ComboBox x:Name="backgroundComboBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="51,0,0,0" Width="110">
+        <ComboBox x:Name="backgroundComboBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="51,0,0,0" Width="110" DropDownClosed="backgroundComboBox_DropDownClosed">
             <ComboBoxItem Content="校园" Height="35" Width="110" FontSize="18" Foreground="Goldenrod"/>
             <ComboBoxItem Content="密室" Height="35" Width="110" FontSize="18" Foreground="Goldenrod"/>
             <ComboBoxItem Content="街道" Height="35" Width="110" FontSize="18" Foreground="Goldenrod"/>
@@ -103,7 +104,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="标题:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox x:Name="TitleTextbox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBox x:Name="TitleTextbox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextChanged="TitleTextbox_TextChanged">
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -232,6 +233,7 @@
                 <ColumnDefinition Width="1.75*"></ColumnDefinition>
                 <ColumnDefinition Width="1.75*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
+                
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="提示:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
             <TextBox x:Name="reminderTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0"  >
@@ -246,7 +248,7 @@
                 </TextBox.BorderBrush>
             </TextBox>
             <TextBlock Grid.Row="0" Grid.Column="2" Text="答案:" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Goldenrod"/>
-            <TextBox x:Name="keyTextBox"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0" >
+            <TextBox x:Name="keyTextBox"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,5,0"  TextChanged="keyTextBox_TextChanged">
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
@@ -257,6 +259,10 @@
                     </LinearGradientBrush>
                 </TextBox.BorderBrush>
             </TextBox>
+            <Button Name="scan" Grid.RowSpan="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="DarkGoldenrod" Background="Transparent" Click="scan_ClickAsync" Style="{StaticResource mostbutton}">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Segoe MDL2 Assets" Text="&#xE114;" FontSize="36" TextAlignment="Center" >
+                </TextBlock>
+            </Button>
         </Grid>
         <Grid Grid.Row="7" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>

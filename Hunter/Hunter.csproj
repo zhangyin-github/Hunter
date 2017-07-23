@@ -146,6 +146,9 @@
     <Compile Include="UserInfo\userMessage.xaml.cs">
       <DependentUpon>userMessage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User_Upload\QrCode.xaml.cs">
+      <DependentUpon>QrCode.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User_Upload\User_Upload.xaml.cs">
       <DependentUpon>User_Upload.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserInfo\userMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User_Upload\QrCode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -30,7 +30,7 @@ using Hunter.Room;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
-namespace Hunter.Missions
+namespace Hunter.User_Upload
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
@@ -43,7 +43,6 @@ namespace Hunter.Missions
         private bool IsBusy;
         public QrCode()
         {
-            UserAnswer.getInstance();
             this.InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -123,6 +122,9 @@ namespace Hunter.Missions
             return encoderId;
         }
         public static Size MaxSizeSupported = new Size(4000, 3000);
+
+        public object VideoCapture { get; private set; }
+
         public async static Task<WriteableBitmap> ReadBitmap(IRandomAccessStream fileStream, string type)
         {
             WriteableBitmap bitmap = null;
@@ -192,89 +194,22 @@ namespace Hunter.Missions
                         UserAnswer.Answer.answer = _result.Text;
                         if (UserAnswer.Answer.time == 1)
                         {
-                            if (UserAnswer.Answer.answer == NowMission.Task.Answer1)
-                            {
-                                if (NowMission.Task.Content2 != "")
-                                {
-                                    var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功解开本阶段谜题，即将进入下一阶段") { Title = "提示" };
-                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
-                                        UserAnswer.Answer.time++;
-                                        UserAnswer.Answer.answer = ""; Frame.GoBack();
-                                    }));
-                                    await msgDialog.ShowAsync();
-                                    
-                                }
-                                else
-                                {
-                                    var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
-                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
-                                        SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed; UserAnswer.Answer.time = 1;
-                                        UserAnswer.Answer.answer = "";
-                                    }));
-                                    await msgDialog.ShowAsync();
-                                   
-                                }
-                            }
-                            else
-                            {
-                                var msgDialog = new Windows.UI.Popups.MessageDialog("答案错误，解谜失败") { Title = "提示" };
-                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
-                                await msgDialog.ShowAsync();
-                            }
+                            var msgDialog = new Windows.UI.Popups.MessageDialog("扫描完成！点击确定键返回继续编辑") { Title = "提示" };
+                            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { NowMission.Task.Answer1 = UserAnswer.Answer.answer;Frame.GoBack(); }));
+                            await msgDialog.ShowAsync();
+                            
                         }
-                        else if (UserAnswer.Answer.time == 2 && NowMission.Task.Content2 != "")
+                        else if (UserAnswer.Answer.time == 2 )
                         {
-                            if (UserAnswer.Answer.answer == NowMission.Task.Answer2)
-                            {
-                                if (NowMission.Task.Content3 != "")
-                                {
-                                    var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功解开本阶段谜题，即将进入下一阶段") { Title = "提示" };
-                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
-                                        UserAnswer.Answer.time++;
-                                        UserAnswer.Answer.answer = ""; Frame.GoBack();
-                                    }));
-                                    await msgDialog.ShowAsync();
-
-                                }
-                                else
-                                {
-                                    var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
-                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
-                                        Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
-                                        SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed; UserAnswer.Answer.time = 1;
-                                        UserAnswer.Answer.answer = "";
-                                    }));
-                                    await msgDialog.ShowAsync();
-                                   
-                                }
-                            }
-                            else
-                            {
-                                var msgDialog = new Windows.UI.Popups.MessageDialog("答案错误，解谜失败") { Title = "提示" };
-                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
-                                await msgDialog.ShowAsync();
-                            }
+                            var msgDialog = new Windows.UI.Popups.MessageDialog("扫描完成！点击确定键返回继续编辑") { Title = "提示" };
+                            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { NowMission.Task.Answer2 = UserAnswer.Answer.answer; Frame.GoBack(); }));
+                            await msgDialog.ShowAsync();
                         }
-                        else if (UserAnswer.Answer.time == 3 && NowMission.Task.Content3 != "")
+                        else if (UserAnswer.Answer.time == 3 )
                         {
-                            if (UserAnswer.Answer.answer == NowMission.Task.Answer3)
-                            {
-                                var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
-                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
-                                    Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
-                                    SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed; UserAnswer.Answer.time = 1;
-                                    UserAnswer.Answer.answer = "";
-                                }));
-                                await msgDialog.ShowAsync();
-                                
-
-                            }
-                            else
-                            {
-                                var msgDialog = new Windows.UI.Popups.MessageDialog("答案错误，解谜失败") { Title = "提示" };
-                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
-                                await msgDialog.ShowAsync();
-                            }
+                            var msgDialog = new Windows.UI.Popups.MessageDialog("扫描完成！点击确定键返回继续编辑") { Title = "提示" };
+                            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { NowMission.Task.Answer3 = UserAnswer.Answer.answer; Frame.GoBack(); }));
+                            await msgDialog.ShowAsync();
                         }
                     });
                 }
@@ -301,7 +236,7 @@ namespace Hunter.Missions
                 VideoDeviceId = cameraDevice.Id
             };
             await _mediaCapture.InitializeAsync(settings);
-            VideoCapture.Source = _mediaCapture;
+            VideoCapture1.Source = _mediaCapture;
             await _mediaCapture.StartPreviewAsync();
         }
 
@@ -315,3 +250,4 @@ namespace Hunter.Missions
         }
     }
 }
+

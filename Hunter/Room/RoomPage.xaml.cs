@@ -49,9 +49,11 @@ namespace Hunter.Room
             refreshbutton_ClickAsync(sender,e);
             UserAnswer.Answer.answer = "";
             UserAnswer.Answer.time = 1;
+            UserAnswer.Answer.show = 1;
             ExpBar.Value = NewUser.Exp % 1000;
             Pointbar.Value = NewUser.money;
             username.Text = NewUser.nickName;
+            NowMission.Task.Title = ""; NowMission.Task.Addr = ""; NowMission.Task.Content1 = ""; NowMission.Task.Content2 = ""; NowMission.Task.Content3 = ""; NowMission.Task.Classes = ""; NowMission.Task.Answer1 = ""; NowMission.Task.Answer2 = ""; NowMission.Task.Answer3 = ""; NowMission.Task.Tips1 = ""; NowMission.Task.Tips2 = ""; NowMission.Task.Tips3 = ""; NowMission.Task.Title = ""; NowMission.Task.User = "";
         }
 
         private void headicon_Click(object sender, RoutedEventArgs e)

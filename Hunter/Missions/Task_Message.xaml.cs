@@ -47,14 +47,7 @@ namespace Hunter.Missions
                 content.Text = NowMission.Task.Content3;
                 tips.Text = NowMission.Task.Tips3;
             }
-            if (UserAnswer.Answer.answer!=null)
-            {
-                answer.Text = UserAnswer.Answer.answer;
-            }
-            else
-            {
-                answer.Text = "";
-            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
