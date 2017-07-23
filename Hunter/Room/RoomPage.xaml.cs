@@ -32,6 +32,7 @@ namespace Hunter.Room
         public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             var room = (RootObject)e.ClickedItem;
             NowMission.Task = room;
             Frame.Navigate(typeof(Missions.Task_Message));
@@ -55,11 +56,13 @@ namespace Hunter.Room
 
         private void headicon_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             Frame.Navigate(typeof(UserInfo.userMessage));
         }
 
         private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             selectByBackgroundComboBox.SelectedIndex = 0;
             selectByDifficultyComboBox.SelectedIndex = 0;
             selectByThemeComboBox.SelectedIndex = 0;
@@ -114,18 +117,22 @@ namespace Hunter.Room
 
         private void NewTask_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             Frame.Navigate(typeof(User_Upload.User_Upload));
         }
         private void MyItems_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             Frame.Navigate(typeof(Items.Bag));
         }
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             Frame.Navigate(typeof(Items.Shop));
         }
         private void Set_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             Frame.Navigate(typeof(Settings.Settings));
         }
 

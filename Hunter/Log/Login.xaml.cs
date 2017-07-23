@@ -36,6 +36,7 @@ namespace Hunter.Log
 
         private async void login_ClickAsync(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             if (username.Text != "" && passwordinfo.Password != "")
             {
                 using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
@@ -124,6 +125,7 @@ namespace Hunter.Log
 
         private void register_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             Frame.Navigate(typeof(Log.Register));
         }
 

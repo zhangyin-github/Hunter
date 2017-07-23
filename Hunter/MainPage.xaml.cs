@@ -37,6 +37,14 @@ namespace Hunter
             BgmPlayer.MusicPlayer.Source = new Uri("ms-appx:///Assets/bgm.mp3");
             BgmPlayer.MusicPlayer.Play();
             BgmPlayer.MusicPlayer.Volume = 1;
+            ButtonPlayer.getInstance();
+            ButtonPlayer.MusicPlayer.Name = "MusicPlayer";
+            Music.Children.Add(ButtonPlayer.MusicPlayer);
+            ButtonPlayer.MusicPlayer.Visibility = Visibility.Collapsed;
+            ButtonPlayer.MusicPlayer.IsLooping = false;
+            ButtonPlayer.MusicPlayer.AutoPlay = false;
+            ButtonPlayer.MusicPlayer.Source = new Uri("ms-appx:///Assets/button.wav");
+            ButtonPlayer.MusicPlayer.Volume = 0.35;
             MainFrame.Navigate(typeof(Log.Login));
             MainFrame.Navigated += OnNavigated;
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += BackRequested;

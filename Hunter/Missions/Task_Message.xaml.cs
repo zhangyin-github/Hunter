@@ -1,4 +1,5 @@
-﻿using Hunter.Room;
+﻿using Hunter.Models;
+using Hunter.Room;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -58,12 +59,14 @@ namespace Hunter.Missions
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             Frame.Navigate(typeof(Missions.QrCode));
 
         }
 
         private async void Button_Click_1Async(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             if (UserAnswer.Answer.time == 1)
             {
                 if (answer.Text == NowMission.Task.Answer1)

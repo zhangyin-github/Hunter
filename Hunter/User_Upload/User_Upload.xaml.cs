@@ -70,6 +70,7 @@ namespace Hunter.User_Upload
 
         private async void upload_Click(System.Object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             var dialog = new ContentDialog()
             {
                 Title = "消息提示",

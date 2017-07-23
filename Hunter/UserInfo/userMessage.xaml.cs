@@ -70,7 +70,8 @@ namespace Hunter.UserInfo
 
         private async void SelectPicButton_Click(object sender, RoutedEventArgs e)
         {
-                FileOpenPicker openPicker = new FileOpenPicker();
+            ButtonPlayer.MusicPlayer.Play();
+            FileOpenPicker openPicker = new FileOpenPicker();
                 openPicker.ViewMode = PickerViewMode.Thumbnail;
                 openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
                 openPicker.FileTypeFilter.Add(".jpg");
@@ -238,6 +239,7 @@ namespace Hunter.UserInfo
 
         private async void submitWholeButton_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             var dialog = new ContentDialog()
             {
                 Title = "消息提示",

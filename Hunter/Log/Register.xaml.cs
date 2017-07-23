@@ -34,6 +34,7 @@ namespace Hunter.Log
 
         private async void login_ClickAsync(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             if (username.Text != "" && passwordinfo.Password != "")
             {
                 if (passwordinfo.Password != password_againinfo.Password)//判断是否一致

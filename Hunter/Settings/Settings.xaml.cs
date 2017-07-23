@@ -42,6 +42,7 @@ namespace Hunter.Settings
         private void volumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             BgmPlayer.MusicPlayer.Volume = (double)(volumeSlider.Value / 100);
+            ButtonPlayer.MusicPlayer.Volume = (double)(volumeSlider.Value * 0.35 / 100);
         }
 
         private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
@@ -50,17 +51,20 @@ namespace Hunter.Settings
             {
                 BgmPlayer.MusicPlayer.Play();
                 BgmPlayer.MusicPlayer.AutoPlay = true;
+                ButtonPlayer.MusicPlayer.Volume = BgmPlayer.MusicPlayer.Volume * 0.35;
                 
             }
             else if (bgmswitch.IsOn == false)
             {
                 BgmPlayer.MusicPlayer.Stop();
                 BgmPlayer.MusicPlayer.AutoPlay = false;
+                ButtonPlayer.MusicPlayer.Volume = 0;
             }
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
+            ButtonPlayer.MusicPlayer.Play();
             Frame.Navigate(typeof(Log.Login));
             Frame.BackStack.Clear();
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;

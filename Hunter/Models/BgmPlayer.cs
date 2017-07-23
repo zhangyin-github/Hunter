@@ -20,5 +20,17 @@ namespace Hunter.Models
         }
     }
 
+    class ButtonPlayer
+    {
+        public static MediaElement MusicPlayer;
+        public static MediaElement getInstance()
+        {
+            if (MusicPlayer == null)
+            {
+                MusicPlayer = new MediaElement();
+            }
+            return MusicPlayer;
+        }
+    }
 
 }
