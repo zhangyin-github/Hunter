@@ -68,9 +68,17 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Name="content" Grid.Column="1" FontSize="20" HorizontalAlignment="Stretch" TextAlignment="Center" TextWrapping="Wrap"  Margin="0 20 0 20"  Foreground="Goldenrod"/>
+            <Grid Grid.Column="1" Grid.RowSpan="2" Margin="0 20 0 20">
+                <Grid.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="..\Assets/textbg.jpg" Opacity="1"/>
+                </Grid.Background>
+                <ScrollViewer Padding="20 15 20 25">
+                    <TextBlock Name="content"   FontSize="24" HorizontalAlignment="Stretch" TextAlignment="Center" TextWrapping="Wrap"  Foreground="DarkRed" FontWeight="Bold"/>
+                </ScrollViewer>
+                
+            </Grid>
         </Grid>
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="3" Margin="0 20 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -89,7 +97,9 @@
                 </TextBlock.Foreground>
 
             </TextBlock>
-            <TextBlock Name="tips"  FontSize="20" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="2" Foreground="Goldenrod"/>
+            <ScrollViewer Grid.Column="2">
+                <TextBlock Name="tips"  FontSize="20" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"  Foreground="Goldenrod"/>
+            </ScrollViewer>
         </Grid>
         <Grid Grid.Row="4" >
             <Grid.ColumnDefinitions>
@@ -139,7 +149,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBox Name="answer" Grid.Row="0" HorizontalAlignment="Stretch"  Height="200" Grid.RowSpan="2" Grid.Column="1" BorderThickness="3" >
+            <TextBox Name="answer" Grid.Row="0" HorizontalAlignment="Stretch" TextWrapping="Wrap" Height="200" Grid.RowSpan="2" Grid.Column="1" BorderThickness="3" >
                 <TextBox.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>

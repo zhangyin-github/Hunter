@@ -86,8 +86,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="StoryMode" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="故事模式" FontSize="36" Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}">
-                <Button.BorderBrush>
+            <Button Name="StoryMode" Grid.Column="0" Margin="20 0 0 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="..\Assets/story.png"/>
+                </Button.Background>
+                <!--Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
                         <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
@@ -95,10 +98,13 @@
                         <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
                         <GradientStop Color="#FF554022" Offset="1"/>
                     </LinearGradientBrush>
-                </Button.BorderBrush>
+                </-->
             </Button>
-            <Button Name="UserMode" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="自由模式"  FontSize="36" Foreground="DarkGoldenrod"  Background="Transparent" Style="{StaticResource mostbutton}">
-                <Button.BorderBrush>
+            <Button Name="UserMode" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="..\Assets/free.png"/>
+                </Button.Background>
+                <!--Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF554022" Offset="0"/>
                         <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
@@ -106,7 +112,7 @@
                         <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
                         <GradientStop Color="#FF554022" Offset="1"/>
                     </LinearGradientBrush>
-                </Button.BorderBrush>
+                </-->
             </Button>
         </Grid>
         <Grid Grid.Row="2" Margin="10 0 10 0">

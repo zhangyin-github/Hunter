@@ -360,6 +360,7 @@ namespace Hunter.User_Upload
                     if (keyTextBox.Text != "")
                     {
                         NowMission.Task.Answer2 = keyTextBox.Text;
+
                     }
                 }
                 else if (item == clue3)
@@ -376,10 +377,7 @@ namespace Hunter.User_Upload
                 keyTextBox.IsEnabled = true;
                 contentTextBox.Text = NowMission.Task.Content1;
                 reminderTextBox.Text = NowMission.Task.Tips1;
-                if (NowMission.Task.Answer1 != "")
-                {
-                    keyTextBox.Text = NowMission.Task.Answer1;
-                }
+                keyTextBox.Text = NowMission.Task.Answer1;
                 item=clueComboBox.SelectedItem;
                 UserAnswer.Answer.time = 1;
 
@@ -421,10 +419,7 @@ namespace Hunter.User_Upload
                     keyTextBox.IsEnabled = true;
                     contentTextBox.Text = NowMission.Task.Content2;
                     reminderTextBox.Text = NowMission.Task.Tips2;
-                    if (NowMission.Task.Answer2 != "")
-                    {
-                        keyTextBox.Text = NowMission.Task.Answer2;
-                    }
+                    keyTextBox.Text = NowMission.Task.Answer2;
                     item = clueComboBox.SelectedItem;
                     UserAnswer.Answer.time = 2;
                 }
@@ -466,10 +461,7 @@ namespace Hunter.User_Upload
                     keyTextBox.IsEnabled = true;
                     contentTextBox.Text = NowMission.Task.Content3;
                     reminderTextBox.Text = NowMission.Task.Tips3;
-                    if (NowMission.Task.Answer3!= "")
-                    {
-                        keyTextBox.Text = NowMission.Task.Answer3;
-                    }
+                    keyTextBox.Text = NowMission.Task.Answer3;
                     item = clueComboBox.SelectedItem;
                     UserAnswer.Answer.time = 3;
                 }
@@ -508,14 +500,24 @@ namespace Hunter.User_Upload
            
         }
 
-        private void keyTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void keyTextBox_TextChangedAsync(object sender, TextChangedEventArgs e)
         {
-            if(keyTextBox.Text=="")
+            if (keyTextBox.Text == "")
             {
                 scan.IsEnabled = true;
             }
             else
             {
+                if (keyTextBox.Text.Length > 50)
+                {
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("内容限制长度为50，请修改后重试") { Title = "提示" };
+                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { upload.IsEnabled = false; }));
+                    await msgDialog.ShowAsync();
+                }
+                else
+                {
+                    upload.IsEnabled = true;
+                }
                 scan.IsEnabled = false;
             }
         }
@@ -533,6 +535,34 @@ namespace Hunter.User_Upload
         private void TitleTextbox_TextChanged(object sender, TextChangedEventArgs e)
         {
             NowMission.Task.Title = TitleTextbox.Text;
+        }
+
+        private async void contentTextBox_TextChangedAsync(object sender, TextChangedEventArgs e)
+        {
+            if (contentTextBox.Text.Length > 500)
+            {
+                var msgDialog = new Windows.UI.Popups.MessageDialog("内容限制长度为500，请修改后重试") { Title = "提示" };
+                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { upload.IsEnabled = false; }));
+                await msgDialog.ShowAsync();
+            }
+            else
+            {
+                upload.IsEnabled = true;
+            }
+        }
+
+        private async void reminderTextBox_TextChangedAsync(object sender, TextChangedEventArgs e)
+        {
+            if (reminderTextBox.Text.Length > 50)
+            {
+                var msgDialog = new Windows.UI.Popups.MessageDialog("内容限制长度为50，请修改后重试") { Title = "提示" };
+                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { upload.IsEnabled = false; }));
+                await msgDialog.ShowAsync();
+            }
+            else
+            {
+                upload.IsEnabled = true;
+            }
         }
 
         /// <summary>

@@ -16,7 +16,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/log_bg.jpg"/>
+            <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/textbg.jpg"/>
         </Grid.Background>
         <Grid>
             <Grid.RowDefinitions>

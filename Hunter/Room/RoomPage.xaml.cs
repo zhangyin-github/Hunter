@@ -70,7 +70,7 @@ namespace Hunter.Room
             selectByThemeComboBox.SelectedIndex = 0;
             using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
             {
-                TimeSpan ts = new TimeSpan(15000000);
+                TimeSpan ts = new TimeSpan(35000000);
                 client.Timeout = ts;
                 try
                 {
@@ -92,7 +92,10 @@ namespace Hunter.Room
                         var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
                         RootObject[] data = (RootObject[])s.ReadObject(ms);
                         int i = 0;
-                        MissionList.Clear();
+                        if (MissionList != null)
+                        {
+                            MissionList.Clear();
+                        }
                         while (i < data.Length)
                         {
                             MissionList.Add(data[i]);
