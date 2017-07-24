@@ -20,6 +20,7 @@
             <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
         <!--页面滚动条-->
+        <Button Name="refreshbutton" Visibility="Collapsed" Click="refreshbutton_ClickAsync"/>
         <ScrollViewer x:Name="userScrollViewer" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
             <Grid MinWidth="360">
                 <Grid.RowDefinitions>
@@ -226,7 +227,7 @@
                         <ColumnDefinition  Width="*"/>
 
                     </Grid.ColumnDefinitions>
-                    <TextBox Name="psTextBox" Grid.Column="1" HorizontalAlignment="Stretch"  RelativePanel.Below="psTitle" Margin="20,0,20,0" MinHeight="130" MinWidth="330" TextWrapping="Wrap" Text="{Binding ps}" TextChanged="psTextBox_TextChanged" PlaceholderText="请输入您的游戏宣言~" FontSize="15" Foreground="LightGoldenrodYellow"></TextBox>
+                    <TextBox Name="psTextBox" Grid.Column="1" HorizontalAlignment="Stretch"  RelativePanel.Below="psTitle" Margin="20,0,20,0" MinHeight="130" MinWidth="330" TextWrapping="Wrap" Text="{Binding ps}" TextChanged="psTextBox_TextChangedAsync" PlaceholderText="请输入您的游戏宣言~" FontSize="15" Foreground="LightGoldenrodYellow"></TextBox>
 
                 </Grid>
                 <!--第9行：提交信息修改按钮 submitWholeButton 包含flyout中：确认修改 submitWholeChange 和 取消修改 cancelWholeChange-->

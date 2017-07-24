@@ -35,7 +35,11 @@ namespace Hunter.Log
         private async void login_ClickAsync(object sender, RoutedEventArgs e)
         {
             ButtonPlayer.MusicPlayer.Play();
-            if (username.Text != "" && passwordinfo.Password != "")
+            ring.IsActive = true;
+            userinfo.IsEnabled = false;
+            passwordinfo.IsEnabled = false;
+            login.IsEnabled = false;
+            if (userinfo.Text != "" && passwordinfo.Password != "")
             {
                 if (passwordinfo.Password != password_againinfo.Password)//判断是否一致
                 {
@@ -96,28 +100,42 @@ namespace Hunter.Log
                                             NewUser.money = int.Parse(userdata[4]);
                                         }
                                     }
+                                    ring.IsActive = false;
                                     Frame.Navigate(typeof(Room.RoomPage));
                                     Frame.BackStack.Clear();
                                     SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
                                 }
                                 else
                                 {
+                                    ring.IsActive = false;
                                     var msgDialog = new Windows.UI.Popups.MessageDialog("用户名已存在，请修改用户名") { Title = "注册失败" };
-                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
+                                        userinfo.IsEnabled = true;
+                                        passwordinfo.IsEnabled = true;
+                                        login.IsEnabled = true;
+                                    }));
                                     await msgDialog.ShowAsync();
                                 }
                             }
                         }
                         catch
                         {
+                            ring.IsActive = false;
                             var msgDialog = new Windows.UI.Popups.MessageDialog("服务器可能开小差了，请稍后再试") { Title = "注册失败" };
-                            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
+                                userinfo.IsEnabled = true;
+                                passwordinfo.IsEnabled = true;
+                                login.IsEnabled = true;
+                            }));
                             await msgDialog.ShowAsync();
 
                         }
                         finally
                         {
-
+                            ring.IsActive = false;
+                            userinfo.IsEnabled = true;
+                            passwordinfo.IsEnabled = true;
+                            login.IsEnabled = true;
                         }
 
 

@@ -37,7 +37,12 @@ namespace Hunter.Log
         private async void login_ClickAsync(object sender, RoutedEventArgs e)
         {
             ButtonPlayer.MusicPlayer.Play();
-            if (username.Text != "" && passwordinfo.Password != "")
+            ring.IsActive = true;
+            userinfo.IsEnabled = false;
+            passwordinfo.IsEnabled = false;
+            register.IsEnabled = false;
+            login.IsEnabled = false;
+            if (userinfo.Text != "" && passwordinfo.Password != "")
             {
                 using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
                 {
@@ -95,28 +100,45 @@ namespace Hunter.Log
                                         NewUser.headimg =userdata[5];
                                     }
                                 }
+                                ring.IsActive = false;
                                 Frame.Navigate(typeof(Room.RoomPage));
                                 Frame.BackStack.Clear();
                                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
                             }
                             else
                             {
+                                ring.IsActive = false;
                                 var msgDialog = new Windows.UI.Popups.MessageDialog("用户名或密码错误，请检查您的用户名和密码") { Title = "登录失败" };
-                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
+                                    userinfo.IsEnabled = true;
+                                    passwordinfo.IsEnabled = true;
+                                    register.IsEnabled = true;
+                                    login.IsEnabled =true;
+                                }));
                                 await msgDialog.ShowAsync();
                             }
                         }
                     }
                     catch
                     {
+                        ring.IsActive = false;
                         var msgDialog = new Windows.UI.Popups.MessageDialog("服务器可能开小差了，请稍后再试") { Title = "登录失败" };
-                        msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                        msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
+                            userinfo.IsEnabled = true;
+                            passwordinfo.IsEnabled = true;
+                            register.IsEnabled = true;
+                            login.IsEnabled = true;
+                        }));
                         await msgDialog.ShowAsync();
                        
                     }
                     finally
                     {
-
+                        userinfo.IsEnabled = true;
+                        passwordinfo.IsEnabled = true;
+                        register.IsEnabled = true;
+                        login.IsEnabled = true;
+                        ring.IsActive = false;
                     }
 
 

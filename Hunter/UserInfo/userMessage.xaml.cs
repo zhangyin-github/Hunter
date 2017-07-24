@@ -30,14 +30,12 @@ namespace Hunter.UserInfo
     /// </summary>
     public sealed partial class userMessage : Page
     {
-        private StorageFile storageFile;
         public string oldnickName;
         public object Console { get; private set; }
         public bool newnickNameCanBeCahenged = false;
         public userMessages NewUser;
         public userMessage()
         {
-            StorageFile storageFile = null;
             
             NewUser = userInfo.getInstance();
 
@@ -50,16 +48,7 @@ namespace Hunter.UserInfo
             Exp.Text = (NewUser.Exp % 1000).ToString()+"/1000";
             ExpBar.Value = NewUser.Exp % 1000;
             psTextBox.Text = NewUser.ps;
-            
-            var data = Convert.FromBase64String(NewUser.headimg);
-            var icon = new MemoryStream(data);
-            var image = new BitmapImage();
-            Task.Run(async () => {
-               await image.SetSourceAsync(icon.AsRandomAccessStream());
-            headPic.Source = image;
-            });
 
-            
             List<solve> difficulties = new List<solve>();
             difficulties.Add(new solve() { difficulty = "全部难度题目" , difficultyScores = "解谜数目（成功/失败）：16/20" });
             difficulties.Add(new solve() { difficulty = "三星难度题目" , difficultyScores = "解谜数目（成功/失败）：3/3" });
@@ -74,8 +63,9 @@ namespace Hunter.UserInfo
             createPuzzles.Add(new create() { createTitle = "大都会暗号地图事件", createScores = "被解次数（成功/失败）：96/2463" });
             createPuzzles.Add(new create() { createTitle = "新干线大爆破事件", createScores = "被解次数（成功/失败）：87/3521" });
             createCombobox.ItemsSource = createPuzzles;
-
-            
+            object sender = null;
+            RoutedEventArgs e = null;
+            refreshbutton_ClickAsync(sender, e);
 
         }
 
@@ -242,9 +232,10 @@ namespace Hunter.UserInfo
             }
         }
 
-        private void psTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void  psTextBox_TextChangedAsync(object sender, TextChangedEventArgs e)
         {
 
+           
         }
 
         private void submitWholeChange_Click(object sender, RoutedEventArgs e)
@@ -330,6 +321,28 @@ namespace Hunter.UserInfo
             await dialog.ShowAsync();
         }
 
-        
+        private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            if(NewUser.headimg!=""&& NewUser.headimg != null)
+            {
+                var data = Convert.FromBase64String(NewUser.headimg);
+                BitmapImage bi = new BitmapImage();
+                WriteableBitmap wb = null; Stream stream2Write;
+                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                {
+
+                    stream2Write = stream.AsStreamForWrite();
+
+                    await stream2Write.WriteAsync(data, 0, data.Length);
+
+                    await stream2Write.FlushAsync();
+                    stream.Seek(0);
+
+                    await bi.SetSourceAsync(stream);
+                    headPic.Source = bi;
+                }
+            }
+           
+        }
     }
 }
