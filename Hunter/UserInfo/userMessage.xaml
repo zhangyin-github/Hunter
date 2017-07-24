@@ -1,0 +1,276 @@
+﻿<Page
+    x:Class="Hunter.UserInfo.userMessage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hunter.UserInfo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\ButtonDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <!--页面滚动条-->
+        <Button Name="refreshbutton" Visibility="Collapsed" Click="refreshbutton_ClickAsync"/>
+        <ScrollViewer x:Name="userScrollViewer" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
+            <Grid MinWidth="360">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="2"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <!--第0行：标题：玩家信息 TextBlock-->
+                <Grid Grid.Row="0" Width="auto" Height="auto">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="Goldenrod">玩家信息</TextBlock>
+                </Grid>
+                <!--第1行：空白区，用于布局设计-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="83*"/>
+                        <ColumnDefinition Width="77*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle  StrokeThickness="3" Height="auto" Width="auto" Grid.ColumnSpan="2">
+                        <Rectangle.Stroke>
+                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                <GradientStop Color="#FF554022" Offset="0"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                                <GradientStop Color="Goldenrod" Offset="0.5"/>
+                                <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                                <GradientStop Color="#FF554022" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Stroke>
+                    </Rectangle>
+                </Grid>
+                <!--第2行：玩家信息区-->
+                <Grid Grid.Row="2" HorizontalAlignment="Stretch" Width="auto" Height="auto" Margin="30,10,30,0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--第2行  第0列：玩家头像区（更换头像flyout按钮 ：选择图片按钮 SelectPicButton_Click  +  确认选择按钮  confirmPicButton_Click）-->
+                    <StackPanel Orientation="Vertical">
+                        <Image Name="headPic"  Grid.Row="2" Grid.Column="0" Source="/Assets/a.jpg" VerticalAlignment="Top" MinHeight="80" MinWidth="80" MaxHeight="200" MaxWidth="200" HorizontalAlignment="Stretch"/>
+                        <Button Name="changeHeadPic" Grid.Row="2" Grid.Column="0" FontSize="15" Foreground="DarkGoldenrod"   Height="30" Margin="0,10,0,0" HorizontalAlignment="Center" Style="{StaticResource mostbutton}">
+                            <Button.Content>
+                                <Grid>
+                                    <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="36" Width="100"  StrokeThickness="3">
+                                        <Rectangle.Stroke>
+                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                                <GradientStop Color="#FF554022" Offset="0"/>
+                                                <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                                                <GradientStop Color="Goldenrod" Offset="0.5"/>
+                                                <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                                                <GradientStop Color="#FF554022" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Stroke>
+                                    </Rectangle>
+                                    <TextBlock FontSize="14" Text="更改头像" HorizontalAlignment="Center"  FontWeight="Bold" />
+                                </Grid>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <Flyout>
+                                    <RelativePanel Width="auto">
+                                        <TextBlock x:Name="OutputTextBlock"  HorizontalAlignment="Center" Text="请选择图片"></TextBlock>
+                                        <Button x:Name="SelectPicButton" FontSize="13" Content="选择图片" RelativePanel.Below="OutputTextBlock" Height="28" Click="SelectPicButton_Click" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                                    </RelativePanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                    </StackPanel>
+                    <!--第2行  第1列：玩家信息展示区（更换昵称的图片/Assets/change.png   +  账号 + 等级 + 积分ProgressBar -->
+                    <RelativePanel Grid.Row="1" Grid.Column="1" Margin="50,0,0,0" HorizontalAlignment="Left" Width="auto">
+                        <TextBlock x:Name="nickNameTitle" FontSize="20" Foreground="LightGoldenrodYellow" Margin="10,5,5,0">昵称：</TextBlock>
+                        <TextBlock x:Name="nickName" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="nickNameTitle" Margin="5,5,0,0"></TextBlock>
+
+                        <Button Name="changenickNameButton" RelativePanel.RightOf="nickName" Width="16" VerticalAlignment="Stretch" Margin="10,5,-6,0" Style="{StaticResource mostbutton}">
+                            <Button.RenderTransform>
+                                <CompositeTransform ScaleX="-1" TranslateX="3.68"/>
+                            </Button.RenderTransform>
+                            <Button.Content>
+                                <Ellipse Width="19" Margin="-11,-10.667,-8,-11.333" HorizontalAlignment="Left" RenderTransformOrigin="0.548,0.591" Height="22" VerticalAlignment="Top">
+                                    <Ellipse.Fill>
+                                        <ImageBrush  ImageSource="/Assets/change.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Button.Content>
+
+                            <Button.Flyout>
+                                <Flyout x:Name="changenickNameFlyout" Opening="changenickNameFlyout_Opening" Closed="changenickNameFlyout_ClosedAsync">
+                                    <RelativePanel>
+                                        <TextBlock Name="newnickNameTitleTextBlock" HorizontalAlignment="Center">请输入新的昵称</TextBlock>
+                                        <TextBox Name="newnickNameTextBox" TextChanged="newnickNameTextBox_TextChanged" RelativePanel.Below="newnickNameTitleTextBlock" MinWidth="115" Width="auto"></TextBox>
+                                        <TextBlock Name="checkTextBlockIsOk" FontFamily="Segoe MDL2 Assets" Text="&#xE10B;" RelativePanel.RightOf="newnickNameTextBox" RelativePanel.Below="newnickNameTitleTextBlock"  Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
+                                        <TextBlock Name="checkTextBlockISWrong" FontFamily="Segoe MDL2 Assets" Text="&#xE10A;" RelativePanel.RightOf="newnickNameTextBox" RelativePanel.Below="newnickNameTitleTextBlock"  Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
+                                    </RelativePanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+
+                        <TextBlock x:Name="IDTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="nickNameTitle"  Margin="10,10,5,0">账号：</TextBlock>
+                        <TextBlock x:Name="ID" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.RightOf="nickNameTitle"  RelativePanel.Below="nickName" Margin="5,10,0,0"></TextBlock>
+                        <TextBlock x:Name="rateTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="IDTitle"  Margin="10,10,5,0">等级：</TextBlock>
+                        <TextBlock x:Name="rate" FontSize="20" Foreground="LightGoldenrodYellow"  RelativePanel.RightOf="IDTitle"  RelativePanel.Below="ID" Margin="5,10,0,0"></TextBlock>
+                        <TextBlock x:Name="ExpTitle" FontSize="20" Foreground="LightGoldenrodYellow" RelativePanel.Below="rateTitle"  Margin="10,10,5,0">经验：</TextBlock>
+                        <ProgressBar x:Name="ExpBar" RelativePanel.RightOf="ExpTitle" RelativePanel.Below="rate"  Margin="5,16,5,0" Height="20" Width="130" IsTextScaleFactorEnabled="True"></ProgressBar>
+                        <TextBlock x:Name="Exp" Foreground="LightGoldenrodYellow" RelativePanel.Below="rate" RelativePanel.AlignRightWith="ExpBar" Margin="-110,16,0,0" Text=""></TextBlock>
+                    </RelativePanel>
+                </Grid>
+
+                <!--第3行：游戏解谜数据展示区 解谜统计：combobox下拉菜单包含：全部游戏、五星难度、四星难度、···、一星难度-->
+                <Grid Grid.Row="3" Width="auto" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition  Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="3"  Grid.Column="0" Width="100">
+                        <TextBlock x:Name="solveTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" Margin="20,0,0,0" HorizontalAlignment="Center" Grid.Row="1">解迷统计:</TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Row="3"  Grid.Column="1" MinWidth="200">
+                        <ComboBox Name="solveCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" Width="auto" ItemsSource="{Binding}" DropDownClosed="solveCombobox_DropDownClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" Margin="1">
+                                        <TextBlock Width="auto"  TextWrapping="Wrap" Text="{Binding difficulty}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                    </Grid>
+                </Grid>
+
+                <!--第4行：游戏解谜数据展示区 解谜统计：解谜数数据显示textblock-->
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="solveTextBlock" Grid.Column="1"  VerticalAlignment="Center" FontSize="16" Foreground="Goldenrod" Width="auto">解谜数目（成功/失败）：</TextBlock>
+
+                </Grid>
+                <!--第5行：游戏设迷数据展示区 解谜统计：combobox下拉菜单包含：用户上传过的谜题标题-->
+
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition  Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="5" Grid.Column="0" Width="100">
+
+                        <TextBlock x:Name="createTitle"  Grid.Column="0" Height="30" FontSize="18" Foreground="Goldenrod" Margin="20,0,0,0" HorizontalAlignment="Center">设迷统计:</TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="1"  MinWidth="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="12*"/>
+                            <RowDefinition Height="13*"/>
+                        </Grid.RowDefinitions>
+                        <ComboBox Name="createCombobox"  FontSize="18" Foreground="LightGoldenrodYellow" MinWidth="200" Width="auto" ItemsSource="{Binding}" DropDownClosed="createCombobox_DropDownClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,7,-20,6" Grid.RowSpan="2">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" Margin="1">
+                                        <TextBlock Width="auto"  TextWrapping="Wrap" Text="{Binding createTitle}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                    </Grid>
+                </Grid>
+
+                <!--第6行：游戏设迷数据展示区 解谜统计：对应谜题被解决成功/失败次数统计textblock-->
+                <Grid Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="createTextBlock" Grid.Column="1"  VerticalAlignment="Center" FontSize="16" Foreground="Goldenrod" Width="auto" Height="30">设迷数目（成功/失败）：</TextBlock>
+                </Grid>
+
+                <!--第7行：游戏宣言 TextBlock-->
+                <Grid Grid.Row="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition  Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" x:Name="psTitle" Grid.Row="7"   Margin="20,0,0,0" HorizontalAlignment="Center" Height="30" FontSize="18" Foreground="Goldenrod">游戏宣言:</TextBlock>
+                </Grid>
+                <!--第8行：游戏宣言 TextBox-->
+                <Grid Grid.Row="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition  Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="psTextBox" Grid.Column="1" HorizontalAlignment="Stretch"  RelativePanel.Below="psTitle" Margin="20,0,20,0" MinHeight="130" MinWidth="330" TextWrapping="Wrap" Text="{Binding ps}"  PlaceholderText="请输入您的游戏宣言~" FontSize="15" Foreground="LightGoldenrodYellow"></TextBox>
+
+                </Grid>
+                <!--第9行：提交信息修改按钮 submitWholeButton 包含flyout中：确认修改 submitWholeChange 和 取消修改 cancelWholeChange-->
+                <Grid Grid.Row="9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition  Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <!--
+                    <Button Grid.Column="1"  Name="submitWholeButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,10,20,0" Content="提交信息修改" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="LightGoldenrodYellow">
+                        <Button.Flyout>
+                            <Flyout  Placement="Bottom">
+                                <RelativePanel Height="50">
+                                    <TextBlock Name="confirmButtonTextBlock" HorizontalAlignment="Center" >确认提交修改么？</TextBlock>
+                                    <Button Name="submitWholeChange" Click="submitWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock">提交</Button>
+                                    <Button Name="cancelWholeChange" Click="cancelWholeChange_Click" RelativePanel.Below="confirmButtonTextBlock" RelativePanel.AlignRightWithPanel="True">取消</Button>
+                                </RelativePanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                    -->
+
+                    <Button Grid.Column="1"  Name="submitWholeButton" HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="50" Width="200" Margin="20,10,20,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="DarkGoldenrod" Click="submitWholeButton_Click" Style="{StaticResource mostbutton}">
+                        <Grid>
+                            <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="200"   StrokeThickness="5">
+                                <Rectangle.Stroke>
+                                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                        <GradientStop Color="#FF554022" Offset="0"/>
+                                        <GradientStop Color="DarkGoldenrod" Offset="0.15"/>
+                                        <GradientStop Color="Goldenrod" Offset="0.5"/>
+                                        <GradientStop Color="DarkGoldenrod" Offset="0.85"/>
+                                        <GradientStop Color="#FF554022" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Stroke>
+                            </Rectangle>
+                            <TextBlock FontSize="16" Text="提交修改" HorizontalAlignment="Center"  FontWeight="Bold" />
+                        </Grid>
+                    </Button>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

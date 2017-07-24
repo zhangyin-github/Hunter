@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -46,7 +47,7 @@ namespace Hunter
             }
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
-
+           
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
             if (rootFrame == null)
@@ -55,6 +56,7 @@ namespace Hunter
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
+
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -76,8 +78,10 @@ namespace Hunter
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
+               
             }
         }
+     
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
