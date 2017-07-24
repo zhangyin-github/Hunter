@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -17,6 +18,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -64,6 +66,25 @@ namespace Hunter.Room
 
         private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)
         {
+            if (NewUser.headimg != "" && NewUser.headimg != null)
+            {
+                var data = Convert.FromBase64String(NewUser.headimg);
+                BitmapImage bi = new BitmapImage();
+                WriteableBitmap wb = null; Stream stream2Write;
+                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                {
+
+                    stream2Write = stream.AsStreamForWrite();
+
+                    await stream2Write.WriteAsync(data, 0, data.Length);
+
+                    await stream2Write.FlushAsync();
+                    stream.Seek(0);
+
+                    await bi.SetSourceAsync(stream);
+                    headsource.ImageSource = bi;
+                }
+            }
             ButtonPlayer.MusicPlayer.Play();
             selectByBackgroundComboBox.SelectedIndex = 0;
             selectByDifficultyComboBox.SelectedIndex = 0;
