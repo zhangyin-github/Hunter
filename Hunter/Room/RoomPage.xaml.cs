@@ -70,7 +70,7 @@ namespace Hunter.Room
             {
                 var data = Convert.FromBase64String(NewUser.headimg);
                 BitmapImage bi = new BitmapImage();
-                WriteableBitmap wb = null; Stream stream2Write;
+                Stream stream2Write;
                 using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
                 {
 

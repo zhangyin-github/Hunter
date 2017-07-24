@@ -232,11 +232,6 @@ namespace Hunter.UserInfo
             }
         }
 
-        private async void  psTextBox_TextChangedAsync(object sender, TextChangedEventArgs e)
-        {
-
-           
-        }
 
         private void submitWholeChange_Click(object sender, RoutedEventArgs e)
         {
@@ -327,7 +322,7 @@ namespace Hunter.UserInfo
             {
                 var data = Convert.FromBase64String(NewUser.headimg);
                 BitmapImage bi = new BitmapImage();
-                WriteableBitmap wb = null; Stream stream2Write;
+                Stream stream2Write;
                 using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
                 {
 
