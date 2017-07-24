@@ -28,6 +28,7 @@ using Windows.UI.Core;
 using Windows.Devices.Enumeration;
 using Hunter.Room;
 using Hunter.Models;
+using System.Net.Http;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 

@@ -86,6 +86,14 @@ namespace Hunter.Log
                                     {
                                         NewUser.money = int.Parse(userdata[4]);
                                     }
+                                    if (userdata[5] == "")
+                                    {
+                                        NewUser.headimg = "";
+                                    }
+                                    else
+                                    {
+                                        NewUser.headimg =userdata[5];
+                                    }
                                 }
                                 Frame.Navigate(typeof(Room.RoomPage));
                                 Frame.BackStack.Clear();

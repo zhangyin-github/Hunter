@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -49,6 +50,16 @@ namespace Hunter.UserInfo
             Exp.Text = (NewUser.Exp % 1000).ToString()+"/1000";
             ExpBar.Value = NewUser.Exp % 1000;
             psTextBox.Text = NewUser.ps;
+            
+            var data = Convert.FromBase64String(NewUser.headimg);
+            var icon = new MemoryStream(data);
+            var image = new BitmapImage();
+            Task.Run(async () => {
+               await image.SetSourceAsync(icon.AsRandomAccessStream());
+            headPic.Source = image;
+            });
+
+            
             List<solve> difficulties = new List<solve>();
             difficulties.Add(new solve() { difficulty = "全部难度题目" , difficultyScores = "解谜数目（成功/失败）：16/20" });
             difficulties.Add(new solve() { difficulty = "三星难度题目" , difficultyScores = "解谜数目（成功/失败）：3/3" });
@@ -233,9 +244,7 @@ namespace Hunter.UserInfo
 
         private void psTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox tb = sender as TextBox;
-            BindingExpression be = tb.GetBindingExpression(TextBox.TextProperty);
-            be.UpdateSource();
+
         }
 
         private void submitWholeChange_Click(object sender, RoutedEventArgs e)
@@ -277,7 +286,15 @@ namespace Hunter.UserInfo
                         new KeyValuePair<string,string>("headicon", NewUser.headimg),
                         new KeyValuePair<string,string>("action", "changeinfo"),
                     };
-                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                        string str = "name=" + NewUser.nickName+"&";
+                        str += "action=" + "changeinfo" + "&";
+                        str += "sign=" + NewUser.ps + "&";
+                        str += "id=" + NewUser.ID + "&";
+                        str += "headicon=" + System.Net.WebUtility.UrlEncode(NewUser.headimg);
+                        
+                        System.Net.Http.StringContent content = new StringContent(str,System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();
