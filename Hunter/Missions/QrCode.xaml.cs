@@ -27,6 +27,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Core;
 using Windows.Devices.Enumeration;
 using Hunter.Room;
+using Hunter.Models;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -41,8 +42,10 @@ namespace Hunter.Missions
         private readonly MediaCapture _mediaCapture = new MediaCapture();
         private DispatcherTimer _timer;
         private bool IsBusy;
+        public userMessages NewUser;
         public QrCode()
         {
+            NewUser = userInfo.getInstance();
             UserAnswer.getInstance();
             this.InitializeComponent();
         }
@@ -207,7 +210,35 @@ namespace Hunter.Missions
                                 else
                                 {
                                     var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
-                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
+                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", async uiCommand =>
+                                    {
+                                        NewUser.Exp = NewUser.Exp + 100; NewUser.money = NewUser.money + 10; using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                                        {
+                                            TimeSpan ts = new TimeSpan(15000000);
+                                            client.Timeout = ts;
+                                            try
+                                            {
+                                                var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("Exp", NewUser.Exp.ToString()),
+                        new KeyValuePair<string,string>("money", NewUser.money.ToString()),
+                        new KeyValuePair<string,string>("id", NewUser.ID),
+                        new KeyValuePair<string,string>("action", "changeEM"),
+                    };
+                                                System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                                                string result = await response.Content.ReadAsStringAsync();
+                                            }
+                                            catch
+                                            {
+
+
+                                            }
+                                            finally
+                                            {
+
+                                            }
+                                        }
+                                        Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
                                         SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed; UserAnswer.Answer.time = 1;
                                         UserAnswer.Answer.answer = "";
                                     }));
@@ -239,7 +270,34 @@ namespace Hunter.Missions
                                 else
                                 {
                                     var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
-                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
+                                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", async uiCommand =>
+                                    {
+                                        NewUser.Exp = NewUser.Exp + 100; NewUser.money = NewUser.money + 10; using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                                        {
+                                            TimeSpan ts = new TimeSpan(15000000);
+                                            client.Timeout = ts;
+                                            try
+                                            {
+                                                var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("Exp", NewUser.Exp.ToString()),
+                        new KeyValuePair<string,string>("money", NewUser.money.ToString()),
+                        new KeyValuePair<string,string>("id", NewUser.ID),
+                        new KeyValuePair<string,string>("action", "changeEM"),
+                    };
+                                                System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                                                string result = await response.Content.ReadAsStringAsync();
+                                            }
+                                            catch
+                                            {
+
+
+                                            }
+                                            finally
+                                            {
+
+                                            }
+                                        }
                                         Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
                                         SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed; UserAnswer.Answer.time = 1;
                                         UserAnswer.Answer.answer = "";
@@ -260,7 +318,34 @@ namespace Hunter.Missions
                             if (UserAnswer.Answer.answer == NowMission.Task.Answer3)
                             {
                                 var msgDialog = new Windows.UI.Popups.MessageDialog("恭喜您成功完成本谜题解谜任务") { Title = "提示" };
-                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
+                                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", async uiCommand =>
+                                {
+                                    NewUser.Exp = NewUser.Exp + 100; NewUser.money = NewUser.money + 10; using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
+                                    {
+                                        TimeSpan ts = new TimeSpan(15000000);
+                                        client.Timeout = ts;
+                                        try
+                                        {
+                                            var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("Exp", NewUser.Exp.ToString()),
+                        new KeyValuePair<string,string>("money", NewUser.money.ToString()),
+                        new KeyValuePair<string,string>("id", NewUser.ID),
+                        new KeyValuePair<string,string>("action", "changeEM"),
+                    };
+                                            System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                                            string result = await response.Content.ReadAsStringAsync();
+                                        }
+                                        catch
+                                        {
+
+
+                                        }
+                                        finally
+                                        {
+
+                                        }
+                                    }
                                     Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
                                     SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed; UserAnswer.Answer.time = 1;
                                     UserAnswer.Answer.answer = "";

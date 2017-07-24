@@ -297,7 +297,7 @@ namespace Hunter.UserInfo
                     }
                     catch
                     {
-                        var msgDialog = new Windows.UI.Popups.MessageDialog("服务器可能开小差了，请稍后再试") { Title = "登录失败" };
+                        var msgDialog = new Windows.UI.Popups.MessageDialog("服务器可能开小差了，请稍后再试") { Title = "修改失败" };
                         msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
                         await msgDialog.ShowAsync();
 
