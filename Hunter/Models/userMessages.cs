@@ -15,6 +15,8 @@ namespace Hunter.Models
         /// 玩家昵称nickName
         /// </summary>
         public string nickName { get; set; }
+
+        public string headimg { get; set; }
         /// <summary>
         /// 玩家账号ID
         /// </summary>

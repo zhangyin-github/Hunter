@@ -32,18 +32,9 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Name="picture" Grid.ColumnSpan="2">
-                <Image Source="#"></Image>
-                <TextBlock Text="Hunter" FontSize="96" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">
-                    <TextBlock.Foreground>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="#FF554022" Offset="0"/>
-                            <GradientStop Color="DarkGoldenrod" Offset="0.10"/>
-                            <GradientStop Color="Goldenrod" Offset="0.5"/>
-                            <GradientStop Color="DarkGoldenrod" Offset="0.90"/>
-                            <GradientStop Color="#FF554022" Offset="1"/>
-                        </LinearGradientBrush>
-                    </TextBlock.Foreground>
-                </TextBlock>
+                <Image MaxWidth="400" Source="..\Assets/Hunter.png" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+
+
             </Grid>
             <RelativePanel Grid.Column="0"
                     Grid.Row="1">
@@ -53,7 +44,7 @@
                        FontSize="18"
                        Margin="0 0 40 0"
                        RelativePanel.AlignRightWithPanel="True"
-                        RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="LightGoldenrodYellow"> 用户名</TextBlock>
+                        RelativePanel.AlignVerticalCenterWithPanel="True" Foreground="#FFAB0808" FontWeight="Bold"> 用户名</TextBlock>
             </RelativePanel>
             <TextBox Name="userinfo"
                          Height="40"
@@ -83,7 +74,7 @@
                        Height="40"
                        FontSize="18"
                        Margin="0 0 40 0"
-                           Foreground="LightGoldenrodYellow"
+                          Foreground="#FFAB0808" FontWeight="Bold"
                        > 密码</TextBlock>
             </RelativePanel>
             <PasswordBox Name="passwordinfo"
@@ -115,7 +106,7 @@
                         Height="50"
                         Width="180"
                         RelativePanel.AlignRightWithPanel="True"
-                        RelativePanel.AlignVerticalCenterWithPanel="True" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}">
+                        RelativePanel.AlignVerticalCenterWithPanel="True" Background="Transparent" Foreground="#FFAB0808" FontWeight="Bold" Style="{StaticResource logbutton}">
                     <Grid>
                         <Rectangle RadiusX="10" RadiusY="10" Margin="-10" Fill="Transparent" Height="40" Width="170" StrokeThickness="5">
                             <Rectangle.Stroke>
@@ -138,7 +129,7 @@
                     Width="180"
                     Grid.Column="1"
                     FontSize="18"
-                    Grid.Row="5" HorizontalAlignment="Left" Margin="15 -20 0 0" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}" >
+                    Grid.Row="5" HorizontalAlignment="Left" Margin="15 -20 0 0" Background="Transparent" Foreground="#FFAB0808" FontWeight="Bold" Style="{StaticResource logbutton}" >
                 <Grid>
                     <Rectangle RadiusX="10" RadiusY="10" Margin="-10,-9" Fill="Transparent" Height="40" Width="170"  StrokeThickness="5" HorizontalAlignment="Right">
                         <Rectangle.Stroke>
@@ -151,7 +142,7 @@
                             </LinearGradientBrush>
                         </Rectangle.Stroke>
                     </Rectangle>
-                    <TextBlock FontSize="16" Text="登录" HorizontalAlignment="Center"  FontWeight="Bold" />
+                    <TextBlock FontSize="16" Text="登录" HorizontalAlignment="Center"   FontWeight="Bold" />
                 </Grid>
             </Button>
         </Grid>

@@ -165,10 +165,8 @@
     <Content Include="Assets\bgm.mp3" />
     <Content Include="Assets\change.png" />
     <Content Include="Assets\free.png" />
+    <Content Include="Assets\Hunter.png" />
     <Content Include="Assets\log_bg.jpg" />
-    <Content Include="Assets\loud.jpg" />
-    <Content Include="Assets\music2.jpg" />
-    <Content Include="Assets\QQ图片20170722143300.jpg" />
     <Content Include="Assets\story.png" />
     <Content Include="Assets\textbg.jpg" />
     <Content Include="Assets\textbg.png" />

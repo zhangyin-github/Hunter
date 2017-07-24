@@ -86,9 +86,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="StoryMode" Grid.Column="0" Margin="20 0 0 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}">
+            <Button Name="StoryMode" Grid.Column="0" Margin="20 0 0 0" HorizontalAlignment="Stretch"  MaxWidth="300" VerticalAlignment="Stretch"  FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}">
                 <Button.Background>
-                    <ImageBrush Stretch="Uniform" ImageSource="..\Assets/story.png"/>
+                    <ImageBrush Stretch="Fill" ImageSource="..\Assets/story.png"/>
                 </Button.Background>
                 <!--Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
@@ -100,9 +100,9 @@
                     </LinearGradientBrush>
                 </-->
             </Button>
-            <Button Name="UserMode" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}">
+            <Button Name="UserMode" Grid.Column="1" HorizontalAlignment="Stretch" MaxWidth="300" VerticalAlignment="Stretch"   FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}">
                 <Button.Background>
-                    <ImageBrush Stretch="Uniform" ImageSource="..\Assets/free.png"/>
+                    <ImageBrush Stretch="Fill" ImageSource="..\Assets/free.png"/>
                 </Button.Background>
                 <!--Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">

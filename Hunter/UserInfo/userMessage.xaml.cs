@@ -9,6 +9,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -85,7 +86,17 @@ namespace Hunter.UserInfo
                     
                     image.SetSource(stream);
                     headPic.Source = image;
+                    var streamData = await file.OpenReadAsync();
+                    var bytes = new byte[streamData.Size];
+                using (var dataReader = new DataReader(streamData))
+                {
+                    await dataReader.LoadAsync((uint)streamData.Size);
+                    dataReader.ReadBytes(bytes);
                 }
+                string inputString = System.Convert.ToBase64String(bytes);
+                NewUser.headimg = inputString;
+
+            }
                 else
                 {
                     OutputTextBlock.Text = "没有选择图片";
@@ -254,7 +265,7 @@ namespace Hunter.UserInfo
                 using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
                 {
                     NewUser.ps = psTextBox.Text;
-                    TimeSpan ts = new TimeSpan(15000000);
+                    TimeSpan ts = new TimeSpan(35000000);
                     client.Timeout = ts;
                     try
                     {
@@ -263,6 +274,7 @@ namespace Hunter.UserInfo
                         new KeyValuePair<string,string>("name", NewUser.nickName),
                         new KeyValuePair<string,string>("sign", NewUser.ps),
                         new KeyValuePair<string,string>("id", NewUser.ID),
+                        new KeyValuePair<string,string>("headicon", NewUser.headimg),
                         new KeyValuePair<string,string>("action", "changeinfo"),
                     };
                         System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
