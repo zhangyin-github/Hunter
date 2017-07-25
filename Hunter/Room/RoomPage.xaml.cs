@@ -93,7 +93,7 @@ namespace Hunter.Room
             selectByThemeComboBox.SelectedIndex = 0;
             using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
             {
-                TimeSpan ts = new TimeSpan(35000000);
+                TimeSpan ts = new TimeSpan(25000000);
                 client.Timeout = ts;
                 try
                 {
@@ -107,6 +107,8 @@ namespace Hunter.Room
                     string result = await response.Content.ReadAsStringAsync();
                    if(result=="false")
                     {
+                        ring.IsActive = false;
+                        MainList.IsEnabled = true;
                         return;
                     }
                     else
