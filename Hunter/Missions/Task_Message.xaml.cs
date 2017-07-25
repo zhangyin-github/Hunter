@@ -8,12 +8,14 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -50,6 +52,69 @@ namespace Hunter.Missions
                 title.Text = NowMission.Task.Title;
                 content.Text = NowMission.Task.Content3;
                 tips.Text = NowMission.Task.Tips3;
+            }
+            showimgAsync();
+
+        }
+
+        public async void showimgAsync()
+        {
+            if(NowMission.Task.Img1!="")
+            {
+                var data = Convert.FromBase64String(NowMission.Task.Img1);
+                BitmapImage bi = new BitmapImage();
+                Stream stream2Write;
+                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                {
+
+                    stream2Write = stream.AsStreamForWrite();
+
+                    await stream2Write.WriteAsync(data, 0, data.Length);
+
+                    await stream2Write.FlushAsync();
+                    stream.Seek(0);
+
+                    await bi.SetSourceAsync(stream);
+                    img1.Source = bi;
+                }
+            }
+            if (NowMission.Task.Img2 != "")
+            {
+                var data = Convert.FromBase64String(NowMission.Task.Img2);
+                BitmapImage bi = new BitmapImage();
+                Stream stream2Write;
+                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                {
+
+                    stream2Write = stream.AsStreamForWrite();
+
+                    await stream2Write.WriteAsync(data, 0, data.Length);
+
+                    await stream2Write.FlushAsync();
+                    stream.Seek(0);
+
+                    await bi.SetSourceAsync(stream);
+                    img2.Source = bi;
+                }
+            }
+            if (NowMission.Task.Img3 != "")
+            {
+                var data = Convert.FromBase64String(NowMission.Task.Img3);
+                BitmapImage bi = new BitmapImage();
+                Stream stream2Write;
+                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                {
+
+                    stream2Write = stream.AsStreamForWrite();
+
+                    await stream2Write.WriteAsync(data, 0, data.Length);
+
+                    await stream2Write.FlushAsync();
+                    stream.Seek(0);
+
+                    await bi.SetSourceAsync(stream);
+                    img3.Source = bi;
+                }
             }
 
         }

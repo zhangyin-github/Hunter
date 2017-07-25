@@ -55,7 +55,7 @@ namespace Hunter.Room
             ExpBar.Value = NewUser.Exp % 1000;
             Pointbar.Value = NewUser.money;
             username.Text = NewUser.nickName;
-            NowMission.Task.Title = ""; NowMission.Task.Addr = ""; NowMission.Task.Content1 = ""; NowMission.Task.Content2 = ""; NowMission.Task.Content3 = ""; NowMission.Task.Classes = ""; NowMission.Task.Answer1 = ""; NowMission.Task.Answer2 = ""; NowMission.Task.Answer3 = ""; NowMission.Task.Tips1 = ""; NowMission.Task.Tips2 = ""; NowMission.Task.Tips3 = ""; NowMission.Task.Title = ""; NowMission.Task.User = "";
+            NowMission.Task.Title = ""; NowMission.Task.Addr = ""; NowMission.Task.Content1 = ""; NowMission.Task.Content2 = ""; NowMission.Task.Content3 = ""; NowMission.Task.Classes = ""; NowMission.Task.Answer1 = ""; NowMission.Task.Answer2 = ""; NowMission.Task.Answer3 = ""; NowMission.Task.Tips1 = ""; NowMission.Task.Tips2 = ""; NowMission.Task.Tips3 = ""; NowMission.Task.Title = ""; NowMission.Task.User = "";NowMission.Task.Img1 = ""; NowMission.Task.Img2 = ""; NowMission.Task.Img3 = "";
         }
 
         private void headicon_Click(object sender, RoutedEventArgs e)
@@ -66,6 +66,8 @@ namespace Hunter.Room
 
         private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)
         {
+            ring.IsActive = true;
+            MainList.IsEnabled = false;
             if (NewUser.headimg != "" && NewUser.headimg != null)
             {
                 var data = Convert.FromBase64String(NewUser.headimg);
@@ -109,10 +111,12 @@ namespace Hunter.Room
                     }
                     else
                     {
+
                         var s = new DataContractJsonSerializer(typeof(RootObject[]));
                         var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
                         RootObject[] data = (RootObject[])s.ReadObject(ms);
                         int i = 0;
+                        ring.IsActive = false;
                         if (MissionList != null)
                         {
                             MissionList.Clear();
@@ -122,11 +126,14 @@ namespace Hunter.Room
                             MissionList.Add(data[i]);
                             i++;
                         }
+                        MainList.IsEnabled = true;
                     }
                     
                 }
                 catch
                 {
+                    ring.IsActive = false;
+                    MainList.IsEnabled = true;
                     var msgDialog = new Windows.UI.Popups.MessageDialog("网络可能开小差了，请稍后再试") { Title = "刷新失败" };
                     msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
                     await msgDialog.ShowAsync();
@@ -136,7 +143,8 @@ namespace Hunter.Room
                 {
 
                 }
-
+                ring.IsActive = false;
+                MainList.IsEnabled = true;
 
             }
         }

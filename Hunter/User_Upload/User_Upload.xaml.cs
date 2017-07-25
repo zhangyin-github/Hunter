@@ -20,6 +20,8 @@ using Hunter.Models;
 using System.Net.Http;
 using Hunter.Room;
 using Windows.UI.Core;
+using Windows.Storage.Streams;
+using System.Threading.Tasks;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -34,7 +36,7 @@ namespace Hunter.User_Upload
         /// <summary>
         /// 三条线索的内容保存
         /// </summary>
-      
+       
         public object item;
         public Missons NewMisson;
         public User_Upload()
@@ -43,7 +45,9 @@ namespace Hunter.User_Upload
             this.InitializeComponent();
             UserAnswer.getInstance();
             NowMission.getInstance();
-            if(NowMission.Task.Title!=""&& NowMission.Task.Title!=null)
+            addAsync();
+          
+            if (NowMission.Task.Title!=""&& NowMission.Task.Title!=null)
             {
                 TitleTextbox.Text = NowMission.Task.Title;
             }
@@ -164,10 +168,79 @@ namespace Hunter.User_Upload
 
             item = clue1;
         }
-        
-        private void add_Click(System.Object sender, RoutedEventArgs e)
-        {
 
+
+        public async void addAsync()
+        {
+            if (NowMission.Task.Img1 != null && NowMission.Task.Img1 != "")
+            {
+                add.Visibility = Visibility.Collapsed;
+                add1.Visibility = Visibility.Visible;
+                picture1.Visibility = Visibility.Visible;
+                var data = Convert.FromBase64String(NowMission.Task.Img1);
+                BitmapImage bi = new BitmapImage();
+                Stream stream2Write;
+                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                {
+
+                    stream2Write = stream.AsStreamForWrite();
+
+                    await stream2Write.WriteAsync(data, 0, data.Length);
+
+                    await stream2Write.FlushAsync();
+                    stream.Seek(0);
+
+                    await bi.SetSourceAsync(stream);
+                    picture1.Source = bi;
+                }
+
+            }
+            if (NowMission.Task.Img2 != null && NowMission.Task.Img2 != "")
+            {
+                add1.Visibility = Visibility.Collapsed;
+                add2.Visibility = Visibility.Visible;
+                picture2.Visibility = Visibility.Visible;
+                var data = Convert.FromBase64String(NowMission.Task.Img2);
+                BitmapImage bi = new BitmapImage();
+                Stream stream2Write;
+                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                {
+
+                    stream2Write = stream.AsStreamForWrite();
+
+                    await stream2Write.WriteAsync(data, 0, data.Length);
+
+                    await stream2Write.FlushAsync();
+                    stream.Seek(0);
+
+                    await bi.SetSourceAsync(stream);
+                    picture2.Source = bi;
+                }
+
+            }
+            if (NowMission.Task.Img3 != null && NowMission.Task.Img3 != "")
+            {
+                add2.Visibility = Visibility.Collapsed;
+                picture3.Visibility = Visibility.Visible;
+                var data = Convert.FromBase64String(NowMission.Task.Img1);
+                BitmapImage bi = new BitmapImage();
+                Stream stream2Write;
+                using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                {
+
+                    stream2Write = stream.AsStreamForWrite();
+
+                    await stream2Write.WriteAsync(data, 0, data.Length);
+
+                    await stream2Write.FlushAsync();
+                    stream.Seek(0);
+
+                    await bi.SetSourceAsync(stream);
+                    picture3.Source = bi;
+                }
+            }
+
+          
         }
 
         private async void upload_Click(System.Object sender, RoutedEventArgs e)
@@ -226,30 +299,96 @@ namespace Hunter.User_Upload
                     client.Timeout = ts;
                     try
                     {
-                        var kvp = new List<KeyValuePair<string, string>>
-                    {
-                        new KeyValuePair<string,string>("id", NewUser.ID),
-                        new KeyValuePair<string,string>("title", NowMission.Task.Title),
-                        new KeyValuePair<string,string>("classes",  NowMission.Task.Classes),
-                        new KeyValuePair<string,string>("addr",  NowMission.Task.Addr),
-                        new KeyValuePair<string,string>("content1",NowMission.Task.Content1),
-                        new KeyValuePair<string,string>("content2",NowMission.Task.Content2),
-                        new KeyValuePair<string,string>("content3", NowMission.Task.Content3),
-                        new KeyValuePair<string,string>("tips1",NowMission.Task.Tips1),
-                        new KeyValuePair<string,string>("tips2",NowMission.Task.Tips2),
-                        new KeyValuePair<string,string>("tips3",NowMission.Task.Tips3),
-                        new KeyValuePair<string,string>("answer1",NowMission.Task.Answer1),
-                        new KeyValuePair<string,string>("answer2",NowMission.Task.Answer2),
-                        new KeyValuePair<string,string>("answer3",NowMission.Task.Answer3),
-                        new KeyValuePair<string,string>("action", "upload"),
-                    };
-                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                    //    var kvp = new List<KeyValuePair<string, string>>
+                    //{
+                    //    new KeyValuePair<string,string>("id", NewUser.ID),
+                    //    new KeyValuePair<string,string>("title", NowMission.Task.Title),
+                    //    new KeyValuePair<string,string>("classes",  NowMission.Task.Classes),
+                    //    new KeyValuePair<string,string>("addr",  NowMission.Task.Addr),
+                    //    new KeyValuePair<string,string>("content1",NowMission.Task.Content1),
+                    //    new KeyValuePair<string,string>("content2",NowMission.Task.Content2),
+                    //    new KeyValuePair<string,string>("content3", NowMission.Task.Content3),
+                    //    new KeyValuePair<string,string>("tips1",NowMission.Task.Tips1),
+                    //    new KeyValuePair<string,string>("tips2",NowMission.Task.Tips2),
+                    //    new KeyValuePair<string,string>("tips3",NowMission.Task.Tips3),
+                    //    new KeyValuePair<string,string>("answer1",NowMission.Task.Answer1),
+                    //    new KeyValuePair<string,string>("answer2",NowMission.Task.Answer2),
+                    //    new KeyValuePair<string,string>("answer3",NowMission.Task.Answer3),
+                    //    new KeyValuePair<string,string>("action", "upload"),
+                    //};
+                        string str = "action=" + "upload" + "&";
+                        str += "id=" + NewUser.ID + "&";
+                        str += "title=" + NowMission.Task.Title + "&";
+                        str += "classes=" + NowMission.Task.Classes + "&";
+                        str += "addr=" + NowMission.Task.Addr + "&";
+                        str += "content1=" + NowMission.Task.Content1 + "&";
+                        str += "content2=" + NowMission.Task.Content2 + "&";
+                        str += "content3=" + NowMission.Task.Content3 + "&";
+                        str += "tips1=" + NowMission.Task.Tips1 + "&";
+                        str += "tips2=" + NowMission.Task.Tips2 + "&";
+                        str += "tips3=" + NowMission.Task.Tips3 + "&";
+                        str += "answer1=" + NowMission.Task.Answer1 + "&";
+                        str += "answer2=" + NowMission.Task.Answer2 + "&";
+                        str += "answer3=" + NowMission.Task.Answer3 + "&";
+                        
+
+                        System.Net.Http.StringContent content = new StringContent(str, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();
                             if (responseBody == "success")
                             {
-                                var msgDialog = new Windows.UI.Popups.MessageDialog("发布成功") { Title = "提示" };
+                                if (NowMission.Task.Img1 != "")
+                                {
+                                    str = "action=" + "uploadimg" + "&";
+                                    str += "title=" + NowMission.Task.Title + "&";
+                                    str += "imgnum=" + "one" + "&";
+                                    str += "img=" + System.Net.WebUtility.UrlEncode(NowMission.Task.Img1);
+                                    content = new StringContent(str, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                                    response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
+                                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                                    {
+                                        responseBody = await response.Content.ReadAsStringAsync();
+                                        if (responseBody == "success")
+                                        {
+                                            if (NowMission.Task.Img2 != "")
+                                            {
+                                                str = "action=" + "uploadimg" + "&";
+                                                str += "title=" + NowMission.Task.Title + "&";
+                                                str += "imgnum=" + "two" + "&";
+                                                str += "img=" + System.Net.WebUtility.UrlEncode(NowMission.Task.Img2);
+                                                content = new StringContent(str, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                                                response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
+                                                if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                                                {
+                                                    responseBody = await response.Content.ReadAsStringAsync();
+                                                    if (responseBody == "success")
+                                                    {
+                                                        if (NowMission.Task.Img3 != "")
+                                                        {
+                                                            str = "action=" + "uploadimg" + "&";
+                                                            str += "title=" + NowMission.Task.Title + "&";
+                                                            str += "imgnum=" + "three" + "&";
+                                                            str += "img=" + System.Net.WebUtility.UrlEncode(NowMission.Task.Img3);
+                                                            content = new StringContent(str, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                                                            response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
+                                                            if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                                                            {
+                                                                responseBody = await response.Content.ReadAsStringAsync();
+                                                                if (responseBody == "success")
+                                                                {
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                               
+                                                        var msgDialog = new Windows.UI.Popups.MessageDialog("发布成功") { Title = "提示" };
                                 msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { NowMission.Task.Title = ""; NowMission.Task.Addr = ""; NowMission.Task.Content1 = ""; NowMission.Task.Content2 = ""; NowMission.Task.Content3 = ""; NowMission.Task.Classes = ""; NowMission.Task.Answer1 = ""; NowMission.Task.Answer2 = ""; NowMission.Task.Answer3 = ""; NowMission.Task.Tips1 = ""; NowMission.Task.Tips2 = ""; NowMission.Task.Tips3 = ""; NowMission.Task.Title = ""; NowMission.Task.User = "";Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
                                     SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
                                 }));
@@ -297,6 +436,15 @@ namespace Hunter.User_Upload
 
                 image.SetSource(stream);
                 picture1.Source = image;
+                var streamData = await file.OpenReadAsync();
+                var bytes = new byte[streamData.Size];
+                using (var dataReader = new DataReader(streamData))
+                {
+                    await dataReader.LoadAsync((uint)streamData.Size);
+                    dataReader.ReadBytes(bytes);
+                }
+                string inputString = System.Convert.ToBase64String(bytes);
+                NowMission.Task.Img1 = inputString;
             }
             add1.Visibility = Visibility.Visible;
             add.Visibility = Visibility.Collapsed;
@@ -318,6 +466,15 @@ namespace Hunter.User_Upload
 
                 image.SetSource(stream);
                 picture2.Source = image;
+                var streamData = await file.OpenReadAsync();
+                var bytes = new byte[streamData.Size];
+                using (var dataReader = new DataReader(streamData))
+                {
+                    await dataReader.LoadAsync((uint)streamData.Size);
+                    dataReader.ReadBytes(bytes);
+                }
+                string inputString = System.Convert.ToBase64String(bytes);
+                NowMission.Task.Img2 = inputString;
             }
             add2.Visibility = Visibility.Visible;
             add1.Visibility = Visibility.Collapsed;
@@ -340,6 +497,15 @@ namespace Hunter.User_Upload
 
                 image.SetSource(stream);
                 picture3.Source = image;
+                var streamData = await file.OpenReadAsync();
+                var bytes = new byte[streamData.Size];
+                using (var dataReader = new DataReader(streamData))
+                {
+                    await dataReader.LoadAsync((uint)streamData.Size);
+                    dataReader.ReadBytes(bytes);
+                }
+                string inputString = System.Convert.ToBase64String(bytes);
+                NowMission.Task.Img3 = inputString;
             }
             add2.Visibility = Visibility.Collapsed;
         }

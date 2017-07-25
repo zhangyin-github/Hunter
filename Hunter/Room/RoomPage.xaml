@@ -16,9 +16,11 @@
     </Page.Resources>
 
     <Grid >
+        
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="120"/>
@@ -27,6 +29,7 @@
             <RowDefinition Height="2"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
+        <ProgressRing Name="ring" Grid.RowSpan="6" Height="85" Width="85" Padding="15" Background="#88000000" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2.5*" MinWidth="120"/>
@@ -174,7 +177,7 @@
             </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Margin="20">
-            <ListView ItemsSource="{x:Bind MissionList}"  HorizontalAlignment="Stretch" Background="Transparent" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+            <ListView Name="MainList" ItemsSource="{x:Bind MissionList}"  HorizontalAlignment="Stretch" Background="Transparent" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="data:RootObject">
                         <local:RoomControl Width="1920"/>

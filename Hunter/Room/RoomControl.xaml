@@ -12,7 +12,7 @@
             <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="0" Margin="5" Source="..\Assets/log_bg.jpg" Stretch="Fill" MaxHeight="90" MaxWidth="120"/>
+        <Image Name="img" Grid.Column="0" Margin="5" Source="..\Assets/log_bg.jpg" Stretch="Fill" MaxHeight="90" MaxWidth="120"/>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>

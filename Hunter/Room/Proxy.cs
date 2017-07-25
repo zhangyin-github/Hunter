@@ -47,11 +47,11 @@ namespace Hunter.Room
         [DataMember]
         public string Content3 { get; set; }
         [DataMember]
-        public object Img1 { get; set; }
+        public string Img1 { get; set; }
         [DataMember]
-        public object Img2 { get; set; }
+        public string Img2 { get; set; }
         [DataMember]
-        public object Img3 { get; set; }
+        public string Img3 { get; set; }
         [DataMember]
         public string Tips1 { get; set; }
         [DataMember]
