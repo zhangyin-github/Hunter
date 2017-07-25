@@ -18,7 +18,7 @@
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/textbg.jpg"/>
         </Grid.Background>
-        <ProgressRing Name="ring" Height="85" Width="85" Padding="15" Background="#88000000" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <ProgressRing Name="ring" Height="85" Width="85" Padding="15" Foreground="Goldenrod" Background="#88000000" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*"/>

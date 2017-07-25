@@ -75,7 +75,8 @@ namespace Hunter.Missions
                     stream.Seek(0);
 
                     await bi.SetSourceAsync(stream);
-                    img1.Source = bi;
+                    img1_bg.ImageSource = bi;
+                    Image1.Source = bi;
                 }
             }
             if (NowMission.Task.Img2 != "")
@@ -94,7 +95,8 @@ namespace Hunter.Missions
                     stream.Seek(0);
 
                     await bi.SetSourceAsync(stream);
-                    img2.Source = bi;
+                    img2_bg.ImageSource = bi;
+                    Image2.Source = bi;
                 }
             }
             if (NowMission.Task.Img3 != "")
@@ -113,7 +115,8 @@ namespace Hunter.Missions
                     stream.Seek(0);
 
                     await bi.SetSourceAsync(stream);
-                    img3.Source = bi;
+                    img3_bg.ImageSource = bi;
+                    Image3.Source = bi;
                 }
             }
 

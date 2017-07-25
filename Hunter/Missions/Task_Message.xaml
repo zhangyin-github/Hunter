@@ -109,10 +109,37 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-             <Image Name="img1" Grid.Row="4" Grid.Column="1"></Image>
-             <Image Name="img2" Grid.Row="4" Grid.Column="2"></Image>
-            <Image Name="img3" Grid.Row="4" Grid.Column="3"></Image>
-             <Button Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}">
+            <Button Name="img1" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource mostbutton}">
+                <Button.Flyout>
+                    <Flyout>
+                        <Image Name="Image1"  MaxWidth="400" Stretch="Uniform"/>
+                    </Flyout>
+                </Button.Flyout>
+                <Button.Background>
+                    <ImageBrush x:Name="img1_bg" Stretch="Uniform"/>
+                </Button.Background>
+             </Button>
+            <Button Name="img2" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource mostbutton}">
+                <Button.Flyout>
+                    <Flyout>
+                        <Image Name="Image2"  MaxWidth="400" Stretch="Uniform"/>
+                    </Flyout>
+                </Button.Flyout>
+                <Button.Background>
+                    <ImageBrush x:Name="img2_bg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Name="img3" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource mostbutton}">
+                <Button.Flyout>
+                    <Flyout>
+                        <Image Name="Image3"  MaxWidth="400" Stretch="Uniform"/>
+                    </Flyout>
+                </Button.Flyout>
+                <Button.Background>
+                    <ImageBrush x:Name="img3_bg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Stretch" Foreground="DarkGoldenrod" Background="Transparent" Style="{StaticResource mostbutton}">
                 <TextBlock HorizontalAlignment="Center" TextAlignment="Center" >
                     <Run  FontFamily="Segoe MDL2 Assets" Text="&#xE10C;" FontSize="36"/>
                 </TextBlock>
