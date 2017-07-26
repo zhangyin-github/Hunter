@@ -62,6 +62,7 @@ namespace Hunter.Items
                     {
                         new KeyValuePair<string,string>("id", NewUser.ID),
                         new KeyValuePair<string,string>("name",item.name),
+                        new KeyValuePair<string,string>("content",item.content),
                         new KeyValuePair<string,string>("cost",NewUser.money.ToString()),
                         new KeyValuePair<string,string>("action", "buy"),
                     };
