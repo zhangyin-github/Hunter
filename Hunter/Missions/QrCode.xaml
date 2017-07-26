@@ -10,7 +10,13 @@
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Media="using:Microsoft.Xaml.Interactions.Media"
     mc:Ignorable="d">
-
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <SlideNavigationTransitionInfo/>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
     <Page.Resources>
         <Storyboard x:Name="LineStoryboard" AutoReverse="True" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="recScanning">

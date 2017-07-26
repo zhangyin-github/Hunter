@@ -10,7 +10,7 @@
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
-                <ContinuumNavigationTransitionInfo/>
+                <SlideNavigationTransitionInfo/>
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
