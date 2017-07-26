@@ -96,6 +96,8 @@ namespace Hunter.Room
         public static ObservableCollection<RootObject> getInstance()
         {
             Story = new ObservableCollection<RootObject> { };
+            Story.Add(new RootObject{ Title="1"});
+
             return Story;
         }
     }
