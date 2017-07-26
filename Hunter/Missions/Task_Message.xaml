@@ -7,13 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
      xmlns:data="using:Hunter.Room"
     mc:Ignorable="d">
+
     <Page.DataContext>
         <data:Proxy />
     </Page.DataContext>
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
-                <ContinuumNavigationTransitionInfo/>
+                <CommonNavigationTransitionInfo/>
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
