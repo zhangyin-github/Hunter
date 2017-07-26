@@ -29,8 +29,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="2"/>
-            <RowDefinition Height="2.5*"/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.75*"/>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
@@ -80,12 +80,12 @@
                     <ImageBrush Stretch="Fill" ImageSource="..\Assets/textbg.jpg" Opacity="1"/>
                 </Grid.Background>
                 <ScrollViewer Padding="20 15 20 25">
-                    <TextBlock Name="content"   FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Center" TextWrapping="Wrap" Text="211111111111111111111111的的的顶顶顶顶顶顶顶顶顶顶顶顶顶顶多多多多多多多11111111111111"  Foreground="DarkRed" FontWeight="Bold"/>
+                    <TextBlock Name="content"   FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Center" TextWrapping="Wrap"   Foreground="DarkRed" FontWeight="Bold"/>
                 </ScrollViewer>
                 
             </Grid>
         </Grid>
-        <Grid Grid.Row="3" Margin="0 20 0 0">
+        <Grid Grid.Row="3" Margin="0 0 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
