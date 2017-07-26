@@ -20,6 +20,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Hunter.UI;
+using Hunter.UserInfo;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -30,6 +32,9 @@ namespace Hunter.Room
     /// </summary>
     public sealed partial class RoomPage : Page
     {
+        userMessage t = new userMessage();
+        apage a = new apage();
+
         public ObservableCollection<RootObject> MissionList;
         public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
@@ -61,7 +66,8 @@ namespace Hunter.Room
         private void headicon_Click(object sender, RoutedEventArgs e)
         {
             ButtonPlayer.MusicPlayer.Play();
-            Frame.Navigate(typeof(UserInfo.userMessage));
+            t.Show(UI.apage.AnimationType.LeftToRight);
+            //Frame.Navigate(typeof(UserInfo.userMessage));
         }
 
         private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)

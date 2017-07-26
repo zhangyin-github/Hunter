@@ -143,6 +143,7 @@
     <Compile Include="Settings\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\apage.cs" />
     <Compile Include="UserInfo\userMessage.xaml.cs">
       <DependentUpon>userMessage.xaml</DependentUpon>
     </Compile>
