@@ -90,6 +90,16 @@ namespace Hunter.Room
         }
     }
 
+    public class StoryMission
+    {
+        public static ObservableCollection<RootObject> Story;
+        public static ObservableCollection<RootObject> getInstance()
+        {
+            Story = new ObservableCollection<RootObject> { };
+            return Story;
+        }
+    }
+
     public class User_Answer
     {
         public string answer { get; set; }

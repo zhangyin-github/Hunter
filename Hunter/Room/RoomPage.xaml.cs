@@ -31,6 +31,7 @@ namespace Hunter.Room
     public sealed partial class RoomPage : Page
     {
         public ObservableCollection<RootObject> MissionList;
+        public ObservableCollection<RootObject> StoryList;
         public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -44,6 +45,7 @@ namespace Hunter.Room
             object sender=null;
             RoutedEventArgs e=null;
             MissionList = MissionManager.getInstance();
+            StoryList = StoryMission.getInstance();
             NewUser = userInfo.getInstance();
             NowMission.getInstance();
             UserAnswer.getInstance();
@@ -385,6 +387,19 @@ namespace Hunter.Room
                 }
 
             }
+        }
+
+        private void StoryMode_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonPlayer.MusicPlayer.Play();
+            MissionList.Clear();
+            int i = 0;
+            while(i<StoryList.Count)
+            {
+                MissionList.Add(StoryList[i]);
+                i++;
+            }
+
         }
     }
 }

@@ -93,7 +93,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="StoryMode" Grid.Column="0" Margin="20 0 0 0" HorizontalAlignment="Stretch"  MaxWidth="300" VerticalAlignment="Stretch"  FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}">
+            <Button Name="StoryMode" Grid.Column="0" Margin="20 0 0 0" HorizontalAlignment="Stretch"  MaxWidth="300" VerticalAlignment="Stretch"  FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}" Click="StoryMode_Click">
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="..\Assets/story.png"/>
                 </Button.Background>
@@ -107,7 +107,7 @@
                     </LinearGradientBrush>
                 </-->
             </Button>
-            <Button Name="UserMode" Grid.Column="1" HorizontalAlignment="Stretch" MaxWidth="300" VerticalAlignment="Stretch"   FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}">
+            <Button Name="UserMode" Grid.Column="1" HorizontalAlignment="Stretch" MaxWidth="300" VerticalAlignment="Stretch"   FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource mostbutton}" Click="refreshbutton_ClickAsync">
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="..\Assets/free.png"/>
                 </Button.Background>
