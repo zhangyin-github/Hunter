@@ -34,6 +34,8 @@ namespace Hunter.Items
             NewUser = userInfo.getInstance();
             this.InitializeComponent();
             MyList = Shop_ItemMenager.getInstance();
+            NewUser = userInfo.getInstance();
+            point.Text = NewUser.money.ToString();
         }
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
@@ -41,6 +43,7 @@ namespace Hunter.Items
             ButtonPlayer.MusicPlayer.Play();
             item =(Shop_ItemList) e.ClickedItem;
             Item_Info.Text = item.content;
+            point.Text = NewUser.money.ToString();
         }
 
         private async void usebutton_ClickAsync(object sender, RoutedEventArgs e)
@@ -48,6 +51,7 @@ namespace Hunter.Items
             if (NewUser.money >= item.cost)
             {
                 NewUser.money = NewUser.money - item.cost;
+                point.Text = NewUser.money.ToString();
                 using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
                 {
                     TimeSpan ts = new TimeSpan(15000000);
@@ -89,6 +93,7 @@ namespace Hunter.Items
             }
             else
             {
+                point.Text = NewUser.money.ToString();
                 var msgDialog = new Windows.UI.Popups.MessageDialog("您的积分不足，请努力赚取积分") { Title = "提示" };
                 msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("点我获取更多积分", uiCommand => { }));
                 msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));

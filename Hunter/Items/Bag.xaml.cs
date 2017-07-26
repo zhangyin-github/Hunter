@@ -23,11 +23,14 @@ namespace Hunter.Items
     /// </summary>
     public sealed partial class Bag : Page
     {
+        public userMessages NewUser;
         public List<User_ItemList> MyList;
         public Bag()
         {
             this.InitializeComponent();
             MyList = User_ItemMenager.getInstance();
+            NewUser = userInfo.getInstance();
+            point.Text = NewUser.money.ToString();
         }
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
