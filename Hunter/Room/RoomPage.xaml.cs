@@ -66,8 +66,7 @@ namespace Hunter.Room
         private void headicon_Click(object sender, RoutedEventArgs e)
         {
             ButtonPlayer.MusicPlayer.Play();
-            t.Show(UI.apage.AnimationType.LeftToRight);
-            //Frame.Navigate(typeof(UserInfo.userMessage));
+            Frame.Navigate(typeof(UserInfo.userMessage));
         }
 
         private async void refreshbutton_ClickAsync(object sender, RoutedEventArgs e)
