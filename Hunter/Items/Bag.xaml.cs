@@ -76,6 +76,7 @@ namespace Hunter.Items
                             MyList.Add(data[i]);
                             i++;
                         }
+                        
                     }
                 }
                 catch
