@@ -7,7 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    xmlns:data="using:Hunter.Models"
     mc:Ignorable="d">
-
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <SlideNavigationTransitionInfo/>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -91,7 +97,7 @@
                         Height="100"
                         Width="100"
                         HorizontalAlignment="Center"
-                        Click="usebutton_Click"
+                        Click="usebutton_ClickAsync"
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True" Background="Transparent" Foreground="DarkGoldenrod" Style="{StaticResource mostbutton}">
                 <Grid>

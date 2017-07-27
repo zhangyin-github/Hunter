@@ -31,6 +31,7 @@ namespace Hunter.Room
     public sealed partial class RoomPage : Page
     {
         public ObservableCollection<RootObject> MissionList;
+        public ObservableCollection<RootObject> StoryList;
         public userMessages NewUser;
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -44,6 +45,7 @@ namespace Hunter.Room
             object sender=null;
             RoutedEventArgs e=null;
             MissionList = MissionManager.getInstance();
+            StoryList = StoryMission.getInstance();
             NewUser = userInfo.getInstance();
             NowMission.getInstance();
             UserAnswer.getInstance();
@@ -93,7 +95,7 @@ namespace Hunter.Room
             selectByThemeComboBox.SelectedIndex = 0;
             using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
             {
-                TimeSpan ts = new TimeSpan(35000000);
+                TimeSpan ts = new TimeSpan(25000000);
                 client.Timeout = ts;
                 try
                 {
@@ -107,6 +109,8 @@ namespace Hunter.Room
                     string result = await response.Content.ReadAsStringAsync();
                    if(result=="false")
                     {
+                        ring.IsActive = false;
+                        MainList.IsEnabled = true;
                         return;
                     }
                     else
@@ -383,6 +387,19 @@ namespace Hunter.Room
                 }
 
             }
+        }
+
+        private void StoryMode_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonPlayer.MusicPlayer.Play();
+            MissionList.Clear();
+            int i = 0;
+            while(i<StoryList.Count)
+            {
+                MissionList.Add(StoryList[i]);
+                i++;
+            }
+
         }
     }
 }

@@ -107,13 +107,14 @@ namespace Hunter.Log
                             }
                             else
                             {
-                                ring.IsActive = false;
+                               
                                 var msgDialog = new Windows.UI.Popups.MessageDialog("用户名或密码错误，请检查您的用户名和密码") { Title = "登录失败" };
                                 msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => {
                                     userinfo.IsEnabled = true;
                                     passwordinfo.IsEnabled = true;
                                     register.IsEnabled = true;
                                     login.IsEnabled =true;
+                                    ring.IsActive = false;
                                 }));
                                 await msgDialog.ShowAsync();
                             }
@@ -173,6 +174,11 @@ namespace Hunter.Log
             msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("重新输入", uiCommand => { passwordinfo.Password = $""; }));
             msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("注册", uiCommand => { Frame.Navigate(typeof(Log.Register)); }));
             await msgDialog.ShowAsync();
+            userinfo.IsEnabled = true;
+            passwordinfo.IsEnabled = true;
+            register.IsEnabled = true;
+            login.IsEnabled = true;
+            ring.IsActive = false;
         }
     }
 }
