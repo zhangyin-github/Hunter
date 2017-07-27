@@ -80,7 +80,7 @@
                     <ImageBrush Stretch="Fill" ImageSource="..\Assets/textbg.jpg" Opacity="1"/>
                 </Grid.Background>
                 <ScrollViewer Padding="20 15 20 25">
-                    <TextBlock Name="content"   FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Center" TextWrapping="Wrap"   Foreground="DarkRed" FontWeight="Bold"/>
+                    <TextBlock Name="content"   FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Left" TextWrapping="Wrap"   Foreground="DarkRed" FontWeight="Bold"/>
                 </ScrollViewer>
                 
             </Grid>
