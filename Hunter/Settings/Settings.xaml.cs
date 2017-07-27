@@ -24,10 +24,12 @@ namespace Hunter.Settings
     /// </summary>
     public sealed partial class Settings : Page
     {
+        public userMessages NewUser;
         public Settings()
         {
             BgmPlayer.getInstance();
             this.InitializeComponent();
+            NewUser = userInfo.getInstance();
             volumeSlider.Value = BgmPlayer.MusicPlayer.Volume*100;
             if(BgmPlayer.MusicPlayer.AutoPlay)
             {
@@ -65,6 +67,7 @@ namespace Hunter.Settings
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
             ButtonPlayer.MusicPlayer.Play();
+            NewUser.ID = "";NewUser.money = 0;NewUser.nickName = "";NewUser.ps = "";NewUser.rate = 0;NewUser.headimg = "";NewUser.Exp = 0;
             Frame.Navigate(typeof(Log.Login));
             Frame.BackStack.Clear();
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;

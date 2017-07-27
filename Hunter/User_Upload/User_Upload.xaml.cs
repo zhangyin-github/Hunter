@@ -65,12 +65,26 @@ namespace Hunter.User_Upload
             }
             if(UserAnswer.Answer.time==1)
             {
+                item = clue1;
                 clueComboBox.SelectedIndex = 0;
                 if (NowMission.Task.Classes!=""&&NowMission.Task.Classes !=null)
                 {
-                    
-                    
-                    
+                    if (NowMission.Task.Classes == "悬疑")
+                    {
+                        themeComboBox.SelectedIndex = 0;
+                    }
+                    else if (NowMission.Task.Classes == "推理")
+                    {
+                        themeComboBox.SelectedIndex = 1;
+                    }
+                    else if (NowMission.Task.Classes == "日常")
+                    {
+                        themeComboBox.SelectedIndex = 2;
+                    }
+                    else if (NowMission.Task.Classes == "其他")
+                    {
+                        themeComboBox.SelectedIndex = 3;
+                    }
                 }
                 else
                 {
@@ -78,7 +92,22 @@ namespace Hunter.User_Upload
                 }
                 if(NowMission.Task.Addr != ""&& NowMission.Task.Addr !=null)
                 {
-
+                    if (NowMission.Task.Addr == "校园")
+                    {
+                        backgroundComboBox.SelectedIndex = 0;
+                    }
+                    else if (NowMission.Task.Addr == "密室")
+                    {
+                        backgroundComboBox.SelectedIndex = 1;
+                    }
+                    else if (NowMission.Task.Addr == "街道")
+                    {
+                        backgroundComboBox.SelectedIndex = 2;
+                    }
+                    else if (NowMission.Task.Addr == "其他")
+                    {
+                        backgroundComboBox.SelectedIndex = 3;
+                    }
                 }
                 else
                 {
@@ -99,20 +128,49 @@ namespace Hunter.User_Upload
             }
             else if (UserAnswer.Answer.time == 2)
             {
+                item = clue2;
                 clueComboBox.SelectedIndex = 1;
-                if (NowMission.Task.Classes != ""&& NowMission.Task.Classes != null)
+                if (NowMission.Task.Classes != "" && NowMission.Task.Classes != null)
                 {
-
-
-
+                    if (NowMission.Task.Classes == "悬疑")
+                    {
+                        themeComboBox.SelectedIndex = 0;
+                    }
+                    else if (NowMission.Task.Classes == "推理")
+                    {
+                        themeComboBox.SelectedIndex = 1;
+                    }
+                    else if (NowMission.Task.Classes == "日常")
+                    {
+                        themeComboBox.SelectedIndex = 2;
+                    }
+                    else if (NowMission.Task.Classes == "其他")
+                    {
+                        themeComboBox.SelectedIndex = 3;
+                    }
                 }
                 else
                 {
                     themeComboBox.SelectedIndex = 0;
                 }
-                if (NowMission.Task.Addr != ""&& NowMission.Task.Addr !=null)
+                if (NowMission.Task.Addr != "" && NowMission.Task.Addr != null)
                 {
-
+                    if (NowMission.Task.Addr == "校园")
+                    {
+                        backgroundComboBox.SelectedIndex = 0;
+                    }
+                    else if (NowMission.Task.Addr == "密室")
+                    {
+                        backgroundComboBox.SelectedIndex = 1;
+                    }
+                    else if (NowMission.Task.Addr == "街道")
+                    {
+                        backgroundComboBox.SelectedIndex = 2;
+                    }
+                    else if (NowMission.Task.Addr == "其他")
+                    {
+                        backgroundComboBox.SelectedIndex = 3;
+                    }
                 }
                 else
                 {
@@ -133,20 +191,49 @@ namespace Hunter.User_Upload
             }
             else if (UserAnswer.Answer.time == 3)
             {
+                item = clue3;
                 clueComboBox.SelectedIndex = 2;
-                if (NowMission.Task.Classes != ""&& NowMission.Task.Classes!=null)
+                if (NowMission.Task.Classes != "" && NowMission.Task.Classes != null)
                 {
-
-
-
+                    if (NowMission.Task.Classes == "悬疑")
+                    {
+                        themeComboBox.SelectedIndex = 0;
+                    }
+                    else if (NowMission.Task.Classes == "推理")
+                    {
+                        themeComboBox.SelectedIndex = 1;
+                    }
+                    else if (NowMission.Task.Classes == "日常")
+                    {
+                        themeComboBox.SelectedIndex = 2;
+                    }
+                    else if (NowMission.Task.Classes == "其他")
+                    {
+                        themeComboBox.SelectedIndex = 3;
+                    }
                 }
                 else
                 {
                     themeComboBox.SelectedIndex = 0;
                 }
-                if (NowMission.Task.Addr != ""&& NowMission.Task.Addr !=null)
+                if (NowMission.Task.Addr != "" && NowMission.Task.Addr != null)
                 {
-
+                    if (NowMission.Task.Addr == "校园")
+                    {
+                        backgroundComboBox.SelectedIndex = 0;
+                    }
+                    else if (NowMission.Task.Addr == "密室")
+                    {
+                        backgroundComboBox.SelectedIndex = 1;
+                    }
+                    else if (NowMission.Task.Addr == "街道")
+                    {
+                        backgroundComboBox.SelectedIndex = 2;
+                    }
+                    else if (NowMission.Task.Addr == "其他")
+                    {
+                        backgroundComboBox.SelectedIndex = 3;
+                    }
                 }
                 else
                 {
@@ -166,7 +253,6 @@ namespace Hunter.User_Upload
                 }
             }
 
-            item = clue1;
         }
 
 
@@ -695,7 +781,7 @@ namespace Hunter.User_Upload
 
         private void backgroundComboBox_DropDownClosed(object sender, object e)
         {
-            NowMission.Task.Addr = themeComboBox.SelectionBoxItem.ToString();
+            NowMission.Task.Addr = backgroundComboBox.SelectionBoxItem.ToString();
         }
 
         private void TitleTextbox_TextChanged(object sender, TextChangedEventArgs e)
