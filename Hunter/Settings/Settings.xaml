@@ -134,20 +134,24 @@
                             </LinearGradientBrush>
                         </Rectangle.Stroke>
                     </Rectangle>
-                    <TextBlock FontSize="16" Text="更换背景" HorizontalAlignment="Center"  FontWeight="Bold" />
+                    <TextBlock FontSize="16" Text="关于我们" HorizontalAlignment="Center"  FontWeight="Bold" />
                 </Grid>
             </Button.Content>
             <Button.Flyout>
-                <MenuFlyout Placement="Bottom">
-
-                    <MenuFlyoutItem Name="Bg1" Text="背景 1" Click="Bg1_Click" />
-                    <MenuFlyoutItem Name="Bg2" Text="背景 2" Click="Bg2_Click" />
-                    <MenuFlyoutItem Name="Bg3" Text="背景 3"  Click="Bg3_Click" />
-                    <MenuFlyoutItem Name="Bg4" Text="背景 4" Click="Bg4_Click" />
-
-                </MenuFlyout>
-               
-
+                <Flyout>
+                    <TextBlock >
+                        <Run Text="The Mystery Hunter"/>
+                        <LineBreak/>
+                        <LineBreak/>
+                        <Run Text="开发人员："/>
+                        <LineBreak/>
+                        <LineBreak/>
+                        <Run Text="林轩宇 李明君 刘仁人 林贵渊 张太"/>
+                        <LineBreak/>
+                        <LineBreak/>
+                        <Run Text="Copyright © 2017-2018 Hunter开发小组 . All Rights Reserved."/>
+                    </TextBlock>
+                </Flyout>
             </Button.Flyout>
 
         </Button>
