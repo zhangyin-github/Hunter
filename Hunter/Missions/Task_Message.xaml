@@ -39,6 +39,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/bg.jpeg" Stretch="UniformToFill"/>
         </Grid.Background>
+       
         <Grid Grid.Row="0" Width="auto" Height="auto">
             <TextBlock Name="title" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Text="云霄飞车杀人事件">
                 <TextBlock.Foreground>

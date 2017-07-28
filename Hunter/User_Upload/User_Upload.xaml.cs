@@ -331,6 +331,8 @@ namespace Hunter.User_Upload
 
         private async void upload_Click(System.Object sender, RoutedEventArgs e)
         {
+            ring.IsActive = true;
+            upload.IsEnabled = false;
             ButtonPlayer.MusicPlayer.Play();
             var dialog = new ContentDialog()
             {
@@ -473,8 +475,9 @@ namespace Hunter.User_Upload
                                         }
                                     }
                                 }
-                               
-                                                        var msgDialog = new Windows.UI.Popups.MessageDialog("发布成功") { Title = "提示" };
+                                ring.IsActive = false;
+                                upload.IsEnabled = true;
+                                var msgDialog = new Windows.UI.Popups.MessageDialog("发布成功") { Title = "提示" };
                                 msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { NowMission.Task.Title = ""; NowMission.Task.Addr = ""; NowMission.Task.Content1 = ""; NowMission.Task.Content2 = ""; NowMission.Task.Content3 = ""; NowMission.Task.Classes = ""; NowMission.Task.Answer1 = ""; NowMission.Task.Answer2 = ""; NowMission.Task.Answer3 = ""; NowMission.Task.Tips1 = ""; NowMission.Task.Tips2 = ""; NowMission.Task.Tips3 = ""; NowMission.Task.Title = ""; NowMission.Task.User = "";Frame.Navigate(typeof(Room.RoomPage)); Frame.BackStack.Clear();
                                     SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
                                 }));
@@ -482,6 +485,8 @@ namespace Hunter.User_Upload
                             }
                             else
                             {
+                                ring.IsActive = false;
+                                upload.IsEnabled = true;
                                 var msgDialog = new Windows.UI.Popups.MessageDialog("发布失败，该标题已存在，请更改标题后重新发布") { Title = "提示" };
                                 msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
                                 await msgDialog.ShowAsync();
@@ -490,6 +495,8 @@ namespace Hunter.User_Upload
                     }
                     catch
                     {
+                        ring.IsActive = false;
+                        upload.IsEnabled = true;
                         var msgDialog = new Windows.UI.Popups.MessageDialog("服务器可能开小差了，请稍后再试") { Title = "登录失败" };
                         msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
                         await msgDialog.ShowAsync();
@@ -504,6 +511,8 @@ namespace Hunter.User_Upload
                 }
             };
             await dialog.ShowAsync();
+            ring.IsActive = false;
+            upload.IsEnabled = true;
         }
 
         private async void Choose_Click(System.Object sender, RoutedEventArgs e)
