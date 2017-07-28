@@ -33,7 +33,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Name="picture" Grid.ColumnSpan="2">
-                <Image MaxWidth="400" Source="..\Assets/Hunter.png" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                <Image MaxWidth="600" Stretch="Fill" Source="..\Assets/Hunter.png"  VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
                
 
             </Grid>
