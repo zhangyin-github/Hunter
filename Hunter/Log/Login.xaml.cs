@@ -30,6 +30,7 @@ namespace Hunter.Log
         public Login()
         {
             NewUser = userInfo.getInstance();
+            getlink.getInstance();
             this.InitializeComponent();
 
         }
@@ -56,7 +57,7 @@ namespace Hunter.Log
                         new KeyValuePair<string,string>("password", passwordinfo.Password),
                         new KeyValuePair<string,string>("action", "login"),
                     };
-                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync(getlink.Ip.ip, new FormUrlEncodedContent(kvp));
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();
@@ -67,7 +68,7 @@ namespace Hunter.Log
                                       new KeyValuePair<string,string>("userid", userinfo.Text),
                                       new KeyValuePair<string,string>("action", "info"),
                                  };
-                                System.Net.Http.HttpResponseMessage user = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(info));
+                                System.Net.Http.HttpResponseMessage user = await client.PostAsync(getlink.Ip.ip, new FormUrlEncodedContent(info));
                                 if (user.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                                 {
                                     string userinfo = await user.Content.ReadAsStringAsync();

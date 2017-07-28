@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Models\BgmPlayer.cs" />
     <Compile Include="Models\Items.cs" />
+    <Compile Include="Models\link.cs" />
     <Compile Include="Models\Missons.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\userMessages.cs" />

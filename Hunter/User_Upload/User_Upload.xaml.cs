@@ -45,6 +45,7 @@ namespace Hunter.User_Upload
             this.InitializeComponent();
             UserAnswer.getInstance();
             NowMission.getInstance();
+            getlink.getInstance();
             addAsync();
           
             if (NowMission.Task.Title!=""&& NowMission.Task.Title!=null)
@@ -428,7 +429,7 @@ namespace Hunter.User_Upload
                         
 
                         System.Net.Http.StringContent content = new StringContent(str, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
-                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync(getlink.Ip.ip, content);
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();
@@ -441,7 +442,7 @@ namespace Hunter.User_Upload
                                     str += "imgnum=" + "one" + "&";
                                     str += "img=" + System.Net.WebUtility.UrlEncode(NowMission.Task.Img1);
                                     content = new StringContent(str, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
-                                    response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
+                                    response = await client.PostAsync(getlink.Ip.ip, content);
                                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                                     {
                                         responseBody = await response.Content.ReadAsStringAsync();
@@ -454,7 +455,7 @@ namespace Hunter.User_Upload
                                                 str += "imgnum=" + "two" + "&";
                                                 str += "img=" + System.Net.WebUtility.UrlEncode(NowMission.Task.Img2);
                                                 content = new StringContent(str, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
-                                                response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
+                                                response = await client.PostAsync(getlink.Ip.ip, content);
                                                 if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                                                 {
                                                     responseBody = await response.Content.ReadAsStringAsync();
@@ -467,7 +468,7 @@ namespace Hunter.User_Upload
                                                             str += "imgnum=" + "three" + "&";
                                                             str += "img=" + System.Net.WebUtility.UrlEncode(NowMission.Task.Img3);
                                                             content = new StringContent(str, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
-                                                            response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
+                                                            response = await client.PostAsync(getlink.Ip.ip, content);
                                                             if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                                                             {
                                                                 responseBody = await response.Content.ReadAsStringAsync();

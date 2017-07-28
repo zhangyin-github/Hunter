@@ -38,7 +38,7 @@ namespace Hunter.UserInfo
         {
             
             NewUser = userInfo.getInstance();
-
+            getlink.getInstance();
             this.InitializeComponent();
             ExpBar.Maximum = 1000;
             ExpBar.Minimum = 0;
@@ -164,7 +164,7 @@ namespace Hunter.UserInfo
                         new KeyValuePair<string,string>("id", NewUser.ID),
                         new KeyValuePair<string,string>("action", "changename"),
                     };
-                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync(getlink.Ip.ip, new FormUrlEncodedContent(kvp));
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();
@@ -280,7 +280,7 @@ namespace Hunter.UserInfo
                         
                         System.Net.Http.StringContent content = new StringContent(str,System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
 
-                        System.Net.Http.HttpResponseMessage response = await client.PostAsync("http://qwq.itbears.club/hunter.php", content);
+                        System.Net.Http.HttpResponseMessage response = await client.PostAsync(getlink.Ip.ip, content);
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();

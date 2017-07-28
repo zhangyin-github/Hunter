@@ -49,6 +49,7 @@ namespace Hunter.Room
             NewUser = userInfo.getInstance();
             NowMission.getInstance();
             UserAnswer.getInstance();
+            getlink.getInstance();
             this.InitializeComponent();
             refreshbutton_ClickAsync(sender,e);
             UserAnswer.Answer.answer = "";
@@ -106,7 +107,7 @@ namespace Hunter.Room
 
                         new KeyValuePair<string,string>("action", "getmission"),
                     };
-                    var response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                    var response = await client.PostAsync(getlink.Ip.ip, new FormUrlEncodedContent(kvp));
 
                     string result = await response.Content.ReadAsStringAsync();
                    if(result=="false")
@@ -207,7 +208,7 @@ namespace Hunter.Room
 
                         new KeyValuePair<string,string>("action", "getmission"),
                     };
-                        var response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                        var response = await client.PostAsync(getlink.Ip.ip, new FormUrlEncodedContent(kvp));
 
                         string result = await response.Content.ReadAsStringAsync();
                         if (result == "false")
@@ -282,7 +283,7 @@ namespace Hunter.Room
 
                         new KeyValuePair<string,string>("action", "getmission"),
                     };
-                        var response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                        var response = await client.PostAsync(getlink.Ip.ip, new FormUrlEncodedContent(kvp));
 
                         string result = await response.Content.ReadAsStringAsync();
                         if (result == "false")
@@ -357,7 +358,7 @@ namespace Hunter.Room
 
                         new KeyValuePair<string,string>("action", "getmission"),
                     };
-                        var response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                        var response = await client.PostAsync(getlink.Ip.ip, new FormUrlEncodedContent(kvp));
 
                         string result = await response.Content.ReadAsStringAsync();
                         if (result == "false")

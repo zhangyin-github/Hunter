@@ -36,6 +36,7 @@ namespace Hunter.Items
             this.InitializeComponent();
             MyList = User_ItemMenager.getInstance();
             NewUser = userInfo.getInstance();
+            getlink.getInstance();
             point.Text = NewUser.money.ToString();
             getitem();
         }
@@ -54,7 +55,7 @@ namespace Hunter.Items
                         new KeyValuePair<string,string>("action", "getitem"),
                         new KeyValuePair<string,string>("id", NewUser.ID),
                     };
-                    var response = await client.PostAsync("http://qwq.itbears.club/hunter.php", new FormUrlEncodedContent(kvp));
+                    var response = await client.PostAsync(getlink.Ip.ip, new FormUrlEncodedContent(kvp));
 
                     string result = await response.Content.ReadAsStringAsync();
                     if (result=="false")
