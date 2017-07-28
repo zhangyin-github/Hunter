@@ -115,6 +115,7 @@ namespace Hunter.Room
                         MainList.IsEnabled = true;
                         StoryMode.IsEnabled = true;
                         UserMode.IsEnabled = true;
+                        MissionList.Clear();
                         return;
                     }
                     else

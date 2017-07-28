@@ -363,6 +363,13 @@ namespace Hunter.User_Upload
                         {
                             NowMission.Task.Answer1 = keyTextBox.Text;
                         }
+                        if(NowMission.Task.Content1==""||NowMission.Task.Tips1==""||NowMission.Task.Answer1=="")
+                        {
+                            var msgDialog = new Windows.UI.Popups.MessageDialog("发布失败，线索一任意选项不能为空") { Title = "提示" };
+                            msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
+                            await msgDialog.ShowAsync();
+                            return;
+                        }
                         
                     }
                     else if (item == clue2)
