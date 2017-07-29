@@ -30,7 +30,7 @@
         
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
-            <RowDefinition Height="120"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2"/>
@@ -95,7 +95,7 @@
                 </Grid>
             </Button>
         </Grid>
-        <Grid Grid.Row="1" Margin="10 0 10 10">
+        <Grid Grid.Row="1" Margin="10 0 10 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -106,7 +106,7 @@
                 </-->
                 <Button Name="StoryMode"  HorizontalAlignment="Stretch"  MaxWidth="300" VerticalAlignment="Stretch"  FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource storybutton}" Click="StoryMode_Click">
                 <Button.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="..\Assets/story.png" />
+                    <ImageBrush Stretch="Uniform" ImageSource="..\Assets/story.png"/>
                 </Button.Background>
                 <!--Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
