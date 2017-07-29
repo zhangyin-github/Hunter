@@ -63,7 +63,7 @@
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
-            <GridView Grid.Column="1" Margin="0 50 0 50" MaxWidth="1800" ItemsSource="{x:Bind MyList}" HorizontalAlignment="Stretch" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
+            <GridView Grid.Column="1" Margin="0 50 0 50" MaxWidth="1800" ItemsSource="{x:Bind MyList}" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Stretch" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:User_ItemList">
                         <local:ItemsControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
