@@ -73,6 +73,9 @@ namespace Hunter.Room
             MainList.IsEnabled = false;
             StoryMode.IsEnabled = false;
             UserMode.IsEnabled = false;
+            selectByBackgroundComboBox.IsEnabled = false;
+            selectByDifficultyComboBox.IsEnabled = false;
+            selectByThemeComboBox.IsEnabled = false;
             if (NewUser.headimg != "" && NewUser.headimg != null)
             {
                 var data = Convert.FromBase64String(NewUser.headimg);
@@ -116,6 +119,9 @@ namespace Hunter.Room
                         MainList.IsEnabled = true;
                         StoryMode.IsEnabled = true;
                         UserMode.IsEnabled = true;
+                        selectByBackgroundComboBox.IsEnabled = true;
+                        selectByDifficultyComboBox.IsEnabled = true;
+                        selectByThemeComboBox.IsEnabled = true;
                         MissionList.Clear();
                         return;
                     }
@@ -139,6 +145,9 @@ namespace Hunter.Room
                         MainList.IsEnabled = true;
                         StoryMode.IsEnabled = true;
                         UserMode.IsEnabled = true;
+                        selectByBackgroundComboBox.IsEnabled = true;
+                        selectByDifficultyComboBox.IsEnabled = true;
+                        selectByThemeComboBox.IsEnabled = true;
                     }
                     
                 }
@@ -148,6 +157,9 @@ namespace Hunter.Room
                     MainList.IsEnabled = true;
                     StoryMode.IsEnabled = true;
                     UserMode.IsEnabled = true;
+                    selectByBackgroundComboBox.IsEnabled = true;
+                    selectByDifficultyComboBox.IsEnabled = true;
+                    selectByThemeComboBox.IsEnabled = true;
                     var msgDialog = new Windows.UI.Popups.MessageDialog("网络可能开小差了，请稍后再试") { Title = "刷新失败" };
                     msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { }));
                     await msgDialog.ShowAsync();
@@ -161,6 +173,9 @@ namespace Hunter.Room
                 MainList.IsEnabled = true;
                 StoryMode.IsEnabled = true;
                 UserMode.IsEnabled = true;
+                selectByBackgroundComboBox.IsEnabled = true;
+                selectByDifficultyComboBox.IsEnabled = true;
+                selectByThemeComboBox.IsEnabled = true;
 
             }
         }
