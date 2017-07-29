@@ -46,10 +46,6 @@ namespace Hunter.Log
                 {
                     ShowNotComponent();
                 }
-                if (userinfo.Text == "")//判段是否输入
-                {
-                    ShowNotHave();
-                }
                 else
                 {
                     using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
@@ -141,6 +137,23 @@ namespace Hunter.Log
 
 
                     }
+                }
+            }
+            else
+            {
+                ring.IsActive = false;
+                userinfo.IsEnabled = true;
+                passwordinfo.IsEnabled = true;
+                login.IsEnabled = true;
+                if (userinfo.Text == "")//判段是否输入
+                {
+                    ShowNotHave();
+                }
+                else if (passwordinfo.Password ==""|| password_againinfo.Password=="")
+                {
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("密码不能为空，请重新输入") { Title = "密码不能为空" };
+                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("确定", uiCommand => { passwordinfo.Password = $""; password_againinfo.Password = $""; }));
+                    await msgDialog.ShowAsync();
                 }
             }
         

@@ -216,6 +216,8 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\story2.png" />
     <Content Include="Assets\free2.png" />
+    <Content Include="Assets\story3.png" />
+    <Content Include="Assets\free3.png" />
     <Content Include="Assets\story.png" />
     <Content Include="Assets\free.png" />
     <Content Include="icon.png" />

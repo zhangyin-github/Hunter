@@ -106,7 +106,7 @@
                 </-->
                 <Button Name="StoryMode"  HorizontalAlignment="Stretch"  MaxWidth="300" VerticalAlignment="Stretch"  FontSize="36" Foreground="DarkGoldenrod"  Style="{StaticResource storybutton}" Click="StoryMode_Click">
                 <Button.Background>
-                    <ImageBrush Stretch="Uniform" ImageSource="..\Assets/story.png"/>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="..\Assets/story.png" />
                 </Button.Background>
                 <!--Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
