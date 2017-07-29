@@ -29,8 +29,8 @@
         </Grid.Background>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="90"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2"/>
@@ -100,7 +100,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Padding="15">
+            <Grid Grid.Column="0" >
                 <!--Grid.Background>
                 <ImageBrush ImageSource="ms-appx:///Assets/textbg.jpg" Stretch="Fill"/>
                 </-->
@@ -119,7 +119,7 @@
                 </-->
             </Button>
             </Grid>
-            <Grid Grid.Column="1" Padding="15">
+            <Grid Grid.Column="1">
                 <!--" Grid.Background>
                     <ImageBrush ImageSource="ms-appx:///Assets/textbg.png" Stretch="Fill"/>
                 </-->
@@ -194,12 +194,13 @@
             </ComboBox>
         </Grid>
         <Grid Grid.Row="3" Margin="20">
-            <ListView Name="MainList" ItemsSource="{x:Bind MissionList}"  HorizontalAlignment="Stretch" Background="Transparent" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+            <ListView Name="MainList" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemsSource="{x:Bind MissionList}"  HorizontalAlignment="Stretch" Background="Transparent" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="data:RootObject">
                         <local:RoomControl Width="1920"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                
             </ListView>
         </Grid>
         <Grid Grid.Row="4">
