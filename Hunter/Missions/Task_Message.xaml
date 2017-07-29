@@ -80,7 +80,7 @@
                 <Grid.Background>
                     <ImageBrush Stretch="Fill" ImageSource="..\Assets/textbg.jpg" Opacity="1"/>
                 </Grid.Background>
-                <ScrollViewer Padding="20 15 20 25">
+                <ScrollViewer Padding="20 15 20 25"  VerticalScrollBarVisibility="Hidden">
                     <TextBlock Name="content"   FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Left" TextWrapping="Wrap"   Foreground="DarkRed" FontWeight="Bold"/>
                 </ScrollViewer>
                 
@@ -105,7 +105,7 @@
                 </TextBlock.Foreground>
 
             </TextBlock>
-            <ScrollViewer Grid.Column="2">
+            <ScrollViewer Grid.Column="2"  VerticalScrollBarVisibility="Hidden">
                 <TextBlock Name="tips"  FontSize="20" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"  Foreground="Goldenrod"/>
             </ScrollViewer>
         </Grid>

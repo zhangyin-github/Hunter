@@ -171,7 +171,6 @@
     <Content Include="Assets\bgm.mp3" />
     <Content Include="Assets\card.png" />
     <Content Include="Assets\change.png" />
-    <Content Include="Assets\free.png" />
     <Content Include="Assets\Hunter.png" />
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
@@ -208,7 +207,6 @@
     <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
     <Content Include="Assets\start.jpg" />
-    <Content Include="Assets\story.png" />
     <Content Include="Assets\textbg.jpg" />
     <Content Include="Assets\textbg.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
@@ -216,6 +214,10 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\story2.png" />
+    <Content Include="Assets\free2.png" />
+    <Content Include="Assets\story.png" />
+    <Content Include="Assets\free.png" />
     <Content Include="icon.png" />
     <Content Include="loading.png" />
     <Content Include="Properties\Default.rd.xml" />
