@@ -223,7 +223,7 @@
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition  Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" x:Name="psTitle" Grid.Row="7"   Margin="20,0,0,0" HorizontalAlignment="Center" Height="30" FontSize="18" Foreground="Goldenrod">游戏宣言:</TextBlock>
+                    <TextBlock Grid.Column="0" x:Name="psTitle" Grid.Row="7"   Margin="20,0,0,0"  HorizontalAlignment="Center" Height="30" FontSize="18" Foreground="Goldenrod">游戏宣言:</TextBlock>
                 </Grid>
                 <!--第8行：游戏宣言 TextBox-->
                 <Grid Grid.Row="8">

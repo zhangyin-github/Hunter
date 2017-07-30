@@ -18,7 +18,7 @@ namespace Hunter.Models
             if(Ip==null)
             {
                 Ip = new link();
-                Ip.ip = "http://qwq.itbears.club/hunter.php";
+                Ip.ip = "http://172.17.23.205/hunter.php";
             }
 
             return Ip;
